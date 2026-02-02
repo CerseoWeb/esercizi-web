@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calcolatrice {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 300px;
+}
+
+#display {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5rem;
+    text-align: right;
+    margin-bottom: 10px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    box-sizing: border-box; /* Importante per il padding */
+}
+
+#messaggio-errore {
+    color: red;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 20px; /* Per non far saltare il layout */
+}
+
+.nascosto {
+    visibility: hidden; /* Nasconde ma tiene lo spazio */
+}
+
+.tastiera {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonne uguali */
+    gap: 10px;
+}
+
+.tasto {
+    padding: 20px;
+    font-size: 1.2rem;
+    border: none;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tasto:hover {
+    background-color: #dfe6e9;
+}
+
+.tasto.op {
+    background-color: #f39c12;
+    color: white;
+}
+
+.tasto.op:hover {
+    background-color: #e67e22;
+}
+
+#btn-uguale {
+    background-color: #27ae60;
+    color: white;
+}
+
+#btn-cancella {
+    background-color: #c0392b;
+    color: white;
+}

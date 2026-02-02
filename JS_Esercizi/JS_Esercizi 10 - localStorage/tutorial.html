@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON e LocalStorage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="controls">
+        <h1>Tutorial: JSON e LocalStorage</h1>
+        <button id="btn-esegui">▶️ Esegui Codice</button>
+        <button id="btn-reset">🧹 Pulisci Tutto</button>
+    </div>
+
+    <script>
+        function mostraOutput(stepNumero, messaggio) {
+            const elemento = document.getElementById(`output-${stepNumero}`);
+            if (elemento) {
+                messaggio = messaggio || "❌";
+                let isObject = (typeof messaggio === 'object' && messaggio !== null);
+                elemento.textContent = isObject ? JSON.stringify(messaggio, null, 2) : String(messaggio);
+                elemento.classList.remove("loading");
+
+                elemento.style.transition = "";
+                elemento.style.backgroundColor = "#666";
+                setTimeout(() => {
+                    elemento.style.transition = "background-color 1s ease";
+                    elemento.style.backgroundColor = "#2d3436";
+                }, 0);
+            }
+        }
+
+        [
+            {
+                title: "1. Serializzazione (Oggetto -> Stringa)",
+                description: "Convertiamo un oggetto JS in una stringa JSON per poterla salvare.",
+                outputLabel: "Risultato in pagina:"
+            },
+            {
+                title: "2. Deserializzazione (Stringa -> Oggetto)",
+                description: "Trasformiamo una stringa JSON ricevuta in un oggetto utilizzabile.",
+                outputLabel: "Proprietà 'utente' estratta:"
+            },
+            {
+                title: "3. Scrittura nel LocalStorage",
+                description: "Salviamo le preferenze utente nel browser.",
+                outputLabel: "Verifica lettura immediata:"
+            },
+            {
+                title: "4. Lettura dal LocalStorage",
+                description: "Recuperiamo e utilizziamo un dato salvato in precedenza.",
+                outputLabel: "Tema recuperato:"
+            },
+            {
+                title: "5. Gestione Array",
+                description: "Aggiungiamo un film alla lista e salviamo tutto.",
+                outputLabel: "Contenuto salvato nel Storage:"
+            },
+            {
+                title: "6. Pattern \"Carica o Inizializza\"",
+                description: "Gestiamo il caso in cui i dati non esistano ancora (evitiamo errori).",
+                outputLabel: "Valore della lista sicura:"
+            }
+        ].forEach((step, i) => {
+            document.write(`
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-title">${step.title}</div>
+                    </div>
+                    <div class="step-desc">${step.description}</div>
+                    <span class="label">${step.outputLabel}</span>
+                    <div id="output-${i + 1}" class="output-box"></div>
+                </div>
+            `);
+        });
+    </script>
+    <script src="tutorial_interattivo.js"></script>
+    <script>
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            localStorage.clear();
+            location.reload();
+        });
+        document.getElementById('btn-esegui').addEventListener('click', () => {
+            const el = document.querySelectorAll('[id^="output-"]');
+            el.forEach(box => box.className = "output-box loading");
+            eseguiTutorial();
+        });
+    </script>
+</body>
+</html>

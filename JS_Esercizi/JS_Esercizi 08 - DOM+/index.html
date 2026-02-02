@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Esercizi DOM</title>
+    <style>
+        /* RESET & BASE */
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin: 0; padding: 40px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        /* CONTENITORE PRINCIPALE */
+        .hub-container { background: white; width: 100%; max-width: 600px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; margin-bottom: 10px; font-size: 2.5rem; }
+        p.subtitle { text-align: center; color: #666; margin-bottom: 40px; font-size: 1.1rem; }
+        
+        /* LISTA CARD */
+        .exercise-list { display: flex; flex-direction: column; gap: 20px; }
+        
+        /* CARD ESERCIZIO */
+        .card { display: flex; align-items: center; text-decoration: none; background: #fff; border: 2px solid #eee; border-radius: 12px; padding: 20px; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-5px); border-color: #007bff; box-shadow: 0 10px 20px rgba(0,123,255,0.15); }
+        
+        /* ICONA E TESTI */
+        .icon { font-size: 2.5rem; margin-right: 20px; width: 50px; text-align: center; }
+        .info { flex: 1; }
+        .info h3 { margin: 0 0 5px 0; color: #2c3e50; font-size: 1.2rem; }
+        .info p { margin: 0; color: #7f8c8d; font-size: 0.9rem; }
+        
+        /* TAG DIFFICOLTA' */
+        .badge { font-size: 0.75rem; font-weight: bold; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; margin-left: 10px; white-space: nowrap; }
+        .easy { background-color: #e8f5e9; color: #2e7d32; }     /* Verde */
+        .medium { background-color: #fff3e0; color: #ef6c00; }   /* Arancione */
+        .hard { background-color: #ffebee; color: #c62828; }     /* Rosso */
+        
+        /* FRECCIA AL PASSAGGIO DEL MOUSE */
+        .arrow { font-size: 1.5rem; color: #ccc; transition: 0.3s; }
+        .card:hover .arrow { color: #007bff; transform: translateX(5px); }
+
+    </style>
+</head>
+<body>
+
+    <div class="hub-container">
+        <h1>Esercizi DOM</h1>
+        <p class="subtitle">Corso Web Developer</p>
+
+        <div class="exercise-list">
+
+            <a href="01_card_profilo/index.html" class="card">
+                <div class="icon">👤</div>
+                <div class="info">
+                    <h3>1. Profilo Utente <span class="badge easy">Base</span></h3>
+                    <p>Manipolazione statica, Oggetti e attributi.</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="02_lista_spesa/index.html" class="card">
+                <div class="icon">🛒</div>
+                <div class="info">
+                    <h3>2. Lista Spesa <span class="badge medium">Intermedio</span></h3>
+                    <p>Array, Cicli, Creazione elementi e Totali.</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="03_gestionale/index.html" class="card">
+                <div class="icon">💼</div>
+                <div class="info">
+                    <h3>3. Gestionale <span class="badge hard">Avanzato</span></h3>
+                    <p>Tabelle, Filtri di ricerca, aggiunta/rimozione dipendenti.</p>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>

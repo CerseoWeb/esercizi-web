@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial DOM Parte 1</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .tutorial { border: 2px solid #000; padding: 15px; margin-bottom: 30px; }
+        .box { padding: 20px; border: 1px solid #ccc; margin-top: 10px; }
+        .evidenziato { background-color: yellow; font-weight: bold; }
+        .nascosto { display: none; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #f0f0f0; margin: 5px 0; padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; }
+        li:hover { background: #e0e0e0; }
+        #area-messaggi { margin-top: 20px; padding: 10px; border: 1px dashed blue; min-height: 50px; }
+        input { padding: 5px; width: 200px; display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="tutorial">
+        <h1 id="titolo-principale">Tutorial DOM</h1>
+        
+        <div id="contenitore-info">
+            <p class="paragrafo-testo">Questo è il primo paragrafo.</p>
+            <p class="paragrafo-testo">Questo è il secondo paragrafo.</p>
+            <p id="paragrafo-unico">Questo paragrafo ha un ID speciale.</p>
+        </div>
+
+        <input type="text" id="input-nome" placeholder="Inserisci il tuo nome">
+
+        <a id="link-google" href="#">Link vuoto</a>
+
+        <div id="box-stile" class="box">Modifica il mio stile!</div>
+    </div>
+    <div class="tutorial">
+        <h1>Tutorial DOM<br>Creazione ed Eventi</h1>
+
+        <div id="controlli">
+            <button id="btn-aggiungi">Aggiungi Elemento</button>
+            <button id="btn-rimuovi-tutti">Rimuovi Tutti</button>
+        </div>
+
+        <h3>Lista Dinamica:</h3>
+        <ul id="lista-dinamica">
+            <li>Elemento Esistente 1</li>
+            <li>Elemento Esistente 2</li>
+        </ul>
+
+        <h3>Area Input:</h3>
+        <input type="text" id="input-utente" placeholder="Scrivi qualcosa...">
+        <p>Hai scritto: <span id="output-testo"></span></p>
+    </div>
+
+    <script src="tutorial_interattivo_parte1.js"></script>
+    <script src="tutorial_interattivo_parte2.js"></script>
+</body>
+</html>

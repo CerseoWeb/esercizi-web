@@ -1,0 +1,116 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+}
+
+.controls {
+    text-align: center;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button#btn-reset {
+    background-color: #ea4335;
+}
+
+.step-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #1a73e8;
+    margin: 20px;
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.step-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #1557b0;
+}
+
+.step-desc {
+    font-size: 0.95em;
+    color: #5f6368;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.output-box {
+    background: #2d3436;
+    color: #00c900;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    border-radius: 6px;
+    min-height: 20px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    position: relative;
+}
+
+.output-box.loading::after {
+    content: "⏳ Attesa server...";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.8em;
+    color: #e5c07b;
+}
+
+.output-box.error {
+    border: 2px solid #e06c75;
+    color: #e06c75;
+}
+
+.output-box.success {
+    border-left: 4px solid #98c379;
+}
+
+.label {
+    font-size: 0.8em;
+    color: #bbbbbb;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}

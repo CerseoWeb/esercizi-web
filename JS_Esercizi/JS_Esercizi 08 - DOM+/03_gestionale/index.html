@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionale Dipendenti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold; font-size: 14px;">← Dashboard</a>
+    <h1>Gestione Dipendenti</h1>
+
+    <div class="controls">
+        <div>
+            <h3>Aggiungi Nuovo</h3>
+            <input type="text" id="input-nome" placeholder="Nome">
+            <input type="text" id="input-ruolo" placeholder="Ruolo">
+            <button id="btn-aggiungi">Aggiungi</button>
+        </div>
+        <div>
+            <h3>Cerca</h3>
+            <input type="text" id="input-ricerca" placeholder="Cerca per nome...">
+        </div>
+        <div>
+            <!-- <h3>Azioni</h3> -->
+            <!-- Zona per extra bottoni futuri -->
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ruolo</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody id="tabella-corpo">
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Username Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="card-generator">
+        <h2>🆔 Crea il tuo Username</h2>
+        <p>Inserisci i tuoi dati, genereremo un nome utente sicuro.</p>
+
+        <div class="input-group">
+            <label>Nome</label>
+            <input type="text" id="input-nome" placeholder="Es:  Mario  ">
+        </div>
+
+        <div class="input-group">
+            <label>Cognome</label>
+            <input type="text" id="input-cognome" placeholder="Es: Rossi Esposito">
+        </div>
+
+        <button id="btn-genera">Genera Username</button>
+
+        <div id="box-risultato" class="hidden">
+            <p>Username suggerito:</p>
+            <div id="output-username" class="username-box">...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

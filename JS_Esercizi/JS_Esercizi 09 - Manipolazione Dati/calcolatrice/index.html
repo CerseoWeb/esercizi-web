@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcolatrice JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="calcolatrice">
+        <input type="text" id="display" placeholder="Es: 10 + 5">
+        
+        <div id="messaggio-errore" class="nascosto">⚠️ Formato errato! Usa: num spazio op spazio num</div>
+
+        <div class="tastiera">
+            <button class="tasto">7</button>
+            <button class="tasto">8</button>
+            <button class="tasto">9</button>
+            <button class="tasto op">/</button>
+            
+            <button class="tasto">4</button>
+            <button class="tasto">5</button>
+            <button class="tasto">6</button>
+            <button class="tasto op">*</button>
+            
+            <button class="tasto">1</button>
+            <button class="tasto">2</button>
+            <button class="tasto">3</button>
+            <button class="tasto op">-</button>
+            
+            <button class="tasto" id="btn-cancella">C</button>
+            <button class="tasto">0</button>
+            <button class="tasto" id="btn-uguale">=</button>
+            <button class="tasto op">+</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

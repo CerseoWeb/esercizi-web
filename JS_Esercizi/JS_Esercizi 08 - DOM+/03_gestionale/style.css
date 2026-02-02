@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Stesso font dashboard */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Stesso sfondo dashboard */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    color: #2c3e50;
+    display: block;
+    padding: 40px;
+}
+.controls {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+/* Esempio di combinatore figlio diretto (>) */
+.controls > div {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.controls > div:last-child {
+    border-bottom: none;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Blu base */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Necessario per border-radius sulla tabella */
+    border-spacing: 0;
+    margin-top: 20px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Taglia gli angoli */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+th {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border: none;
+}
+
+td {
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    color: #555;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/************************************************************/
+/* ESERCIZI CSS: "RECUPERA GLI STILI PERSI"                 */
+/* Usa solo selettori di TAG, ID (#), CLASSI (.)            */
+/* e combinatori di SPAZIO (discendente)                    */
+/************************************************************/
+
+/* LIVELLO 1: Il bottone Elimina (Discendenza)
+   Il bottone "Elimina" non ha classi, ma sappiamo che sta DENTRO il tbody.
+   Seleziona tutti i button che sono dentro il #tabella-corpo.
+   
+   Obiettivo: Sfondo rosso (#ff4444), testo bianco, nessun bordo.
+*/
+
+
+/* LIVELLO 2: Interattività (Hover su discendente)
+   Vogliamo che il bottone elimina diventi più scuro quando ci passi sopra.
+   
+   Obiettivo: Cambia il background-color in #cc0000 al passaggio del mouse.
+   Suggerimento: usa lo stesso selettore di prima + :hover
+*/
+
+
+/* LIVELLO 3: Leggibilità Riga (Hover su riga)
+   Vogliamo evidenziare tutta la riga (tr) della tabella quando il mouse ci passa sopra.
+   ATTENZIONE: Deve succedere solo nel corpo della tabella, non nell'intestazione!
+   
+   Obiettivo: Background-color grigio chiaro (#f1f1f1) al passaggio del mouse sulla riga.
+*/
+
+
+/* LIVELLO 4 (Extra): Focus sugli Input
+   Vogliamo evidenziare gli input di testo quando l'utente ci clicca dentro (:focus).
+   Ma solo quelli dentro la zona .controls!
+   
+   Obiettivo: Bordo blu (2px solid blue) e sfondo giallo chiaro (#ffffe0).
+*/
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Manipolazione Dati</title>
+</head>
+<body>
+
+    <div class="controls">
+        <h1>Tutorial: Manipolazione Dati</h1>
+        <button id="btn-esegui">▶️ Esegui Codice</button>
+        <button id="btn-reset">🧹 Pulisci Console</button>
+    </div>
+
+    <script>
+        function mostraOutput(stepNumero, messaggio) {
+            const elemento = document.getElementById(`output-${stepNumero}`);
+            if (elemento) {
+                messaggio = messaggio || "❌";
+                let isObject = (typeof messaggio === 'object' && messaggio !== null);
+                elemento.textContent = isObject ? JSON.stringify(messaggio, null, 2) : String(messaggio);
+                elemento.classList.remove("loading");
+
+                elemento.style.transition = "";
+                elemento.style.backgroundColor = "#666";
+                setTimeout(() => {
+                    elemento.style.transition = "background-color 1s ease";
+                    elemento.style.backgroundColor = "#2d3436";
+                }, 0);
+            }
+        }
+
+        [
+            {
+                title: "1. Normalizzazione Stringhe",
+                description: "Pulizia spazi (trim) e gestione Maiuscole/Minuscole.",
+                outputLabel: "Stringa pulita:"
+            },
+            {
+                title: "2. Analisi ed Estrazione",
+                description: "Cercare parole (includes) e dividere testi (split).",
+                outputLabel: "Risultati Analisi:"
+            },
+            {
+                title: "3. Parsing Prezzi",
+                description: "Da stringa a numero: replace, parseFloat e toFixed.",
+                outputLabel: "Prezzo formattato:"
+            },
+            {
+                title: "4. Arrotondamenti",
+                description: "Gestire i decimali: round, ceil (eccesso) e floor (difetto).",
+                outputLabel: "Peso arrotondato:"
+            },
+            {
+                title: "5. Numeri Casuali",
+                description: "Generare numeri random e scalarli.",
+                outputLabel: "Numero casuale:"
+            }
+        ].forEach((step, i) => {
+            document.write(`
+                <div class="step-card">
+                    <div class="step-header">
+                        <div class="step-title">${step.title}</div>
+                    </div>
+                    <div class="step-desc">${step.description}</div>
+                    <span class="label">${step.outputLabel}</span>
+                    <div id="output-${i + 1}" class="output-box"></div>
+                </div>
+            `);
+        });
+    </script>
+    <script src="tutorial_interattivo.js"></script>
+    <script>
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            localStorage.clear();
+            location.reload();
+        });
+        document.getElementById('btn-esegui').addEventListener('click', () => {
+            const el = document.querySelectorAll('[id^="output-"]');
+            el.forEach(box => box.className = "output-box loading");
+            eseguiTutorial();
+        });
+    </script>
+</body>
+</html>

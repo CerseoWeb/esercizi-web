@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilo Utente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold; font-size: 14px;">← Dashboard</a>
+    <div class="card-container">
+        <div class="card-header">
+            <img id="img-profilo" src="https://placehold.co/150" alt="Foto Profilo">
+            
+            <h2 id="nome-completo">Nome Cognome</h2>
+            
+            <p id="ruolo" class="ruolo-badge">Ruolo</p>
+        </div>
+
+        <div class="card-body">
+            <div class="dettaglio">
+                <strong>Email:</strong>
+                <span id="email">...</span>
+            </div>
+            
+            <div class="dettaglio">
+                <strong>Telefono:</strong>
+                <span id="telefono">...</span>
+            </div>
+            
+            <div class="dettaglio">
+                <strong>Indirizzo:</strong>
+                <span id="indirizzo">...</span>
+            </div>
+
+            <div id="box-verifica" class="verifica nascosto">
+                ✅ Utente Verificato
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <button id="btn-stampa">Stampa Profilo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

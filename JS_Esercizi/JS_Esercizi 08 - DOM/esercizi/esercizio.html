@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizi DOM</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto }
+        section { border: 1px solid #bbb; padding: 15px; margin-bottom: 30px; border-radius: 8px; background-color: #f9f9f9}
+        h2 { background: #eee; padding: 10px; margin-top: 0; }
+
+        /* Stili comuni agli esercizi della parte 1 */
+        .scheda-prodotto { border: 1px solid #ccc; padding: 15px; background: white; border-radius: 8px; max-width: 300px; margin-bottom: 20px; }
+        .prezzo { font-weight: bold; color: #333; }
+        .in-stock { color: green; }
+        .out-of-stock { color: red; text-decoration: line-through; }
+        .nascosto { display: none; }
+        #messaggio-sistema { padding: 10px; background: #ffcccc; border: 1px solid red; color: darkred; margin-bottom: 20px; }
+
+        /* Stili per esercizi della parte 2 */
+        .esercizio-box { min-height: 50px; border: 1px dashed #999; padding: 10px; margin: 10px 0; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Pagina Esercizi</h1>
+    <p>Collega <strong>TUTTI</strong> gli script in fondo a questa pagina per risolvere gli esercizi.</p>
+
+    <!-- Sezione iniziale comune a tutti gli esercizi della parte 1 -->
+    <section id="es-init">
+        <h2 id="titolo-principale">Benvenuti nel Negozio</h2>
+        <div id="messaggio-sistema">ERRORE DI SISTEMA: Connessione persa.</div>
+
+        <div class="scheda-prodotto">
+            <img id="img-prodotto" src="" alt="Immagine Generica">
+            <h2 id="nome-prodotto">Prodotto Sconosciuto</h2>
+            <p class="descrizione">Descrizione non disponibile al momento.</p>
+            <p class="prezzo">€ 0.00</p>
+            <div id="status-magazzino" class="out-of-stock">Esaurito</div>
+        </div>
+    </section>
+
+    <!-- Gli esercizi della parte 2 iniziano qui, ognuno in una sezione separata -->
+    <section id="es-base">
+        <h2>Esercizio 1: Il Semaforo</h2>
+        <div id="semaforo" style="width: 50px; height: 150px; background: #333; padding: 10px; display: flex; flex-direction: column; gap: 10px;">
+            <div id="luce-rossa" style="width: 50px; height: 50px; background: #500; border-radius: 50%;"></div>
+            <div id="luce-gialla" style="width: 50px; height: 50px; background: #550; border-radius: 50%;"></div>
+            <div id="luce-verde" style="width: 50px; height: 50px; background: #050; border-radius: 50%;"></div>
+        </div>
+        <br>
+        <button id="btn-attiva-rosso">Attiva Rosso</button>
+        <button id="btn-attiva-verde">Attiva Verde</button>
+    </section>
+
+    <section id="es-contatore">
+        <h2>Esercizio 2: Contatore Click</h2>
+        <p>Numero di click: <span id="contatore-valore">0</span></p>
+        <button id="btn-incrementa">Cliccami (+)</button>
+        <button id="btn-reset">Reset</button>
+    </section>
+
+    <section id="es-debug">
+        <h2>Esercizio 3: Debug Colori</h2>
+        <p class="testo-colorato">Paragrafo 1</p>
+        <p class="testo-colorato">Paragrafo 2</p>
+        <p class="testo-colorato">Paragrafo 3</p>
+        <button id="btn-colora-tutti">Colora Tutti di Blu</button>
+    </section>
+
+    <!-- Sezione extra per esercizi opzionali -->
+    <section id="zona-extra">
+        <h2>Zona Extra</h2>
+        <div id="container-extra-debug" class="esercizio-box"></div>
+        <div id="container-extra-box" class="esercizio-box"></div>
+        <div id="container-extra-validatore" class="esercizio-box"></div>
+    </section>
+
+
+    <!-- Script collegati della parte 1 -->
+    <script src="esercizi1/lettura.js"></script>
+    <script src="esercizi1/modifica_stile.js"></script>
+    <script src="esercizi1/modifica_testo.js"></script>
+    <!-- Collega qui i tuoi script per la parte 2 & extra -->
+</body>
+</html>
