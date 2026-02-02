@@ -1,5 +1,5 @@
 /**
- * Esercizio Intermedio: Calcolo Area
+ * Esercizio: Calcolo Area
  * 
  * Descrizione:
  * Scrivi una funzione che calcoli l'area di un rettangolo e la restituisca.
