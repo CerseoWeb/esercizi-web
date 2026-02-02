@@ -1,0 +1,85 @@
+body {
+    font-family: sans-serif;
+    background: #f4f4f9;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.server-info {
+    background: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.resource-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.resource-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.resource-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.resource-count {
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.url-box {
+    background: #2d2d2d;
+    color: #76ff03;
+    padding: 10px;
+    font-family: monospace;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.preview {
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    max-height: 200px;
+}
+
+.code-label {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family: monospace;
+}

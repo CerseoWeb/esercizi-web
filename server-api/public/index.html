@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>API Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>🎛️ Pannello di Controllo API</h1>
+
+    <div class="server-info">
+        <p>Il server è attivo.</p>
+        <p>Indirizzo Base: <strong id="base-url">...</strong></p>
+    </div>
+
+    <div id="container">Loading resources...</div>
+
+    <script>
+        const container = document.getElementById('container');
+        const baseUrlDisplay = document.getElementById('base-url');
+
+        // Imposta l'URL base dinamico (così funziona sia su localhost che su IP di rete)
+        const BASE_URL = window.location.origin;
+        baseUrlDisplay.innerText = BASE_URL;
+
+        async function scanDatabase() {
+            try {
+                const response = await fetch(`${BASE_URL}/api`);
+                const data = await response.json();
+
+                container.innerHTML = '';
+
+                for (const [key, _] of Object.entries(data)) {
+                    createResourceCard(key);
+                }
+
+            } catch (error) {
+                container.innerHTML = `<h3 style="color:red">Errore di connessione al DB: ${error.message}</h3>`;
+            }
+        }
+
+        async function createResourceCard(name) {
+            const url = `${BASE_URL}/api/${name}`;
+            const sample = await fetch(url + "/1").catch(() => null);
+            const sampleJson = sample ? await sample.json() : "Nessun dato!";
+
+            const html = `
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <span class="resource-name">/${name}</span>
+                    </div>
+                    <p>Endpoint per richieste GET, POST, ecc:</p>
+                    <div class="url-box">${url}</div>
+                    
+                    <h4>Esempio Risultato:</h4>
+                    <div class="code-label">GET ${url}/1</div>
+                    <div class="preview">${JSON.stringify(sampleJson, null, 2)}</div>
+                </div>
+            `;
+            container.innerHTML += html;
+        }
+
+        // Avvio scansione
+        scanDatabase();
+    </script>
+</body>
+
+</html>
