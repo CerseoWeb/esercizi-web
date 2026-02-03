@@ -6,15 +6,17 @@
  * quando si preme il bottone. Ma non funziona o genera errore.
  * 
  * TASK:
- * 1. Apri la console e leggi l'errore quando clicchi il bottone.
- * 2. Capisci perché `style` non funziona.
+ * 1. Apri il BROWSER esterno e leggi cosa mostra la console
+ *    Se provi a cliccare il bottone dovrebbe apparire un messaggio di errore.
+ * 2. Capisci perché questo codice non funziona.
+ *    Potrebbe essere un errore di selezione, di metodo, o di logica.
  * 3. Correggi il codice.
  */
 
 const bottone = document.getElementById('btn-colora-tutti');
 const paragrafi = document.querySelectorAll('.testo-colorato');
 
-bottone.addEventListener('click', function() {
+bottone.addEventListener('click', () => {
     paragrafi.style.color = 'blue'; 
     console.log("Colorati!");
 });

@@ -13,18 +13,20 @@
 
 // Setup del DOM per l'esercizio
 // NON TOCCARE QUESTA PARTE, SERVE PER L'ESERCIZIO
-const container = document.getElementById('container-extra-debug');
+const container = document.querySelector('#container-extra-debug');
 container.innerHTML = `
-  <ul id="lista-a"><li>Item 1</li></ul>
-  <ul id="lista-b"></ul>
+    <p>Lista A:</p>
+    <ul id="lista-a"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li></ul>
+    <p>Lista B:</p>
+    <ul id="lista-b"><li>Item</li></ul>
 `;
 
 // CODICE BUGGATO:
-const item = document.querySelector('li');
-const listaB = document.getElementById('lista-b');
+// Vogliamo che cliccando su un item della Lista A, questo venga spostato nella Lista B.
+// MA il codice attuale non funziona come previsto.
+const tuttiItem = document.querySelectorAll('#lista-a > li');
+const listaB = document.querySelector('#lista-b');
 
-// Vogliamo che al click, l'item vada nella lista B
-item.addEventListener('click', function () {
-    // Codice attuale che non fa nulla o da errore se non completato:
+tuttiItem.forEach(item => {
     listaB.innerHTML = item;
 });

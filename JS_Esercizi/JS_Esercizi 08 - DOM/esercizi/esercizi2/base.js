@@ -5,6 +5,7 @@
  * Simulare l'accensione delle luci di un semaforo modificando il colore di sfondo.
  * 
  * ISTRUZIONI:
+ * 0. Controlla se nel file HTML è incluso questo script.
  * 1. Seleziona i tre div delle luci (id: 'luce-rossa', 'luce-gialla', 'luce-verde').
  * 2. Seleziona i due bottoni (id: 'btn-attiva-rosso', 'btn-attiva-verde').
  * 3. Aggiungi un event listener al bottone "Attiva Rosso":
@@ -13,4 +14,3 @@
  * 4. Fai lo stesso per il bottone "Attiva Verde" (luce passa da '#050' a '#0f0' o 'green').
  */
 
-// Scrivi qui il tuo codice...

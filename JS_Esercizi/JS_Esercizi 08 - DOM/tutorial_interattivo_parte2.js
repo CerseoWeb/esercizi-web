@@ -45,7 +45,7 @@
  */
 // TODO: Seleziona l'input con id 'input-utente' e lo span con id 'output-testo'.
 // TODO: Aggiungi un listener 'input' al campo di testo.
-// TODO: Nella funzione, copia il valore dell'input (`input.value`) dentro l'`textContent` dello span.
+// TODO: Nella funzione, copia il valore dell'input (`input.value`) dentro il `textContent` dello span.
 
 
 /**
