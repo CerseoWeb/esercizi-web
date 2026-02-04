@@ -19,7 +19,7 @@
  */
 function esercizio_1_1() {
     const elemento = document.querySelector('');
-    
+
     if (elemento) {
         const risultato = document.querySelector('#risultato-1-1');
         risultato.textContent = '✅ Elemento selezionato: ' + elemento.textContent;
@@ -31,14 +31,10 @@ function esercizio_1_1() {
  * ESERCIZIO 1.2: Selettori per Classe
  * Passi:
  * 1. Seleziona il PRIMO elemento con classe "testo-blu" usando document.querySelector
- * 2. Leggi il suo textContent
- * 3. Aggiorna il paragrafo con id="risultato-1-2" scrivendo "✅ Prima classe trovata: " + il testo
- * 
- * Nota: Se vuoi selezionare TUTTI gli elementi con classe, usa querySelectorAll
  */
 function esercizio_1_2() {
     const elemento = document.querySelector('');
-    
+
     if (elemento) {
         const risultato = document.querySelector('#risultato-1-2');
         risultato.textContent = '✅ Prima classe trovata: ' + elemento.textContent;
@@ -50,12 +46,10 @@ function esercizio_1_2() {
  * ESERCIZIO 1.3: Selettori per Tag
  * Passi:
  * 1. Seleziona il PRIMO elemento <span> usando document.querySelector
- * 2. Leggi il suo textContent
- * 3. Aggiorna il paragrafo con id="risultato-1-3" scrivendo "✅ Span trovato: " + il testo
  */
 function esercizio_1_3() {
     const elemento = document.querySelector('');
-    
+
     if (elemento) {
         const risultato = document.querySelector('#risultato-1-3');
         risultato.textContent = '✅ Span trovato: ' + elemento.textContent;
@@ -78,19 +72,20 @@ esercizio_1_3();
  * 2. Seleziona il paragrafo con id="paragrafo-da-cambiare"
  * 3. Aggiungi un event listener al bottone che, al click:
  *   - Cambia il textContent del paragrafo a "Ho cambiato! ✨"
- *   - Aggiorna il risultato a "✅ Testo cambato"
  */
 function esercizio_2_1() {
     const btn = document.querySelector('');
     const paragrafo = document.querySelector('');
-    const risultato = document.querySelector('#risultato-2-1');
-    
+
     if (btn && paragrafo) {
         btn.addEventListener('click', () => {
             paragrafo.textContent
-            risultato.textContent
         });
+
+        const risultato = document.querySelector('#risultato-2-1');
+        risultato.textContent = "✅ Testo cambato"
     }
+
 }
 
 
@@ -102,20 +97,19 @@ function esercizio_2_1() {
  * 3. Aggiungi un event listener che, al click:
  *   - Aggiungi un nuovo <p> con il testo "Riga aggiunta al DOM!"
  *   - Usa append() per aggiungere il paragrafo al div
- *   - Aggiorna il risultato a "✅ Elemento aggiunto"
  */
 function esercizio_2_2() {
     const btn = document.querySelector('');
     const area = document.querySelector('');
-    const risultato = document.querySelector('#risultato-2-2');
-    
+
     if (btn && area) {
         btn.addEventListener('click', () => {
             const nuovoParagrafo = document.createElement('');
             nuovoParagrafo.textContent
-            risultato.textContent
-
         });
+
+        const risultato = document.querySelector('#risultato-2-2');
+        risultato.textContent = "✅ Elemento aggiunto"
     }
 }
 
@@ -129,20 +123,20 @@ function esercizio_2_2() {
  * 4. Aggiungi un event listener al bottone che:
  *   - Leggi il valore dell'input (input.value)
  *   - Scrivi nel area-saluto: "Ciao [NOME]! 👋"
- *   - Aggiorna il risultato a "✅ Saluto inviato"
  */
 function esercizio_2_3() {
     const input = document.querySelector('');
     const btn = document.querySelector('');
     const area = document.querySelector('');
-    const risultato = document.querySelector('#risultato-2-3');
-    
+
     if (input && btn && area) {
         btn.addEventListener('click', () => {
-            const nome = ''; // Leggi il valore dall'input
+            const nome = '';
             area.textContent
-            risultato.textContent
         });
+
+        const risultato = document.querySelector('#risultato-2-3');
+        risultato.textContent = "✅ Saluto inviato"
     }
 }
 
@@ -160,23 +154,22 @@ esercizio_2_3();
  * Passi:
  * 1. Seleziona il bottone con id="btn-click"
  * 2. Seleziona l'elemento con id="contatore-click"
- * 3. Crea una variabile 'count' = 0 fuori dalla funzione
- * 4. Aggiungi un event listener che, al click:
+ * 3. Aggiungi un event listener che, al click:
  *   - Incrementa count (count++)
  *   - Aggiorna il testo mostrando "Click: " + count
- *   - Aggiorna il risultato a "✅ Contatore attivo"
  */
-let count = 0; // Variabile globale
+let count = 0; // NOTA: Variabile globale
 
 function esercizio_3_1() {
     const btn = document.querySelector('');
     const contatore = document.querySelector('');
-    const risultato = document.querySelector('#risultato-3-1');
-    
+
     if (btn && contatore) {
         btn.addEventListener('click', () => {
-            
+
         });
+        const risultato = document.querySelector('#risultato-3-1');
+        risultato.textContent = "✅ Contatore attivo";
     }
 }
 
@@ -190,7 +183,6 @@ function esercizio_3_1() {
  *   - Leggi il valore dell'input (event.target.value o input.value)
  *   - Scrivi nel echo lo stesso testo in tempo reale
  *   - Se input vuoto, mostra "Scrivi qualcosa..."
- *   - Aggiorna il risultato a "✅ Echo attivo"
  * 
  * Nota: 'input' è l'evento che si scatta mentre l'utente digita
  *       'click' è l'evento che si scatta quando l'utente clicca
@@ -199,12 +191,14 @@ function esercizio_3_1() {
 function esercizio_3_2() {
     const input = document.querySelector('');
     const echo = document.querySelector('');
-    const risultato = document.querySelector('#risultato-3-2');
-    
+
     if (input && echo) {
         input.addEventListener('input', (event) => {
 
         });
+
+        const risultato = document.querySelector('#risultato-3-2');
+        risultato.textContent = "✅ Echo attivo";
     }
 }
 
@@ -216,22 +210,25 @@ function esercizio_3_2() {
  * 2. Seleziona il paragrafo con id="log-click"
  * 3. Per ogni box, aggiungi un event listener al click che:
  *   - Leggi l'id del box (event.target.id)
- *   - Aggiungi al log-click: "[id del box] cliccato\n"
- *   - Aggiorna il risultato a "✅ Log attivo"
+ *   - Crea un nuovo elemento <p>
+ *   - Imposta il testo del paragrafo a "[id del box] cliccato"
+ *   - Aggiungi il paragrafo al log usando append()
  * 
  * Nota: Devi usare un loop (for o forEach) per aggiungere il listener a tutti i box
  */
 function esercizio_3_3() {
     const boxes = document.querySelectorAll('');
     const log = document.querySelector('');
-    const risultato = document.querySelector('#risultato-3-3');
-    
+
     if (boxes.length > 0) {
         boxes.forEach((box) => {
             box.addEventListener('click', (event) => {
                 
             });
         });
+
+        const risultato = document.querySelector('#risultato-3-3');
+        risultato.textContent = "✅ Log attivo";
     }
 }
 
@@ -242,18 +239,19 @@ function esercizio_3_3() {
  * 1. Seleziona l'elemento con id="elemento-toggle"
  * 2. Aggiungi un event listener al click che:
  *   - Usa classList.toggle('elemento-attivo') per aggiungere/rimuovere la classe
- *   - Aggiorna il risultato a "✅ Toggle attivo"
  * 
  * Nota: Assicurati che in style.css esista una classe .elemento-attivo
  */
 function esercizio_3_4() {
-    const elemento = document.querySelector(''); // Selector per l'elemento
-    const risultato = document.querySelector('#risultato-3-4');
-    
+    const elemento = document.querySelector('');
+
     if (elemento) {
         elemento.addEventListener('click', () => {
             
         });
+
+        const risultato = document.querySelector('#risultato-3-4');
+        risultato.textContent = "✅ Toggle attivo";
     }
 }
 
@@ -263,30 +261,3 @@ esercizio_3_1();
 esercizio_3_2();
 esercizio_3_3();
 esercizio_3_4();
-
-
-// ============ RIEPILOGO ============
-
-/**
- * Controlla quanti esercizi sono stati completati
- * Aggiorna il messaggio di riepilogo
- */
-function aggiornaRiepilogo() {
-    const risultati = document.querySelectorAll('.risultato');
-    const completati = Array.from(risultati).filter(r => r.textContent.includes('✅')).length;
-    const totale = risultati.length;
-    
-    const status = document.querySelector('#status-completamento');
-    if (completati === totale) {
-        status.textContent = `✨ Fantastico! Hai completato tutti gli ${totale} esercizi! ✨`;
-        status.style.color = '#27ae60';
-        status.style.fontSize = '1.2rem';
-        status.style.fontWeight = 'bold';
-    } else {
-        status.textContent = `Completati ${completati}/${totale} esercizi. Continua!`;
-    }
-}
-
-// Aggiorna il riepilogo ogni 500ms per vedere i progressi in tempo reale
-setInterval(aggiornaRiepilogo, 500);
-aggiornaRiepilogo();
