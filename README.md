@@ -1,37 +1,52 @@
-# Esercizi JS
+# Esercizi
 
-Raccolta di esercizi JavaScript per il corso di programmazione.
+Raccolta completa di esercizi JavaScript, HTML, CSS e React per il corso di programmazione Web.
 
-## 📁 Struttura
+## 📁 Struttura della Repository
 
-### Moduli Base
+#### `/base/`
+
+Esercizi di base per iniziare con la programmazione e l'ambiente di sviluppo:
+- **Terminale**: Introduzione al terminale e comandi principali
+
+
+#### `/javascript/` - Esercizi JavaScript
+
+Esercizi progressivi per imparare JavaScript dal base ai concetti avanzati:
+
 - **01 - Base**: Variabili, tipi di dato, stringhe e operazioni di base
 - **02 - Operatori**: Operatori aritmetici, logici e di confronto
 - **03 - Errori e Strutture Condizionali**: if/else, switch, errori comuni
 - **04 - Iterazioni**: for, while, do-while e cicli annidati
 - **05 - Funzioni**: Definizione, parametri, return e scope
-- **06 - Array**: Creazione, metodi e manipolazione
-- **07 - Oggetti**: Creazione, proprietà e metodi
-
-### Moduli Avanzati
+- **06 - Array**: Creazione, metodi, map, filter, reduce
+- **07 - Oggetti**: Creazione, proprietà, metodi e distruzione
 - **08 - DOM**: Manipolazione del DOM e event listener
 - **08 - DOM+**: Progetti completi (lista spesa, calcolatrice, gestionale)
 - **09 - Manipolazione Dati**: Esercizi con array di oggetti e logica complessa
 - **10 - localStorage**: Persistenza dei dati nel browser
+- **11 - API**: Fetch, async/await e integrazione con API esterne
 
-## 📝 Organizzazione Esercizi
 
-Ogni modulo contiene:
-- `esercizi/` - Esercizi base obbligatori
-- `extra/` - Esercizi di approfondimento
-- `extra2/`, `extra3/` - Esercizi avanzati (se presenti)
-- `tutorial_interattivo.js` - Spiegazione pratica dei concetti
+#### `/html/` e `/css/`
 
-## 🚀 Come usarli
+Esercizi e progetti per HTML e CSS (struttura e styling web).
 
-Gli esercizi Node.js si eseguono da terminale:
-```bash
-node JS_Esercizi/JS_Esercizi\ 01\ -\ Base/esercizi/carta_identita.js
-```
+#### `/react/`
 
-Gli esercizi DOM richiedono il file HTML e un browser o l'estensione Live Server.
+Esercizi e progetti React per imparare component-driven development (struttura da sviluppare).
+
+
+## 🔧 Impostazioni
+
+#### Estensioni Consigliate per VS Code
+
+- **Live Preview** (`ms-vscode.live-preview`) - Anteprima in tempo reale degli esercizi DOM
+- **Italian Language Pack** (`ms-ceintl.vscode-language-pack-it`) - Interfaccia di VS Code in italiano
+- **ES7+ React/Redux/React-Native snippets** (`dsznajder.es7-react-js-snippets`) - Snippet per React
+
+#### Prerequisiti
+
+- **Node.js** (v14+) - [Scarica qui](https://nodejs.org)
+- **VS Code** - [Scarica qui](https://code.visualstudio.com)
+- Browser moderno (Chrome, Firefox, Edge, Safari)
