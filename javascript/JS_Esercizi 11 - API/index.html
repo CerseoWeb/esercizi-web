@@ -124,6 +124,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        
+        .difficulty.tutorial {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
 
         .difficulty.easy {
             background: #d4edda;
@@ -166,22 +171,20 @@
 
 <body>
     <div class="hub-container">
-        <h1>🔌 API REST</h1>
+        <h1>API REST</h1>
         <p class="subtitle">Esercizi Semplificati - Da Base a CRUD</p>
 
-        <!-- TUTORIAL -->
         <h2>Tutorial Introduttivo</h2>
         <div class="exercise-list">
             <a href="tutorial/index.html" class="card">
-                <div class="icon"></div>
+                <div class="icon">🧪</div>
                 <div class="info">
-                    <h3>Tutorial Interattivo</h3>
+                    <h3>Tutorial Interattivo <span class="difficulty tutorial">Tutorial</span></h3>
                     <p>Impara API, Fetch e Async/Await con 10 step</p>
                 </div>
             </a>
         </div>
 
-        <!-- ESERCIZI BASE -->
         <h2>Esercizi su Server Locale</h2>
         <div class="exercise-list">
             <a href="01_get_singolo_utente/index.html" class="card">

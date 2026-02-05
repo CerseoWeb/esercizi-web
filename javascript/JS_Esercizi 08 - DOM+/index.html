@@ -6,101 +6,226 @@
     <title>Hub Esercizi DOM</title>
     <style>
         /* RESET & BASE */
-        * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin: 0; padding: 40px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        
-        /* CONTENITORE PRINCIPALE */
-        .hub-container { background: white; width: 100%; max-width: 600px; padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #333; margin-bottom: 10px; font-size: 2.5rem; }
-        p.subtitle { text-align: center; color: #666; margin-bottom: 40px; font-size: 1.1rem; }
-        
-        /* LISTA CARD */
-        .exercise-list { display: flex; flex-direction: column; gap: 20px; }
-        
-        /* CARD ESERCIZIO */
-        .card { display: flex; align-items: center; text-decoration: none; background: #fff; border: 2px solid #eee; border-radius: 12px; padding: 20px; transition: all 0.3s ease; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-5px); border-color: #007bff; box-shadow: 0 10px 20px rgba(0,123,255,0.15); }
-        
-        /* ICONA E TESTI */
-        .icon { font-size: 2.5rem; margin-right: 20px; width: 50px; text-align: center; }
-        .info { flex: 1; }
-        .info h3 { margin: 0 0 5px 0; color: #2c3e50; font-size: 1.2rem; }
-        .info p { margin: 0; color: #7f8c8d; font-size: 0.9rem; }
-        
-        /* TAG DIFFICOLTA' */
-        .badge { font-size: 0.75rem; font-weight: bold; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 1px; margin-left: 10px; white-space: nowrap; }
-        .easy { background-color: #e8f5e9; color: #2e7d32; }     /* Verde */
-        .medium { background-color: #fff3e0; color: #ef6c00; }   /* Arancione */
-        .hard { background-color: #ffebee; color: #c62828; }     /* Rosso */
-        
-        /* FRECCIA AL PASSAGGIO DEL MOUSE */
-        .arrow { font-size: 1.5rem; color: #ccc; transition: 0.3s; }
-        .card:hover .arrow { color: #007bff; transform: translateX(5px); }
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CONTENITORE PRINCIPALE */
+        .hub-container {
+            background: white;
+            width: 100%;
+            max-width: 750px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* TITOLI SEZIONI */
+        h2 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        /* LISTA CARD */
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* CARD ESERCIZIO */
+        .card {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+        }
+
+        /* ICONA E TESTI */
+        .icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* TAG DIFFICOLTA' */
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .difficulty.tutorial {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .difficulty.easy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.hard {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* NOTA IMPORTANTE */
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #856404;
+        }
+
+        .important-note strong {
+            color: #333;
+        }
+
+        .important-note code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
     </style>
 </head>
 <body>
-
     <div class="hub-container">
-        <h1>Esercizi DOM</h1>
-        <p class="subtitle">Corso Web Developer</p>
+        <h1>DOM e Interattività</h1>
+        <p class="subtitle">Manipolazione del DOM e Gestione degli Eventi</p>
+
+        <h2>Tutorial</h2>
         <div class="exercise-list">
             <a href="00_ripasso/index.html" class="card">
-                <div class="icon"></div>
+                <div class="icon">🔄</div>
                 <div class="info">
-                    <h3>0. Ripasso DOM <span class="badge easy">Base</span></h3>
-                    <p>Selettori, manipolazione base del DOM.</p>
+                    <h3>Ripasso DOM <span class="difficulty tutorial">Tutorial</span></h3>
+                    <p>Selettori, manipolazione base del DOM</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
+        </div>
+
+        <h2>Esercizi</h2>
+        <div class="exercise-list">
 
             <a href="01_profilo/index.html" class="card">
                 <div class="icon">👤</div>
                 <div class="info">
-                    <h3>1. Profilo Utente <span class="badge easy">Base</span></h3>
-                    <p>Manipolazione statica, Oggetti e attributi.</p>
+                    <h3>Profilo Utente <span class="difficulty easy">Facile</span></h3>
+                    <p>Manipolazione statica, Oggetti e attributi</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
 
             <a href="02_card_profilo/index.html" class="card">
                 <div class="icon">🆕</div>
                 <div class="info">
-                    <h3>2. Creazione Card Utente <span class="badge easy">Base+</span></h3>
-                    <p>Form, createElement, appendChild.</p>
+                    <h3>Creazione Card Utente <span class="difficulty easy">Facile</span></h3>
+                    <p>Form, createElement, appendChild</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
 
             <a href="03_lista_semplice/index.html" class="card">
                 <div class="icon">📝</div>
                 <div class="info">
-                    <h3>3. Lista Semplice <span class="badge medium">Intermedio</span></h3>
-                    <p>Cicli, Array, Creazione elementi in loop.</p>
+                    <h3>Lista Semplice <span class="difficulty medium">Medio</span></h3>
+                    <p>Cicli, Array, Creazione elementi in loop</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
 
             <a href="04_lista_spesa/index.html" class="card">
                 <div class="icon">🛒</div>
                 <div class="info">
-                    <h3>4. Lista Spesa <span class="badge medium">Intermedio+</span></h3>
-                    <p>Array, Cicli, Add/Remove, Totali.</p>
+                    <h3>Lista Spesa <span class="difficulty medium">Medio</span></h3>
+                    <p>Array, Cicli, Add/Remove, Totali</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
 
             <a href="05_gestionale/index.html" class="card">
                 <div class="icon">💼</div>
                 <div class="info">
-                    <h3>5. Gestionale <span class="badge hard">Avanzato</span></h3>
-                    <p>Tabelle, Filtri di ricerca, aggiunta/rimozione.</p>
+                    <h3>Gestionale <span class="difficulty hard">Difficile</span></h3>
+                    <p>Tabelle, Filtri di ricerca, aggiunta/rimozione</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
-
         </div>
     </div>
-
 </body>
 </html>
