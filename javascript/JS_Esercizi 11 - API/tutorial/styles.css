@@ -2,13 +2,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f2f5;
     color: #333;
-    max-width: 900px;
     margin: 0 auto;
 }
 
 h1 {
     text-align: center;
     color: #1a73e8;
+    margin-top: 0px;
 }
 
 .controls {
@@ -19,6 +19,7 @@ h1 {
     z-index: 100;
     background-color: white;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding-top: 50px;
 }
 
 button {
@@ -51,9 +52,10 @@ button#btn-reset {
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 25px;
+    max-width: 800px;
+    margin: 0 auto 25px auto;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-left: 6px solid #1a73e8;
-    margin: 20px;
 }
 
 .step-header {

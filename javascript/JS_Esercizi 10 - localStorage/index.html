@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Esercizi localStorage</title>
+    <style>
+        /* RESET & BASE */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CONTENITORE PRINCIPALE */
+        .hub-container {
+            background: white;
+            width: 100%;
+            max-width: 750px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* TITOLI SEZIONI */
+        h2 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        /* LISTA CARD */
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* CARD ESERCIZIO */
+        .card {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+        }
+
+        /* ICONA E TESTI */
+        .icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* TAG DIFFICOLTA' */
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty.tutorial {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .difficulty.easy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.hard {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* NOTA IMPORTANTE */
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #856404;
+        }
+
+        .important-note strong {
+            color: #333;
+        }
+
+        .important-note code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="hub-container">
+        <h1>localStorage</h1>
+        <p class="subtitle">Salvataggio Dati nel Browser</p>
+
+        <h2>Tutorial Introduttivo</h2>
+        <div class="exercise-list">
+            <a href="tutorial/index.html" class="card">
+                <div class="icon">🧪</div>
+                <div class="info">
+                    <h3>Tutorial localStorage <span class="difficulty tutorial">Tutorial</span></h3>
+                    <p>Impara a salvare e recuperare dati dal browser</p>
+                </div>
+            </a>
+        </div>
+
+        <h2>Esercizi</h2>
+        <div class="exercise-list">
+            <a href="watchlist/index.html" class="card">
+                <div class="icon">📺</div>
+                <div class="info">
+                    <h3>Watchlist (Film/Serie) <span class="difficulty medium">Medio</span></h3>
+                    <p>Aggiungi film, salva con localStorage, rimuovi dalla lista</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
