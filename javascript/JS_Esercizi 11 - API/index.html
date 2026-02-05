@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Esercizi API</title>
+    <style>
+        /* RESET & BASE */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CONTENITORE PRINCIPALE */
+        .hub-container {
+            background: white;
+            width: 100%;
+            max-width: 750px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* TITOLI SEZIONI */
+        h2 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        /* LISTA CARD */
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* CARD ESERCIZIO */
+        .card {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background: #fff;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+        }
+
+        /* ICONA E TESTI */
+        .icon {
+            font-size: 2rem;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info p {
+            margin: 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* TAG DIFFICOLTA' */
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty.easy {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.hard {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        /* NOTA IMPORTANTE */
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #856404;
+        }
+
+        .important-note strong {
+            color: #333;
+        }
+
+        .important-note code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hub-container">
+        <h1>🔌 API REST</h1>
+        <p class="subtitle">Esercizi Semplificati - Da Base a CRUD</p>
+
+        <!-- TUTORIAL -->
+        <h2>Tutorial Introduttivo</h2>
+        <div class="exercise-list">
+            <a href="tutorial/index.html" class="card">
+                <div class="icon"></div>
+                <div class="info">
+                    <h3>Tutorial Interattivo</h3>
+                    <p>Impara API, Fetch e Async/Await con 10 step</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- ESERCIZI BASE -->
+        <h2>Esercizi su Server Locale</h2>
+        <div class="exercise-list">
+            <a href="01_get_singolo_utente/index.html" class="card">
+                <div class="icon">📊</div>
+                <div class="info">
+                    <h3>GET Singolo Utente <span class="difficulty easy">Facile</span></h3>
+                    <p>Recupera e visualizza un utente dal server</p>
+                </div>
+            </a>
+
+            <a href="02_get_lista_utenti/index.html" class="card">
+                <div class="icon">👥</div>
+                <div class="info">
+                    <h3>GET Lista Utenti <span class="difficulty easy">Facile</span></h3>
+                    <p>Crea card dinamiche da un array di utenti</p>
+                </div>
+            </a>
+
+            <a href="03_utente_e_post/index.html" class="card">
+                <div class="icon">📝</div>
+                <div class="info">
+                    <h3>Utente + Post <span class="difficulty medium">Medio</span></h3>
+                    <p>Fetch multipli e relazioni tra dati</p>
+                </div>
+            </a>
+
+            <a href="04_todo_app_crud/index.html" class="card">
+                <div class="icon">✅</div>
+                <div class="info">
+                    <h3>Todo App CRUD <span class="difficulty hard">Difficile</span></h3>
+                    <p>GET, POST, PUT, DELETE - App completa</p>
+                </div>
+            </a>
+        </div>
+
+        <h2>Esercizi su Server Esterno</h2>
+        <div class="exercise-list">
+            <a href="05_meteo/index.html" class="card">
+                <div class="icon">🌤️</div>
+                <div class="info">
+                    <h3>App Meteo <span class="difficulty medium">Medio</span></h3>
+                    <p>API pubblica Open-Meteo - No server locale</p>
+                </div>
+            </a>
+
+            <a href="06_pokedex/index.html" class="card">
+                <div class="icon">🔴</div>
+                <div class="info">
+                    <h3>Pokédex <span class="difficulty medium">Medio</span></h3>
+                    <p>API pubblica PokéAPI - No server locale</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="important-note">
+            <strong>⚠️ Prima di Iniziare:</strong><br>
+            Per esercizi 1-4: avvia il server con <code>cd server-api</code> e poi <code>npm start</code>
+        </div>
+    </div>
+</body>
+
+</html>

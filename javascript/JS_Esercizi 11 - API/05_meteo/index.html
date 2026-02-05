@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra 1 - App Meteo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>🌤️ App Meteo</h1>
+        <p class="subtitle">API pubblica Open-Meteo</p>
+
+        <!-- SEZIONE RICERCA -->
+        <div class="search-box">
+            <h2>🔍 Ricerca Città</h2>
+            <label>Latitudine e Longitudine:</label>
+            <div class="coord-group">
+                <input type="number" id="latitude" placeholder="Lat" step="0.01" value="45.4642">
+                <input type="number" id="longitude" placeholder="Lon" step="0.01" value="9.1900">
+                <button id="btnSearch">Cerca Meteo</button>
+            </div>
+            <p class="hint-text">💡 Esempi: Milano (45.46, 9.19) | Roma (41.90, 12.50) | Napoli (40.85, 14.27)</p>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading" style="display: none;">
+            ⏳ Caricamento meteo...
+        </div>
+
+        <!-- RISULTATO -->
+        <div id="weatherContainer" class="weather-container"></div>
+
+        <!-- ISTRUZIONI -->
+        <div class="instructions">
+            <h2>📝 Cosa Devi Fare</h2>
+            <ol>
+                <li>Leggi latitudine e longitudine dagli input</li>
+                <li>Fai una GET a <code>https://api.open-meteo.com/v1/forecast</code> con parametri:
+                    <ul style="margin-top: 10px;">
+                        <li><code>latitude={lat}</code></li>
+                        <li><code>longitude={lon}</code></li>
+                        <li><code>current=temperature_2m,relative_humidity_2m,weather_code</code></li>
+                        <li><code>timezone=auto</code></li>
+                    </ul>
+                </li>
+                <li>Estrai i dati dal JSON: <code>response.current</code></li>
+                <li>Visualizza temperatura, umidità, descrizione meteo</li>
+            </ol>
+
+            <div class="hint">
+                <strong>💡 URL Completo:</strong>
+                <pre>https://api.open-meteo.com/v1/forecast?latitude=45.46&longitude=9.19&current=temperature_2m,relative_humidity_2m,weather_code&timezone=auto</pre>
+            </div>
+
+            <div class="hint">
+                <strong>💡 Struttura Risposta:</strong>
+                <pre>response.current = {
+  temperature_2m: 22.5,
+  relative_humidity_2m: 65,
+  weather_code: 0  // 0=soleggiato, 1=nuvoloso, ecc
+}</pre>
+            </div>
+
+            <div class="challenge">
+                <strong>🎯 Bonus Challenge:</strong>
+                <p>Converti il codice meteo in emoji (0=☀️, 1=⛅, 2=☁️, 3=🌧️, ecc.)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

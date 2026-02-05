@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra 2 - Pokédex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>🔴 Pokédex</h1>
+        <p class="subtitle">API pubblica PokéAPI</p>
+
+        <!-- SEZIONE RICERCA -->
+        <div class="search-box">
+            <h2>🔍 Cerca Pokémon</h2>
+            <label>Nome o Numero:</label>
+            <div class="input-group">
+                <input type="text" id="pokemonInput" placeholder="Pikachu oppure 25" value="pikachu">
+                <button id="btnSearch">Cerca</button>
+            </div>
+            <p class="hint-text">💡 Esempi: pikachu, charizard, 1 (Bulbasaur), 6 (Charizard)</p>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading" style="display: none;">
+            ⏳ Cercando Pokémon...
+        </div>
+
+        <!-- RISULTATO -->
+        <div id="pokemonContainer" class="pokemon-container"></div>
+
+        <!-- ISTRUZIONI -->
+        <div class="instructions">
+            <h2>📝 Cosa Devi Fare</h2>
+            <ol>
+                <li>Leggi il nome/numero dal campo input</li>
+                <li>Fai una GET a <code>https://pokeapi.co/api/v2/pokemon/{name_or_id}</code></li>
+                <li>Se ricevi un errore 404, mostra "Pokémon non trovato"</li>
+                <li>Estrai da <code>response</code>:
+                    <ul style="margin-top: 10px;">
+                        <li><code>name</code> - Nome</li>
+                        <li><code>sprites.front_default</code> - Immagine</li>
+                        <li><code>height</code> - Altezza (in decimetri)</li>
+                        <li><code>weight</code> - Peso (in ettogrammi)</li>
+                        <li><code>types[].type.name</code> - Tipi (array)</li>
+                    </ul>
+                </li>
+                <li>Visualizza le informazioni in una card</li>
+            </ol>
+
+            <div class="hint">
+                <strong>💡 URL Completo:</strong>
+                <pre>https://pokeapi.co/api/v2/pokemon/pikachu</pre>
+            </div>
+
+            <div class="hint">
+                <strong>💡 Gestire errore 404:</strong>
+                <pre>if (!response.ok) {
+    throw new Error('Pokémon non trovato');
+}</pre>
+            </div>
+
+            <div class="challenge">
+                <strong>🎯 Bonus Challenge:</strong>
+                <p>Colora la card in base al tipo (Fire=rosso, Water=blu, ecc.). Oppure aggiungi 5 Pokémon random al caricamento della pagina.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

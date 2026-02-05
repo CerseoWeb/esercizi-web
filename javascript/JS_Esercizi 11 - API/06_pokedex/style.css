@@ -1,0 +1,245 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-container {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #666;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 1rem;
+}
+
+.search-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-box h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+#f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box label {
+    display: block;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10 #ddd;
+    border-radius: 60px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-group button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-group button:hover {
+    background: #85r056b3
+
+.loading {
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    padding#666;
+    padding: 3
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.pokemon-container {
+    margin-bottom: 50px;
+}
+
+.pokemon-card {30px;
+}
+
+.pokemon-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 1.8em;
+}
+
+.card-image {
+    background: #f9f9f9;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+}007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.3r
+.card-details {white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-image img {
+    max-width: 18 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}0px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row strong {
+    color: #333solid #eee;
+}
+
+.card-footer small {
+    color: #999;
+}
+
+.card-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}2px;
+    text-align: center;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.card-footer a {
+    color: #007bff 8px;
+    border-left: 4px solid #c00;
+    font-weight: 500;
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.95);
+    padding: -box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+    margin-top: 30px;
+}
+
+.instructions-box h2 {
+    color: #333;
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+}
+
+.instructions-box ol, .instructions-box ul {
+    margin-left: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.instructions-box li {
+    margin-bottom: 8px;
+}
+
+.instructions-box code {
+    background: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+    font-size: 0.9em;
+}
+
+.hint {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.hint strong {
+    color: #007bff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hint pre {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.8em;
+    color: #333;
+    margin: 0

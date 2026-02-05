@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1 - GET Singolo Utente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>🔍 GET Singolo Utente</h1>
+        <p class="subtitle">Recupera un utente dal server</p>
+
+        <!-- SEZIONE CONFIGURAZIONE -->
+        <div class="config-box">
+            <label for="userId">ID Utente (1-40):</label>
+            <div class="input-group">
+                <input type="number" id="userId" min="1" max="40" value="1">
+                <button id="btnFetch">Carica</button>
+            </div>
+        </div>
+
+        <!-- LOADING SPINNER -->
+        <div id="loading" class="loading nascosto">
+            ⏳ Caricamento...
+        </div>
+
+        <!-- RISULTATO -->
+        <div id="result" class="result-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

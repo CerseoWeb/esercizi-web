@@ -1,0 +1,266 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-container {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #666;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 1rem;
+}
+
+.config-box, .add-todo-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.config-box label, .add-todo-box label {
+    display: block;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-group button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-group button:hover {
+    background: #0056b3;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    font-si#666
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.counter {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15p#f0f0f0;
+    color: #333;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center
+.todos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+}0px;
+    margin-bottom: 3
+.todo-item {
+    background: white;
+    padding: 15p#f9f9f9;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-left: 4px solid #007bff;
+    animation: slideIn 0.2s ease-out
+
+.todo-item.completed {
+    background: #f5f5f5;
+    border-left-color: #4caf50;
+    opacity: 0.7;
+}0f0f0;
+    opacity: 0.7;
+    border-left-color: #28a745eted .todo-title {
+    text-decoration: line-through;
+    color: #999;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {1
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.todo-checkbox {
+    flex-shrink: 0;
+}
+
+.todo-checkbox input {
+    width: 20px;
+    height: 20px;
+    cursor:18px;
+    height: 18
+
+.todo-content {
+    flex: 1;
+}
+
+.todo-title {
+    color: #333;
+    font-weight: 500;
+    font-size: 1em;
+    margin-bottom: 4px;
+}margin: 0
+.todo-id {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.btn-delete {rem;
+    margin: 2px 0 0 0
+    padding: 8px 12px;
+    background: #fee;
+    color: #c6px 10px;
+    background: #fee;
+    color: #c00;
+    border: 1px solid #fcc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500
+
+.btn-delete:hover {
+    background: #fcc;
+    color: #800;
+
+.empty {
+    background: white;
+    color: #999;
+    padding: 40p#f0f0f0;
+    color: #999;
+    padding: 30px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1
+.error {
+    background: #fee;
+    color: #c00;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #c00;
+    font-weight: 506px;
+    border-left: 4px solid #c
+.instructions {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-ra-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+    margin-top: 30px;
+}
+
+.instructions-box h2 {
+    color: #333;
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+}
+
+.instructions-box h3 {
+    color: #555;
+    margin: 15px 0 10px 0;
+    font-size: 1rem;
+}
+
+.instructions-box ol, .instructions-box ul {
+    margin-left: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.instructions-box li {
+    margin-bottom: 8px;
+}
+
+.instructions-box code {
+    background: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+    font-size: 0.9em;
+}
+
+.hint {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.hint strong {
+    color: #007bff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hint pre {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.8em;
+    color: #333;
+    margin: 0

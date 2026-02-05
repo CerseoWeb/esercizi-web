@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Utenti - GET e DOM Manipulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👥 Lista Utenti</h1>
+        <p class="subtitle">Recupera e visualizza utenti dal server</p>
+
+        <div class="instructions">
+            <h3>📝 Obiettivo dell'Esercizio</h3>
+            <p>Dovrai scrivere il codice JavaScript per:</p>
+            <ol>
+                <li>Recuperare la lista di utenti da <code>/api/users</code></li>
+                <li>Iterare attraverso l'array di utenti</li>
+                <li>Creare e inserire dinamicamente le card degli utenti nel DOM</li>
+                <li>Mostrare il numero totale di utenti</li>
+            </ol>
+        </div>
+
+        <button onclick="fetchAndDisplayUsers()">Carica Lista Utenti</button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Caricamento utenti...</p>
+        </div>
+
+        <div class="users-container" id="usersContainer">
+            <!-- Le card degli utenti verranno inserite qui -->
+        </div>
+
+        <a href="../index.html" class="back-button">← Torna al Hub</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

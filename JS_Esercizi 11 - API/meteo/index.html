@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Meteo - GET Request</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ App Meteo</h1>
+        <p class="subtitle">Impara a fare GET request con Fetch API</p>
+
+        <div class="instructions">
+            <h3>📝 Obiettivo dell'Esercizio</h3>
+            <p>Dovrai scrivere il codice JavaScript per:</p>
+            <ol>
+                <li>Recuperare una lista di dati meteo dal server usando <code>fetch()</code></li>
+                <li>Visualizzare i dati ricevuti nella pagina</li>
+                <li>Gestire gli errori di rete</li>
+            </ol>
+        </div>
+
+        <div class="input-group">
+            <label for="cityInput">Cerca una città (opzionale):</label>
+            <input type="text" id="cityInput" placeholder="es: Roma">
+        </div>
+
+        <button onclick="fetchWeatherData()">Carica Dati Meteo</button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Caricamento dati...</p>
+        </div>
+
+        <div class="result" id="result">
+            <div class="weather-info" id="weatherInfo"></div>
+        </div>
+
+        <a href="../index.html" class="back-button">← Torna al Hub</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

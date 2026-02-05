@@ -1,0 +1,228 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.app-container {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #666;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 1rem;
+}
+
+.search-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box label {
+    display: block;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.coord-group {
+    display: flex;
+    gap: 10px;
+}
+
+.coord-group input {
+    flex: 1;
+    padding: 12px;
+    border: 2p0px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.coord-group input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.coord-group button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.coord-group button:hover {
+    background: #0056b3
+
+.hint-text {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 185rpx;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    font-si#666;
+    padding: 3 pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.weather-container {
+    margin-bottom: 50px;
+}30px;
+}
+
+.weather-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+.location {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.weather-main {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.emoji {
+    font-size: 4em;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.weather-main {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.emoji {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+}
+
+.temp {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.weather-details {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+}
+
+.weather-details p {
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.5 rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size15px;
+    border-radius: 6px;
+    border-left: 4px solid #c
+    margin-left: 25px;
+    color: #555;
+    line-heig-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #007bff;
+    margin-top: 30px;
+}
+
+.instructions-box h2 {
+    color: #333;
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+}
+
+.instructions-box ol, .instructions-box ul {
+    margin-left: 20px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.instructions-box li {
+    margin-bottom: 8px;
+}
+
+.instructions-box code {
+    background: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: #d63384;
+    font-size: 0.9em;
+}
+
+.hint {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.hint strong {
+    color: #007bff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hint pre {
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.8em;
+    color: #333;
+    margin: 0;
+    word-break: break-all

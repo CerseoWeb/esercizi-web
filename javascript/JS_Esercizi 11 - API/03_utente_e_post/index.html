@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 3 - Utente + Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>📝 Utente + Post</h1>
+        <p class="subtitle">Fetch multipli e relazioni dati</p>
+
+        <!-- SEZIONE CONFIGURAZIONE -->
+        <div class="config-box">
+            <label for="userId">ID Utente (1-40):</label>
+            <div class="input-group">
+                <input type="number" id="userId" min="1" max="40" value="1">
+                <button id="btnFetch">Carica</button>
+            </div>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading" style="display: none;">
+            ⏳ Caricamento...
+        </div>
+
+        <!-- PROFILO UTENTE -->
+        <div id="userProfile" class="user-profile"></div>
+
+        <!-- POST -->
+        <div id="postsContainer" class="posts-container"></div>
+
+        <!-- ISTRUZIONI -->
+        <div class="instructions-box" style="margin-top: 30px;">
+            <h2>📝 Istruzioni</h2>
+            <ol>
+                <li>Apri <code>script.js</code> e completa <code>fetchUserAndPosts()</code></li>
+                <li>Compila <code>BASE_URL</code></li>
+                <li>Fai due fetch: <code>/users/{id}</code> e <code>/posts</code></li>
+                <li>Usa <code>filter()</code> per relazionare i dati</li>
+            </ol>
+
+            <div class="hint">
+                <strong>💡 Suggerimento:</strong>
+                <pre>const user = await fetch(...);
+const allPosts = await fetch(...);
+const userPosts = allPosts.filter(post => post.userId === user.id);</pre>
+            </div>
+
+            <div class="challenge">
+                <strong>🎯 Bonus Challenge:</strong>
+                <p>Ordina i post dal più recente al meno recente usando <code>sort()</code>.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -482,5 +482,55 @@
             "likes": 0,
             "data": "2023-10-14"
         }
+    ],
+    "todos": [
+        {
+            "id": 1,
+            "userId": 1,
+            "titolo": "Imparare React",
+            "completato": false
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "titolo": "Creare un portfolio",
+            "completato": true
+        },
+        {
+            "id": 3,
+            "userId": 2,
+            "titolo": "Studiare CSS Grid",
+            "completato": false
+        },
+        {
+            "id": 4,
+            "userId": 2,
+            "titolo": "Aggiornare LinkedIn",
+            "completato": true
+        },
+        {
+            "id": 5,
+            "userId": 2,
+            "titolo": "Scrivere un blog post",
+            "completato": false
+        },
+        {
+            "id": 6,
+            "userId": 2,
+            "titolo": "Partecipare a un hackathon",
+            "completato": false
+        },
+        {
+            "id": 7,
+            "userId": 1,
+            "titolo": "Imparare TypeScript",
+            "completato": true
+        },
+        {
+            "id": 8,
+            "userId": 1,
+            "titolo": "Rifare il sito personale",
+            "completato": false
+        }
     ]
 }

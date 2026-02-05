@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 2 - GET Lista Utenti</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>👥 GET Lista Utenti</h1>
+        <p class="subtitle">Crea card dinamiche da un array</p>
+
+        <!-- BOTTONE CARICA -->
+        <div style="text-align: center; margin-bottom: 25px;">
+            <button id="btnLoadUsers" style="padding: 10px 25px; background: #007bff; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 15px;">Carica Utenti</button>
+        </div>
+
+        <!-- LOADING SPINNER -->
+        <div id="loading" class="loading" style="display: none;">
+            ⏳ Caricamento...
+        </div>
+
+        <!-- COUNTER -->
+        <div id="counter" style="display: none; text-align: center; color: #666; margin-bottom: 20px; font-weight: bold;"></div>
+
+        <!-- GRIGLIA UTENTI -->
+        <div id="usersContainer" class="users-grid"></div>
+
+        <!-- ISTRUZIONI -->
+        <div class="instructions-box" style="margin-top: 30px;">
+            <h2>📝 Istruzioni</h2>
+            <ol>
+                <li>Apri <code>script.js</code> e completa <code>fetchAllUsers()</code></li>
+                <li>Compila <code>BASE_URL</code></li>
+                <li>GET a <code>/users</code> e usa <code>map()</code> per creare card</li>
+            </ol>
+
+            <div class="hint">
+                <strong>💡 Suggerimento:</strong>
+                <pre>const html = users.map(user => `&lt;div&gt;...&lt;/div&gt;`).join('');</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

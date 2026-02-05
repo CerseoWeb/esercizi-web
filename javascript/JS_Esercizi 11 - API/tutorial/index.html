@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Manipolazione Dati</title>
+    <title>API e Asincronia</title>
 </head>
 <body>
-
+    
     <div class="controls">
-        <h1>Tutorial: Manipolazione Dati</h1>
+        <h1>Tutorial: API e Asincronia</h1>
         <button id="btn-esegui">▶️ Esegui Codice</button>
         <button id="btn-reset">🧹 Pulisci Console</button>
         <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
     </div>
-
+    
     <script>
         function mostraOutput(stepNumero, messaggio) {
             const elemento = document.getElementById(`output-${stepNumero}`);
@@ -35,29 +35,34 @@
 
         [
             {
-                title: "1. Normalizzazione Stringhe",
-                description: "Pulizia spazi (trim) e gestione Maiuscole/Minuscole.",
-                outputLabel: "Stringa pulita:"
+                title: "1. Il concetto di Attesa (Simulazione)",
+                description: "Le API sono lente. Simuliamo un ritardo di 2 secondi prima di mostrare il messaggio.",
+                outputLabel: "Output Step 1:"
             },
             {
-                title: "2. Analisi ed Estrazione",
-                description: "Cercare parole (includes) e dividere testi (split).",
-                outputLabel: "Risultati Analisi:"
+                title: "2. Prima chiamata Fetch (GET)",
+                description: "Recuperiamo un oggetto JSON reale da un server pubblico.",
+                outputLabel: "Dati ricevuti:"
             },
             {
-                title: "3. Parsing Prezzi",
-                description: "Da stringa a numero: replace, parseFloat e toFixed.",
-                outputLabel: "Prezzo formattato:"
+                title: "3. Estrazione Dati (JSON)",
+                description: "La risposta grezza non basta. Dobbiamo convertirla ed estrarre il titolo.",
+                outputLabel: "Titolo del Post:"
             },
             {
-                title: "4. Arrotondamenti",
-                description: "Gestire i decimali: round, ceil (eccesso) e floor (difetto).",
-                outputLabel: "Peso arrotondato:"
+                title: "4. Gestione Errori (Try/Catch)",
+                description: "Proviamo a chiamare un sito che non esiste per vedere se il codice sopravvive.",
+                outputLabel: "Stato operazione:"
             },
             {
-                title: "5. Numeri Casuali",
-                description: "Generare numeri random e scalarli.",
-                outputLabel: "Numero casuale:"
+                title: "5. Lavorare con le Liste (Array)",
+                description: "Scarichiamo 10 utenti e mostriamo solo i loro nomi.",
+                outputLabel: "Elenco Utenti:"
+            },
+            {
+                title: "6. Invio Dati (POST)",
+                description: "Simuliamo l'invio di un nuovo post al server.",
+                outputLabel: "Risposta Server:"
             }
         ].forEach((step, i) => {
             document.write(`
@@ -72,7 +77,7 @@
             `);
         });
     </script>
-    <script src="tutorial_interattivo.js"></script>
+    <script src="script.js"></script>
     <script>
         document.getElementById('btn-reset').addEventListener('click', () => {
             localStorage.clear();
