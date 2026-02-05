@@ -1,14 +1,12 @@
 /**
  * ESERCIZIO 1: Recupera i valori dagli input
  * Selezioniamo i seguenti elementi dal DOM: `nome`, `eta`, `bio`, `cards-container` e `btn-crea-card`
- * Sostituisci il contenuto delle virgolette con il metodo per selezionare gli elementi
- * (document.querySelector) usando gli id corretti.
  */
-const inputNome = "";
-const inputEta = "";
-const inputBio = "";
-const contenitoreCard = "";
-const btnCreaCard = "";
+const inputNome = document.querySelector('');
+const inputEta = document.querySelector('');
+const inputBio = document.querySelector('');
+const contenitoreCard = document.querySelector('');
+const btnCreaCard = document.querySelector('');
 
 
 /**
@@ -17,19 +15,6 @@ const btnCreaCard = "";
  * 1. Imposta il valore di ogni input a stringa vuota
  */
 function cancellaDatiInput() {
-}
-
-
-
-/**
- * FUNZIONE: valida dati input
- * Passi:
- * 1. Controlla che il valore di ogni input non sia vuoto
- * 2. Se uno è vuoto ritorna false
- * 3. Se tutti sono validi, ritorna true
- */
-function validaDatiInput() {
-    return true;
 }
 
 
@@ -54,12 +39,14 @@ function creaCardProfilo() {
  * FUNZIONE: Event Listener sul bottone
  * Mettiamo tutto quello che abbiamo fatto insieme in un event listener
  * Passi:
- * 1. Valida i dati con validaDatiInput()
- * 2. Se validi:
- *   - Chiama creaCardProfilo() con i dati
- *   - Pulisci gli input con cancellaDatiInput()
- * 3. Se non validi, mostra un alert("Per favore, compila tutti i campi!")
+ * 1. Previeni il comportamento di default dell'evento
+ * 2. Chiama creaCardProfilo() con i dati
+ * 3. Pulisci gli input con cancellaDatiInput()
  */
-btnCreaCard.addEventListener('click', function () {
+btnCreaCard.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    creaCardProfilo();
+    cancellaDatiInput();
 });
 
