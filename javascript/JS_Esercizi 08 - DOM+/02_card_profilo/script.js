@@ -37,16 +37,15 @@ function validaDatiInput() {
 /**
  * FUNZIONE: crea la card profilo
  * Passi:
- * 1. In input prendi i valori nome, età, bio
- * 2. Crea un nuovo elemento <li> con document.createElement('li')
- * 3. Impostane la classe CSS a 'card'
- * 4. Crea un H3 con il nome
- * 5. Crea un paragrafo con l'età
- * 6. Crea un paragrafo con la biografia
- * 7. Aggiungi tutti gli elementi alla card nell'ordine indicato
- * 8. Aggiungi la card al cardsContainer
+ * 1. Crea un nuovo elemento <li> con document.createElement('li')
+ * 2. Impostane la classe CSS a 'card'
+ * 3. Crea un H3 con il valore nome
+ * 4. Crea un paragrafo con il valore dell'età
+ * 5. Crea un paragrafo con il valore della biografia
+ * 6. Aggiungi tutti gli elementi alla card nell'ordine indicato
+ * 7. Aggiungi la card al cardsContainer
  */
-function creaCardProfilo(nome, eta, bio) {
+function creaCardProfilo() {
 }
 
 
@@ -55,12 +54,11 @@ function creaCardProfilo(nome, eta, bio) {
  * FUNZIONE: Event Listener sul bottone
  * Mettiamo tutto quello che abbiamo fatto insieme in un event listener
  * Passi:
- * 1. Al click del bottone, leggi i valori dagli input
- * 2. Valida i dati con validaDatiInput()
- * 3. Se validi:
+ * 1. Valida i dati con validaDatiInput()
+ * 2. Se validi:
  *   - Chiama creaCardProfilo() con i dati
  *   - Pulisci gli input con cancellaDatiInput()
- * 4. Se non validi, mostra un alert("Per favore, compila tutti i campi!")
+ * 3. Se non validi, mostra un alert("Per favore, compila tutti i campi!")
  */
 btnCreaCard.addEventListener('click', function () {
 });
