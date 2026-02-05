@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hub Esercizi DOM</title>
+    <title>Hub Esercizi Manipolazione Dati</title>
     <style>
         /* RESET & BASE */
         * {
@@ -26,7 +26,7 @@
         .hub-container {
             background: white;
             width: 100%;
-            max-width: 650px;
+            max-width: 750px;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -46,11 +46,26 @@
             font-size: 1.1rem;
         }
 
+        /* TITOLI SEZIONI */
+        h2 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
         /* LISTA CARD */
         .exercise-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            margin-bottom: 30px;
         }
 
         /* CARD ESERCIZIO */
@@ -77,6 +92,7 @@
             margin-right: 20px;
             width: 40px;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .info {
@@ -89,6 +105,7 @@
             font-size: 1.1rem;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .info p {
@@ -98,94 +115,95 @@
         }
 
         /* TAG DIFFICOLTA' */
-        .badge {
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 3px 8px;
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
             border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-left: 10px;
         }
 
-        .tutorial {
-            background-color: #e3f2fd;
+        .difficulty.tutorial {
+            background: #e3f2fd;
             color: #1565c0;
-            border: 1px solid #bbdefb;
         }
 
-        /* Blu */
-        .easy {
-            background-color: #e8f5e9;
-            color: #2e7d32;
+        .difficulty.easy {
+            background: #d4edda;
+            color: #155724;
         }
 
-        /* Verde */
-        .medium {
-            background-color: #fff3e0;
-            color: #ef6c00;
+        .difficulty.medium {
+            background: #fff3cd;
+            color: #856404;
         }
 
-        /* Arancione */
-        .hard {
-            background-color: #ffebee;
-            color: #c62828;
+        .difficulty.hard {
+            background: #f8d7da;
+            color: #721c24;
         }
 
-        /* Rosso */
-
-        /* FRECCIA AL PASSAGGIO DEL MOUSE */
-        .arrow {
-            font-size: 1.5rem;
-            color: #ddd;
-            transition: 0.3s;
+        /* NOTA IMPORTANTE */
+        .important-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #856404;
         }
 
-        .card:hover .arrow {
-            color: #007bff;
-            transform: translateX(5px);
+        .important-note strong {
+            color: #333;
+        }
+
+        .important-note code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 
 <body>
-
     <div class="hub-container">
-        <h1>Esercizi DOM</h1>
-        <p class="subtitle">Corso Web Developer</p>
+        <h1>Manipolazione Dati</h1>
+        <p class="subtitle">Stringhe, Numeri, Array e Oggetti</p>
 
+        <h2>Tutorial Introduttivo</h2>
         <div class="exercise-list">
-
             <a href="tutorial/index.html" class="card">
                 <div class="icon">🧪</div>
                 <div class="info">
-                    <h3>Tutorial<span class="badge tutorial">Tutorial</span></h3>
-                    <p>Impara a pulire stringhe, gestire numeri e filtrare array.</p>
+                    <h3>Tutorial Interattivo <span class="difficulty tutorial">Tutorial</span></h3>
+                    <p>Impara a pulire stringhe, gestire numeri e filtrare array</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
+        </div>
 
+        <h2>Esercizi</h2>
+        <div class="exercise-list">
             <a href="calcolatrice/index.html" class="card">
                 <div class="icon">🧮</div>
                 <div class="info">
-                    <h3>Calcolatrice <span class="badge medium">Logica</span></h3>
-                    <p>Validazione input, Parsing numeri, Switch case.</p>
+                    <h3>Calcolatrice <span class="difficulty easy">Facile</span></h3>
+                    <p>Validazione input, Parsing numeri, Switch case</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
 
             <a href="generatore_utenti/index.html" class="card">
                 <div class="icon">👤</div>
                 <div class="info">
-                    <h3>Generatore Utenti<span class="badge medium">Stringhe</span></h3>
-                    <p>Manipolazione stringhe, generazione numeri casuali.</p>
+                    <h3>Generatore Utenti <span class="difficulty easy">Facile</span></h3>
+                    <p>Manipolazione stringhe, generazione numeri casuali</p>
                 </div>
-                <div class="arrow">→</div>
             </a>
-
         </div>
     </div>
-
 </body>
 
 </html>
