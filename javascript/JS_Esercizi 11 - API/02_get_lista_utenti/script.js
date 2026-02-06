@@ -1,6 +1,30 @@
 // ⚠️ COMPILARE PRIMA DI INIZIARE
 const BASE_URL = 'http://localhost:3000/api';
 
+
+/**
+ * FUNZIONE che crea la card HTML per un singolo utente
+ * 
+ * Passi:
+ * 1. Crea un template literal con la struttura HTML della card
+ * 2. Usa i dati dell'oggetto user per popolare i campi
+ * 3. La struttura della card deve essere simile a questa:
+ *    <div class="user-card">
+ *        <img src="avatar_url" alt="Avatar" class="card-avatar">
+ *        <div class="card-content">
+ *            <h3>Nome Cognome</h3>
+ *            <p class="email">📧 email</p>
+ *            <p class="location">📍 comune</p>
+ *            <div class="status attivo/inattivo"> Attivo/Inattivo </div>
+ *       </div>
+ *   </div>
+ */
+function creaCardUser(user) {
+    return ``;
+}
+
+
+
 /**
  * ESERCIZIO 2: Recupera TUTTI gli utenti
  * 

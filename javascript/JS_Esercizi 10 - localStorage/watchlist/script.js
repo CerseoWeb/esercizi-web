@@ -30,8 +30,20 @@ let filmWatchlist = [
     { titolo: "Harry Potter e la Pietra Filosofale", anno: "2001" }
 ];
 
+
 /**
- * STEP 1: Funzione Renderizza (visualizza) la lista
+ * STEP 1: Caricamento Iniziale
+ * Leggi la chiave "my_watchlist" dal localStorage.
+ * Se esiste, parsa la stringa e riempi l'array 'filmWatchlist'.
+ * Se non esiste, lascia l'array vuoto.
+ * Infine chiama visualizzaLista().
+ */
+function caricaLista() {
+}
+
+
+/**
+ * STEP 2: Funzione Renderizza (visualizza) la lista
  * Pulisce l'HTML e ricrea gli elementi basandosi sull'array filmWatchlist
  * 1. Pulisci il contenuto di 'listaFilm'.
  * 2. Per ogni film in 'filmWatchlist', crea un <li> con dentro --> <p>titolo (anno)</p>
@@ -40,15 +52,6 @@ let filmWatchlist = [
 function visualizzaLista() {
 }
 
-/**
- * STEP 2: Caricamento Iniziale
- * Leggi la chiave "my_watchlist" dal localStorage.
- * Se esiste, parsa la stringa e riempi l'array 'filmWatchlist'.
- * Se non esiste, lascia l'array vuoto.
- * Infine chiama visualizzaLista().
- */
-function inizializzaApp() {
-}
 
 /**
  * STEP 3: Aggiunta e Salvataggio
@@ -65,7 +68,7 @@ function inizializzaApp() {
 
 
 // AVVIO
-inizializzaApp();
+caricaLista();
 
 
 
