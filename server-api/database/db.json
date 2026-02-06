@@ -532,5 +532,97 @@
             "titolo": "Rifare il sito personale",
             "completato": false
         }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "nome": "Laptop MacBook Pro",
+            "descrizione": "Laptop professionale con processore M2, 16GB RAM, display Retina da 14 pollici",
+            "categoria": "Elettronica",
+            "prezzo": 2499.99,
+            "immagine": "https://applepremiumstore.com.ng/wp-content/uploads/2022/07/mbp-silver-gallery1-202206-510x392.jpeg",
+            "disponibilita": true
+        },
+        {
+            "id": 2,
+            "nome": "Cuffie Wireless Sony",
+            "descrizione": "Cuffie over-ear con cancellazione del rumore attiva, batteria 30 ore",
+            "categoria": "Audio",
+            "prezzo": 349.99,
+            "immagine": "https://www.sony.it/image/09165d9c9b4354178a8a73fe9176d53f?fmt=pjpeg&resMode=bisharp&wid=360",
+            "disponibilita": true
+        },
+        {
+            "id": 3,
+            "nome": "Mouse Logitech MX Master",
+            "descrizione": "Mouse ergonomico programmabile con precisione elevata",
+            "categoria": "Accessori",
+            "prezzo": 99.99,
+            "immagine": "https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-graphite-top-angle-gallery-1.png",
+            "disponibilita": false
+        },
+        {
+            "id": 4,
+            "nome": "Monitor LG 4K",
+            "descrizione": "Monitor 27 pollici 4K UHD con HDR10, refresh rate 60Hz",
+            "categoria": "Elettronica",
+            "prezzo": 599.99,
+            "immagine": "https://www.lg.com/content/dam/channel/wcms/it/monitor/4k/32ur550-b/gallery/02-gallery/uhd-32ur550-gallery-03-2010.jpg/jcr:content/renditions/thum-1600x1062.jpeg",
+            "disponibilita": true
+        },
+        {
+            "id": 5,
+            "nome": "Tastiera Meccanica RGB",
+            "descrizione": "Tastiera gaming meccanica con switch Blue, illuminazione RGB",
+            "categoria": "Accessori",
+            "prezzo": 159.99,
+            "immagine": "https://m.media-amazon.com/images/I/61K25cqZzYL.jpg",
+            "disponibilita": true
+        },
+        {
+            "id": 6,
+            "nome": "Tablet iPad Air",
+            "descrizione": "Tablet 11 pollici con chip M1, 64GB storage, display Liquid Retina",
+            "categoria": "Elettronica",
+            "prezzo": 799.99,
+            "immagine": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-air-finish-select-gallery-202405-13inch-blue-wifi?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=SzlUeW5ITUpKK1FKdDdNS0xNUVhmM3hxSU9Rc1hENld5ZlZGbisxZU9hWGJrbFd6ZHBvVk05L3d0WWlJMkh3MEU1V0hVSjZLVHJGenZsOFVicTBNclV1ZnhKeHNGWFhISWx4Q0lTRXA4dkY5Q2drLzhtOFgzejV4MENrZ0JFZVBwak9PMXpaSGlQNVErR3pISzM5NVpB&traceId=1",
+            "disponibilita": true
+        },
+        {
+            "id": 7,
+            "nome": "Webcam Logitech 4K",
+            "descrizione": "Webcam 4K ultra HD per streaming e videoconferenze",
+            "categoria": "Accessori",
+            "prezzo": 199.99,
+            "immagine": "https://resource.logitech.com/content/dam/logitech/en/products/webcams/brio/gallery/brio-gallery-1.png",
+            "disponibilita": false
+        },
+        {
+            "id": 8,
+            "nome": "Hub USB-C Anker",
+            "descrizione": "Hub con 7 porte USB, HDMI, lettore SD e ricarica via USB-C",
+            "categoria": "Accessori",
+            "prezzo": 49.99,
+            "immagine": "https://m.media-amazon.com/images/I/615HRY2dnML._AC_UF1000,1000_QL80_.jpg",
+            "disponibilita": true
+        },
+        {
+            "id": 9,
+            "nome": "Portatile Storage Esterno 2TB",
+            "descrizione": "Disco rigido portatile 2TB USB 3.1, velocità fino a 130MB/s",
+            "categoria": "Storage",
+            "prezzo": 129.99,
+            "immagine": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/HRQ12?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=ekF1Wk9BM2YxYXk2TjVQYTBkSVVmQWtuVHYzMERCZURia3c5SzJFOTlPaGlOZm1vUXN2cjVNeTNKZXZEclZjS1pzcXBPb0IvOVo4Z2pyYmtaS0ZBNHc",
+            "disponibilita": true
+        },
+        {
+            "id": 10,
+            "nome": "Stand per Laptop Ergonomico",
+            "descrizione": "Stand in alluminio pieghevole e regolabile in altezza",
+            "categoria": "Accessori",
+            "prezzo": 39.99,
+            "immagine": "https://media.startech.com/cms/products/gallery_large/laptop-stand-silver.main.jpg",
+            "disponibilita": true
+        }
     ]
 }
