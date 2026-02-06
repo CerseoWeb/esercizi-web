@@ -20,8 +20,15 @@ const inputAnno = document.querySelector('#anno');
 const listaFilm = document.querySelector('#lista-film');
 const btnAdd = document.querySelector('#btn-add');
 
-// STATO DELL'APP
-let filmWatchlist = [];
+// STATO DELL'APP con alcuni esempi iniziali (per testare, da rimuovere o modificare in seguito)
+let filmWatchlist = [
+    { titolo: "Dune", anno: "2021" },
+    { titolo: "Inception", anno: "2010" },
+    { titolo: "Matrix", anno: "1999" },
+    { titolo: "Interstellar", anno: "2014" },
+    { titolo: "Il Signore degli Anelli: La Compagnia dell'Anello", anno: "2001" },
+    { titolo: "Harry Potter e la Pietra Filosofale", anno: "2001" }
+];
 
 /**
  * STEP 1: Funzione Renderizza (visualizza) la lista
@@ -31,7 +38,6 @@ let filmWatchlist = [];
  * 3. Aggiungi l'<li> a 'listaFilm'.
  */
 function visualizzaLista() {
-    // TODO: Scrivi qui il codice per visualizzare la lista...
 }
 
 /**
@@ -42,7 +48,6 @@ function visualizzaLista() {
  * Infine chiama visualizzaLista().
  */
 function inizializzaApp() {
-    // TODO: Scrivi qui il codice per caricare i dati...
 }
 
 /**
@@ -55,7 +60,7 @@ function inizializzaApp() {
  * 5. Salva l'intero array aggiornato nel localStorage (JSON.stringify!).
  * 6. Chiama visualizzaLista().
  */
-// TODO: Scrivi qui il codice per aggiungere un film...
+
 
 
 
