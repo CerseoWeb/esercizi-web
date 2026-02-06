@@ -128,4 +128,37 @@ function eseguiTutorial() {
         scala_100: randomCento.toFixed(2),
         sconto_intero: scontoFinale
     });
+
+
+    /**
+     * ======================================================
+     * LIVELLO 6: Creazione Card Utente (Template Literals)
+     * Crea una card HTML usando i template literals (backticks)
+     * ======================================================
+     */
+    const utente = {
+        nome: "Mario",
+        cognome: "Rossi",
+        email: "mario.rossi@esempio.com",
+        avatar: "https://randomuser.me/api/portraits/men/75.jpg"
+    };
+
+    // TODO: Crea una card HTML usando i dati dell'utente e i template literals
+    // Per fare i backticks usa ALT + 96 sulla tastiera
+    // La card dovrebbe avere questa struttura:
+    /*
+    <div class="user-card">
+        <img src="avatar_url" alt="Avatar" class="user-avatar">
+        <div class="user-info">
+            <h3>Nome Cognome</h3>
+            <p class="user-email">📧 email</p>
+        </div>
+    </div>
+    */
+    let cardHTML = null;
+
+    mostraOutput(6, {});
+    let output = document.getElementById('output-6');
+    output.className = '';
+    output.innerHTML = cardHTML;
 }

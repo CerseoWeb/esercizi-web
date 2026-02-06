@@ -116,3 +116,31 @@ button#btn-reset {
     font-weight: bold;
     letter-spacing: 0.5px;
 }
+
+.user-card {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+.user-name {
+    font-weight: bold;
+    color: #333;
+}
+.user-email {
+    font-size: 0.9em;
+    color: #777;
+}
