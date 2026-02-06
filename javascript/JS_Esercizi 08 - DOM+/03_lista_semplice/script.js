@@ -39,11 +39,14 @@ function popolaLibri() {
  * 1. Cicla l'array 'todo'
  * 2. Per ogni attività, crea un elemento <li>
  * 3. Imposta il textContent dell'li al testo dell'attività
- * 4. Aggiungi un evento click che, al click, cambia la classe CSS in 'completato' (toggle)
- * 5. Aggiungi l'li alla lista nel DOM
+ * 4. Se l'attività è completata (completato: true), aggiungi la classe 'completato' all'li
+ * 5. Aggiungi un evento click che:
+ *    - Modifica la proprietà 'completato' dell'oggetto invertendo il suo valore (true/false)
+ *    - Fai il toggle della classe 'completato' sull'elemento <li> per riflettere lo stato di completamento
+ * 6. Aggiungi l'li alla lista nel DOM
  */
 const todo = [
-    { testo: 'Studiare JavaScript', completato: false },
+    { testo: 'Studiare JavaScript', completato: true },
     { testo: 'Fare esercizi sul DOM', completato: false },
     { testo: 'Creare un progetto', completato: false },
     { testo: 'Rivedere il codice', completato: false }

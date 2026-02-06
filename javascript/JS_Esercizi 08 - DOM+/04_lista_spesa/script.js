@@ -9,25 +9,26 @@ let lista = [
     { prodotto: 'Caffè', prezzo: 3.50, sbarrato: false }
 ];
 
-// Pre-esercizi: RIFERIMENTI AL DOM
-// Seleziona gli elementi necessari che DEVI definire nell'HTML se mancano
+// ESERCIZIO: Assicurati di avere questi elementi nel tuo HTML
+// poi selezionali qui con querySelector.
+// Gli ID potranno essere a tua scelta, ma devono essere univoci e chiari.
+// Se l'elemento non esiste nell'HTML, aggiungilo tu. Es. <input id="prodotto" type="text">
 const inputProdotto = document.querySelector(''); 
 const inputPrezzo = document.querySelector('');
 const btnAggiungi = document.querySelector('');
-const listaSpesa = document.querySelector('');
-const contenitoreTotale = document.querySelector('');
+const ulSpesa = document.querySelector('');
+const divTotale = document.querySelector('');
 
 
 /**
  * FUNZIONE 1: Visualizza/Aggiorna Lista
  * Questa funzione è il "motore" grafico. Deve:
- * 1. Pulire la lista attuale nel DOM
+ * 1. Pulire la lista attuale nel DOM (per evitare duplicati)
  * 2. Ciclare l'array 'lista'
  * 3. Per ogni elemento, chiamare la funzione 'creaElementoLista'
- * 4. Chiamare la funzione 'aggiornaTotale' alla fine per ricalcolare il conto
+ * 4. Chiamare la funzione 'aggiornaTotale' alla fine per calcolare il conto
  */
 function aggiornaLista() {
-
 }
 
 
@@ -38,23 +39,13 @@ function aggiornaLista() {
  * 1. Creare un tag <li>
  * 2. Impostare il testo (es. "Pane - 1.50 €")
  * 3. Se l'elemento ha la proprietà .sbarrato === true, aggiungere la classe CSS 'preso'
- * 4. Gestire il click: se clicco sull'li, devo chiamare la funzione toggleSbarrato(elemento)
- * 5. Appendere l'li alla listaSpesa (ul)
+ * 4. Gestire il click se clicco sull'li:
+ *   - Invertire la proprietà .sbarrato dell'oggetto (true/false)
+ *   - Aggiornare la classe CSS 'preso' sull'li (toggle)
+ *   - Aggiornare il totale chiamando aggiornaTotale()
+ * 5. Appendere l'li alla ulSpesa (ul)
  */
 function creaElementoLista(elemento) {
-
-}
-
-
-/**
- * FUNZIONE 3: Gestione Click (Toggle Sbarrato)
- * Questa funzione viene chiamata quando clicco su una riga.
- * Non modifica il DOM direttamente! Deve:
- * 1. Cambiare la proprietà 'sbarrato' dell'oggetto (da true a false o viceversa)
- * 2. Richiamare aggiornaLista() per ridisegnare tutto aggiornato
- */
-function toggleSbarrato(elemento) {
-
 }
 
 
@@ -63,12 +54,10 @@ function toggleSbarrato(elemento) {
  * Deve:
  * 1. Creare una variabile somma = 0
  * 2. Ciclare l'array 'lista'
- * 3. Sommare i prezzi
-  * 4. (Opzionale) Somma solo quelli NON sbarrati
- * 5. Scrivere il risultato nel contenitoreTotale
+ * 3. Sommare i prezzi (Attenzione: farlo solo per quelli che NON sono sbarrati, cioè sbarrato: false)
+ * 4. Scrivere il risultato nel divTotale
  */
 function aggiornaTotale() {
-    
 }
 
 
@@ -84,7 +73,6 @@ function aggiornaTotale() {
  * 6. Svuotare gli input
  */
 btnAggiungi.addEventListener('click', function () {
-
 });
 
 
