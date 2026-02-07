@@ -25,10 +25,15 @@ const divTotale = document.querySelector('');
  * Questa funzione è il "motore" grafico. Deve:
  * 1. Pulire la lista attuale nel DOM (per evitare duplicati)
  * 2. Ciclare l'array 'lista'
- * 3. Per ogni elemento, chiamare la funzione 'creaElementoLista'
+ * 3. Per ogni elemento, chiamare la funzione 'creaRigaElemento'
  * 4. Chiamare la funzione 'aggiornaTotale' alla fine per calcolare il conto
  */
 function aggiornaLista() {
+    ulSpesa.innerHTML = '';
+    lista.forEach(elemento => {
+        creaRigaElemento(elemento);
+    });
+    aggiornaTotale();
 }
 
 
@@ -43,9 +48,9 @@ function aggiornaLista() {
  *   - Invertire la proprietà .sbarrato dell'oggetto (true/false)
  *   - Aggiornare la classe CSS 'preso' sull'li (toggle)
  *   - Aggiornare il totale chiamando aggiornaTotale()
- * 5. Appendere l'li alla ulSpesa (ul)
+ * 5. Aggiungere l'li al <ul> della lista
  */
-function creaElementoLista(elemento) {
+function creaRigaElemento(elemento) {
 }
 
 
