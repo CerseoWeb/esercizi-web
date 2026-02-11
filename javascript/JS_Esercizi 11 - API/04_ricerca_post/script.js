@@ -1,42 +1,33 @@
 // ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'http://192.168.1.7:3000/api';
 const keyword = document.querySelector('#keyword');
 const loading = document.querySelector('#loading');
-const resultsContainer = document.querySelector('#resultsContainer');
+const results = document.querySelector('#results');
 const btnSearch = document.querySelector('#btnSearch');
 
 
 /**
- * FUNZIONE: Crea la card HTML per un autore e i suoi post trovati
+ * FUNZIONE: Crea la card HTML per un singolo post con autore a fianco
  * 
  * Funzione già fatta - non modificare
  */
-function createAuthorCard(author, posts) {
-    const postsHTML = posts.map(post => `
-        <div class="post-item">
-            <div class="post-title">${post.titolo}</div>
-            <div class="post-preview">${post.contenuto}</div>
-            <div class="post-meta">
-                <span>📅 ${post.data}</span>
-                <span>❤️ ${post.likes} likes</span>
-            </div>
-        </div>
-    `).join('');
-
-    return `
-        <div class="author-section">
-            <div class="author-header">
-                <img src="${author.avatar}" alt="Avatar" class="author-avatar">
-                <div class="author-info">
-                    <h3>${author.nome} ${author.cognome}</h3>
-                    <p>📧 ${author.email}</p>
+function creaElementoPost(post, autore) {
+    results.innerHTML += `
+        <div class="post-row">
+            <div class="row-author">
+                <img src="${autore.avatar}" alt="Avatar" class="row-avatar">
+                <div class="row-author-info">
+                    <strong>${autore.nome} ${autore.cognome}</strong>
+                    <small>${autore.email}</small>
                 </div>
             </div>
-            <div class="posts-list">
-                <div style="font-weight: 600; margin-bottom: 10px; color: #333;">
-                    Post trovati (${posts.length})
+            <div class="row-post">
+                <div class="post-title">${post.titolo}</div>
+                <div class="post-preview">${post.contenuto}</div>
+                <div class="post-meta">
+                    <span>📅 ${post.data}</span>
+                    <span>❤️ ${post.likes} likes</span>
                 </div>
-                ${postsHTML}
             </div>
         </div>
     `;
@@ -50,7 +41,7 @@ function createAuthorCard(author, posts) {
  * Funzione già fatta - non modificare
  */
 function handleError(message) {
-    resultsContainer.innerHTML = `
+    results.innerHTML = `
         <div class="error">
             <strong>❌ ${message}</strong>
         </div>
@@ -60,49 +51,26 @@ function handleError(message) {
 
 
 /**
- * FUNZIONE: Visualizza i risultati della ricerca
- * 
- * Raggruppa i post per autore e mostra le card
- * Funzione già fatta - non modificare
- */
-function displayResults(results) {
-    if (results.length === 0) {
-        resultsContainer.innerHTML = `
-            <div class="empty">
-                Nessun post trovato con la parola chiave
-            </div>
-        `;
-        return;
-    }
-
-    const cardsHTML = results.map(item => 
-        createAuthorCard(item.author, item.posts)
-    ).join('');
-
-    resultsContainer.innerHTML = cardsHTML;
-}
-
-
-/**
  * ESERCIZIO 5: Ricerca Post con Autori
  * 
  * Devi completare questa funzione:
- * 1. Leggi la parola chiave dall'input
- * 2. Valida che non sia vuota (usa trim)
- * 3. Mostra lo spinner di caricamento
- * 4. Apri un blocco try/catch
- * 5. Fai una GET a /posts
- * 6. Filtra i post dove titolo O contenuto contiene la keyword (case-insensitive)
- * 7. Se nessun post trovato, usa handleError() e return
- * 8. Estrai gli ID univoci degli utenti che hanno scritto questi post
- * 9. Fai una GET a /users
- * 10. Crea un array di risultati: [{author: userObj, posts: [...]}, ...]
- *    dove posts sono solo quelli trovati per quell'autore
- * 11. Chiama displayResults(results)
- * 12. Gestisci gli errori con handleError()
- * 13. Nascondi lo spinner di caricamento
+ *  1. Leggi la parola chiave dall'input
+ *  2. Svuota il contenuto dei risultati (results.innerHTML = '')
+ *  3. Valida che non sia vuota (usa trim)
+ *  4. Mostra lo spinner di caricamento
+ *  5. Apri un blocco try/catch
+ *  6. Fai una GET a /posts
+ *  7. Filtra i post dove titolo O contenuto contiene la keyword
+ *     (ricorda minuscole per la ricerca)
+ *  8. Se nessun post trovato, usa handleError() e return
+ *  9. Per ogni post trovato:
+ *     - Prendi l'id autore e fai una GET a /users?id=[id]
+ *     - Crea un nuovo elemento della lista dei risultati con creaElementoPost(post, autore)
+ * 10. Gestisci gli errori con handleError()
+ * 11. Nascondi lo spinner di caricamento
  */
 async function fetchPostsByKeyword() {
+    //TODO
 }
 
 

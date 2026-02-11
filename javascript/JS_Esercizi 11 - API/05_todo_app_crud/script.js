@@ -63,10 +63,10 @@ function handleError(message) {
  * ESERCIZIO 4: Todo App CRUD Completa
  * 
  * Devi implementare 4 funzioni:
- * 1. fetchTodosUtente()  - GET /todos?userId={id}
- * 2. addTodo()           - POST /todos
- * 3. toggleTodo()        - PUT /todos/{id}
- * 4. deleteTodo()        - DELETE /todos/{id}
+ * 1. fetchTodosUtente()  - GET /todos?userId={id}  (READ)
+ * 2. addTodo()           - POST /todos             (CREATE)
+ * 3. toggleTodo()        - PUT /todos/{id}         (UPDATE)
+ * 4. deleteTodo()        - DELETE /todos/{id}      (DELETE)
  */
 
 /**
@@ -85,6 +85,8 @@ function handleError(message) {
  * 10. Salva l'ID utente in currentUserId (e localStorage)
  */
 async function fetchTodosUtente() {
+    // TODO Rimuovi questa riga e completa la funzione
+    handleError('Codice non implementato - Completa la funzione fetchTodosUtente()');
 }
 
 
