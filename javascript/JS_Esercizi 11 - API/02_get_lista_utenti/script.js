@@ -1,5 +1,9 @@
-// ⚠️ COMPILARE PRIMA DI INIZIARE
+// ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
 const BASE_URL = 'http://localhost:3000/api';
+const loading = document.querySelector('#loading');
+const counter = document.querySelector('#counter');
+const result = document.querySelector('#result');
+const btnFetch = document.querySelector('#btnLoadUsers');
 
 
 /**
@@ -19,80 +23,63 @@ const BASE_URL = 'http://localhost:3000/api';
  *       </div>
  *   </div>
  */
-function creaCardUser(user) {
+function creaCardUtente(user) {
     return ``;
 }
 
 
+/**
+ * FUNZIONE: Gestione errori
+ * 
+ * Mostra un messaggio di errore nell'elemento result
+ * e logga l'errore in console (per debug)
+ * Funzione già fatta - non modificare
+ */
+function handleError(message) {
+    result.innerHTML = '';
+
+    let div = document.createElement('div');
+    div.className = 'error';
+
+    let strong = document.createElement('strong');
+    strong.textContent = `❌ ${message}`;
+
+    div.appendChild(strong);
+    result.appendChild(div);
+    console.error('Errore:', message);
+}
+
 
 /**
- * ESERCIZIO 2: Recupera TUTTI gli utenti
+ * FUNZIONE: Fetch lista utenti
  * 
- * Devi completare questa funzione:
- * 1. Fai una fetch GET a: BASE_URL + '/users'
- * 2. Converti in JSON
- * 3. Chiama displayUsers() passando l'array
- * 4. Gestisci gli errori
+ * Passi:
+ * 1. Mostra lo spinner di caricamento (rimuovi la classe nascosto)
+ * 2. Fai una fetch GET a /users
+ * 3. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
+ * 4. Converti la risposta da stringa JSON a oggetto JavaScript
+ * 5. Mostra i dati degli utenti chiamando mostraUtenti(users)
+ * 6. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchAllUsers() {
-    const loading = document.getElementById('loading');
-    const container = document.getElementById('usersContainer');
-    const counter = document.getElementById('counter');
-
-    loading.style.display = 'block';
-    container.innerHTML = '';
-    counter.style.display = 'none';
-
-    try {
-        // 👇 SCRIVI QUI IL TUO CODICE 👇
-        // const response = await fetch(...);
-        // const users = await response.json();
-        // displayUsers(users);
-
-        // PLACEHOLDER - Rimuovi questa riga quando completi
-        throw new Error('Codice non implementato - Completa la funzione fetchAllUsers()');
-
-    } catch (error) {
-        container.innerHTML = `
-            <div class="error">
-                <strong>❌ Errore:</strong> ${error.message}
-            </div>
-        `;
-        console.error('Errore:', error);
-    } finally {
-        loading.style.display = 'none';
-    }
+    // TODO Rimuovi questa riga e completa la funzione
+    handleError('Codice non implementato - Completa la funzione fetchAllUsers()');
 }
+
 
 /**
  * Visualizza gli utenti in una griglia di card
- * (Questa funzione è già fatta - non modificare)
+ * Funzione già fatta - non modificare
  */
-function displayUsers(users) {
-    const container = document.getElementById('usersContainer');
-    const counter = document.getElementById('counter');
-
+function mostraUtenti(users) {
     if (!Array.isArray(users) || users.length === 0) {
-        container.innerHTML = '<div class="error">❌ Nessun utente trovato</div>';
+        handleError('Nessun utente trovato');
         return;
     }
 
     // CREA CARD PER OGNI UTENTE
-    const cardsHTML = users.map(user => `
-        <div class="user-card">
-            <img src="${user.avatar || 'https://placehold.co/100'}" alt="Avatar" class="card-avatar">
-            <div class="card-content">
-                <h3>${user.nome} ${user.cognome}</h3>
-                <p class="email">📧 ${user.email}</p>
-                <p class="location">📍 ${user.comune}</p>
-                <div class="status ${user.attivo ? 'attivo' : 'inattivo'}">
-                    ${user.attivo ? '🟢 Attivo' : '🔴 Inattivo'}
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = cardsHTML;
+    const cardsHTML = users.map(user => creaCardUtente(user)).join('');
+    result.innerHTML = cardsHTML;
 
     // MOSTRA CONTATORE
     counter.innerHTML = `📊 Totale: <strong>${users.length} utenti</strong>`;
@@ -100,4 +87,4 @@ function displayUsers(users) {
 }
 
 // COLLEGA IL BOTTONE
-document.getElementById('btnLoadUsers').addEventListener('click', fetchAllUsers);
+btnFetch.addEventListener('click', fetchAllUsers);

@@ -1,17 +1,16 @@
-// ⚠️ COMPILARE PRIMA DI INIZIARE
-// Inserisci l'URL del server corretto
+// ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
 const BASE_URL = 'http://192.168.1.7:3000/api';
-
-// ELEMENTI DEL DOM (controlla che siano corretti)
 const userId = document.querySelector('#userId');
 const loading = document.querySelector('#loading');
 const result = document.querySelector('#result');
+const btnFetch = document.querySelector('#btnFetch');
 
 
 /**
  * FUNZIONE: Crea utente card
  * 
  * Crea la card completa dell'utente e la inserisce nell'elemento result
+ * Funzione già fatta - non modificare
  * L'oggetto user ha questa struttura:
  * {
  *   id: number,
@@ -24,7 +23,7 @@ const result = document.querySelector('#result');
  *   attivo: boolean
  * }
  */
-function createUserCard(user) {
+function creaCardUtente(user) {
     result.innerHTML = `
         <div class="user-card">
             <div class="card-header">
@@ -57,19 +56,15 @@ function createUserCard(user) {
  * 
  * Mostra un messaggio di errore nell'elemento result
  * e logga l'errore in console (per debug)
+ * Funzione già fatta - non modificare
  */
 function handleError(message) {
-    result.innerHTML = '';
-
-    let div = document.createElement('div');
-    div.className = 'error';
-
-    let strong = document.createElement('strong');
-    strong.textContent = `❌ ${message}`;
-
-    div.appendChild(strong);
-    result.appendChild(div);
     console.error('Errore:', message);
+    result.innerHTML = `
+    <div class="error">
+        <strong>❌ ${message}</strong>
+    </div>
+    `;
 }
 
 
@@ -92,11 +87,11 @@ function handleError(message) {
  * 8. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchUser() {
-    // PLACEHOLDER - Rimuovi questa riga quando completi
+    // TODO Rimuovi questa riga e completa la funzione
     handleError('Codice non implementato - Completa la funzione fetchUser()');
 }
 
 
 // COLLEGA IL BOTTONE AL CLICK
-document.getElementById('btnFetch').addEventListener('click', fetchUser);
+btnFetch.addEventListener('click', fetchUser);
 
