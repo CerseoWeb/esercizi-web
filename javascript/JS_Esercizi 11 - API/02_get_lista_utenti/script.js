@@ -55,11 +55,12 @@ function handleError(message) {
  * 
  * Passi:
  * 1. Mostra lo spinner di caricamento (rimuovi la classe nascosto)
- * 2. Fai una fetch GET a /users
- * 3. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
- * 4. Converti la risposta da stringa JSON a oggetto JavaScript
- * 5. Mostra i dati degli utenti chiamando mostraUtenti(users)
- * 6. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
+ * 2. Apri un blocco try/catch
+ * 3. Fai una fetch GET a /users
+ * 4. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
+ * 5. Converti la risposta da stringa JSON a oggetto JavaScript
+ * 6. Mostra i dati degli utenti chiamando mostraUtenti(users)
+ * 7. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchAllUsers() {
     // TODO Rimuovi questa riga e completa la funzione

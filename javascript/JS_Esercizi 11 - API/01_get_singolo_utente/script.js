@@ -80,11 +80,12 @@ function handleError(message) {
  * 2. Controlla che l'ID sia valido, ovvero un numero tra 1 e 40
  *    In caso contrario, mostra un messaggio di errore (usa handleError()) e return
  * 3. Mostra lo spinner di caricamento (rimuovi la classe nascosto)
- * 4. Fai una fetch GET a /users/{id}
- * 5. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
- * 6. Converti la risposta in JSON
- * 7. Mostra i dati dell'utente chiamando createUserCard(user)
- * 8. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
+ * 4. Apri un blocco try/catch
+ * 5. Fai una fetch GET a /users/{id}
+ * 6. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
+ * 7. Converti la risposta in JSON
+ * 8. Mostra i dati dell'utente chiamando createUserCard(user)
+ * 9. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchUser() {
     // TODO Rimuovi questa riga e completa la funzione

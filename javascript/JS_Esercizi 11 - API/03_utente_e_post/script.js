@@ -1,74 +1,30 @@
-// ⚠️ COMPILARE PRIMA DI INIZIARE
+// ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
 const BASE_URL = 'http://localhost:3000/api';
+const userId = document.getElementById('userId');
+const loading = document.getElementById('loading');
+const userProfile = document.getElementById('userProfile');
+const postsContainer = document.getElementById('postsContainer');
+const btnFetch = document.getElementById('btnFetch');
+
 
 /**
- * ESERCIZIO 3: Recupera un utente E tutti i suoi post
+ * FUNZIONE: Crea un utente card
  * 
- * Devi completare questa funzione:
- * 1. Leggi l'ID dell'utente
- * 2. Fai DUE fetch:
- *    - GET /users/{id}
- *    - GET /posts
- * 3. Filtra i post per trovare solo quelli di questo utente (usando userId)
- * 4. Mostra i risultati
- * 5. Gestisci gli errori
+ * Crea la card completa dell'utente e la inserisce nell'elemento userProfile
+ * L'oggetto user ha questa struttura:
+ * {
+ *   id: number,
+ *   nome: string,
+ *   cognome: string,
+ *   email: string,
+ *   avatar: string (url),
+ *   dataNascita: string (formato YYYY-MM-DD),
+ *   comune: string,
+ *   attivo: boolean
+ * }
  */
-async function fetchUserAndPosts() {
-    const userId = document.getElementById('userId').value;
-    const loading = document.getElementById('loading');
-    const userProfile = document.getElementById('userProfile');
-    const postsContainer = document.getElementById('postsContainer');
-
-    if (!userId || userId < 1 || userId > 40) {
-        userProfile.innerHTML = '<div class="error">❌ Inserisci un ID valido tra 1 e 40</div>';
-        return;
-    }
-
-    loading.style.display = 'block';
-    userProfile.innerHTML = '';
-    postsContainer.innerHTML = '';
-
-    try {
-        // 👇 SCRIVI QUI IL TUO CODICE 👇
-        // 1. Fetch utente
-        // const userResponse = await fetch(...);
-        // const user = await userResponse.json();
-
-        // 2. Fetch tutti i post
-        // const postsResponse = await fetch(...);
-        // const allPosts = await postsResponse.json();
-
-        // 3. Filtra i post di questo utente
-        // const userPosts = allPosts.filter(post => post.userId === user.id);
-
-        // 4. Visualizza
-        // displayUserWithPosts(user, userPosts);
-
-        // PLACEHOLDER - Rimuovi questa riga quando completi
-        throw new Error('Codice non implementato - Completa la funzione fetchUserAndPosts()');
-
-    } catch (error) {
-        userProfile.innerHTML = `
-            <div class="error">
-                <strong>❌ Errore:</strong> ${error.message}
-            </div>
-        `;
-        console.error('Errore:', error);
-    } finally {
-        loading.style.display = 'none';
-    }
-}
-
-/**
- * Visualizza utente e post
- * (Questa funzione è già fatta - non modificare)
- */
-function displayUserWithPosts(user, posts) {
-    const userProfile = document.getElementById('userProfile');
-    const postsContainer = document.getElementById('postsContainer');
-
-    // CARD UTENTE
-    const userHTML = `
+function creaCardUtente(user) {
+    userProfile.innerHTML = `
         <div class="user-card">
             <div class="card-header">
                 <img src="${user.avatar}" alt="Avatar" class="avatar">
@@ -80,45 +36,94 @@ function displayUserWithPosts(user, posts) {
             </div>
         </div>
     `;
-
-    userProfile.innerHTML = userHTML;
-
-    // POST DELL'UTENTE
-    if (!posts || posts.length === 0) {
-        postsContainer.innerHTML = `
-            <div class="posts-section">
-                <h2>📄 Post (0)</h2>
-                <div class="empty">Questo utente non ha scritto nessun post</div>
-            </div>
-        `;
-        return;
-    }
-
-    const postsHTML = `
-        <div class="posts-section">
-            <h2>📄 Post (${posts.length})</h2>
-            ${posts.map(post => `
-                <div class="post-card">
-                    <div class="post-header">
-                        <h3>${post.titolo}</h3>
-                        <span class="post-date">📅 ${post.data}</span>
-                    </div>
-                    <p class="post-content">${post.contenuto}</p>
-                    <div class="post-footer">
-                        <span class="likes">❤️ ${post.likes} likes</span>
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-    `;
-
-    postsContainer.innerHTML = postsHTML;
 }
 
+
+/**
+ * FUNZIONE: Crea le card dei post
+ * 
+ * Visualizza i post dell'utente nel contenitore postsContainer
+ * Se non ci sono post, mostra un messaggio di vuoto
+ * posts è un array di oggetti con questa struttura:
+ * {
+ *   id: number,
+ *   userId: number,
+ *   titolo: string,
+ *   contenuto: string,
+ *   data: string (formato YYYY-MM-DD),
+ *   likes: number
+ * }
+ */
+function creaCardPosts(postList) {
+
+    let allPosts = postList.map((post) => `
+    <div class="post-card">
+        <div class="post-header">
+            <h3>${post.titolo}</h3>
+            <span class="post-date">📅 ${post.data}</span>
+        </div>
+        <p class="post-content">${post.contenuto}</p>
+        <div class="post-footer">
+            <span class="likes">❤️ ${post.likes} likes</span>
+        </div>
+    </div>
+    `).join('')
+
+    if (postList.length === 0) {
+        allPosts = `
+        <div class="empty">
+            Questo utente non ha scritto nessun post
+        </div>
+        `;
+    }
+
+    postsContainer.innerHTML = `
+        <div class="posts-section">
+            <h2>📄 Post (${postList.length})</h2>
+            ${allPosts}
+        </div>
+    `;
+}
+
+/**
+ * FUNZIONE: Gestione errori
+ * 
+ * Mostra un messaggio di errore e logga in console
+ */
+function handleError(message) {
+    userProfile.innerHTML = `
+        <div class="error">
+            <strong>❌ ${message}</strong>
+        </div>
+    `;
+    console.error('Errore:', message);
+}
+
+
+/**
+ * ESERCIZIO 3: Recupera un utente E tutti i suoi post
+ * 
+ * Devi completare questa funzione:
+ * 1. Leggi l'ID dell'utente
+ * 2. Valida che sia un numero tra 1 e 40
+ * 3. Mostra lo spinner di caricamento
+ * 4. Apri un blocco try/catch
+ * 5. Fai DUE fetch:
+ *    - GET /users/{id}
+ *    - GET /posts
+ * 6. Filtra i post per trovare solo quelli di questo utente (usando userId)
+ *    - Il filtro va fatto in JS, ma puoi anche usare un endpoint come /posts?userId={id}
+ * 7. Mostra i risultati chiamando prima creaCardUtente(user) e poi creaCardPosts(posts)
+ * 8. Gestisci gli errori con handleError()
+ */
+async function fetchUserAndPosts() {
+}
+
+
 // COLLEGA IL BOTTONE
-document.getElementById('btnFetch').addEventListener('click', fetchUserAndPosts);
+btnFetch.addEventListener('click', fetchUserAndPosts);
 
 // PERMETTI ENTER
-document.getElementById('userId').addEventListener('keypress', (e) => {
+userId.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') fetchUserAndPosts();
 });
