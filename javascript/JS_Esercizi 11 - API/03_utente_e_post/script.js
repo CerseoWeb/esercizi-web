@@ -117,6 +117,8 @@ function handleError(message) {
  * 8. Gestisci gli errori con handleError()
  */
 async function fetchUserAndPosts() {
+    // TODO Rimuovi questa riga e completa la funzione
+    handleError('Codice non implementato - Completa la funzione fetchUserAndPosts()');
 }
 
 

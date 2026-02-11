@@ -32,29 +32,6 @@
 
         <!-- POST -->
         <div id="postsContainer" class="posts-container"></div>
-
-        <!-- ISTRUZIONI -->
-        <div class="instructions-box" style="margin-top: 30px;">
-            <h2>📝 Istruzioni</h2>
-            <ol>
-                <li>Apri <code>script.js</code> e completa <code>fetchUserAndPosts()</code></li>
-                <li>Compila <code>BASE_URL</code></li>
-                <li>Fai due fetch: <code>/users/{id}</code> e <code>/posts</code></li>
-                <li>Usa <code>filter()</code> per relazionare i dati</li>
-            </ol>
-
-            <div class="hint">
-                <strong>💡 Suggerimento:</strong>
-                <pre>const user = await fetch(...);
-const allPosts = await fetch(...);
-const userPosts = allPosts.filter(post => post.userId === user.id);</pre>
-            </div>
-
-            <div class="challenge">
-                <strong>🎯 Bonus Challenge:</strong>
-                <p>Ordina i post dal più recente al meno recente usando <code>sort()</code>.</p>
-            </div>
-        </div>
     </div>
 
     <script src="script.js"></script>
