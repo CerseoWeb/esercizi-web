@@ -23,7 +23,7 @@
         </div>
 
         <!-- SEZIONE AGGIUNTA TODO -->
-        <div id="addTodoSection" class="add-todo-box" style="display: none;">
+        <div id="addTodoSection" class="add-todo-box nascosto">
             <h2>➕ Aggiungi Nuovo TODO</h2>
             <div class="input-group">
                 <input type="text" id="todoInput" placeholder="Scrivi un nuovo TODO...">
@@ -32,60 +32,15 @@
         </div>
 
         <!-- LOADING -->
-        <div id="loading" class="loading" style="display: none;">
+        <div id="loading" class="loading nascosto">
             ⏳ Caricamento...
         </div>
 
         <!-- COUNTER -->
-        <div id="counter" class="counter" style="display: none;"></div>
+        <div id="counter" class="counter nascosto"></div>
 
         <!-- LISTA TODO -->
         <div id="todosContainer" class="todos-container"></div>
-
-        <!-- ISTRUZIONI -->
-        <div class="instructions">
-            <h2>📝 Cosa Devi Fare</h2>
-            <p style="margin-bottom: 15px;"><strong>Questa è l'esercitazione finale!</strong> Devi implementare TUTTE le operazioni CRUD:</p>
-            
-            <h3>1️⃣ Carica TODO (GET)</h3>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li>Fai una GET a <code>/todos?userId={id}</code> per ottenere i TODO dell'utente</li>
-                <li>Visualizza la lista</li>
-            </ul>
-
-            <h3>2️⃣ Aggiungi TODO (POST)</h3>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li>Fai una POST a <code>/todos</code> con: <code>{userId, titolo, completato: false}</code></li>
-                <li>Ricarica la lista</li>
-            </ul>
-
-            <h3>3️⃣ Modifica TODO (PUT)</h3>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li>Fai una PUT a <code>/todos/{id}</code> con: <code>{completato: !currentValue}</code></li>
-                <li>Aggiorna la lista</li>
-            </ul>
-
-            <h3>4️⃣ Elimina TODO (DELETE)</h3>
-            <ul style="margin-left: 20px; margin-bottom: 15px;">
-                <li>Fai una DELETE a <code>/todos/{id}</code></li>
-                <li>Rimuovi dalla lista</li>
-            </ul>
-
-            <div class="hint">
-                <strong>💡 Struttura del codice:</strong>
-                <pre>// Funzioni che devi implementare:
-loadUserTodos(userId)     // GET
-addTodo()                 // POST
-toggleTodo(id, current)   // PUT
-deleteTodo(id)            // DELETE
-displayTodos(todos)       // Visualizza (già fatto)</pre>
-            </div>
-
-            <div class="challenge">
-                <strong>🎯 Bonus Challenge:</strong>
-                <p>Aggiungi un riepilogo: quanti TODO sono completati vs quanti rimangono?</p>
-            </div>
-        </div>
     </div>
 
     <script src="script.js"></script>
