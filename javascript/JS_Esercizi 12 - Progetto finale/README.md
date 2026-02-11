@@ -52,15 +52,15 @@ Nel tab di VSCode, vai su "Source Control" (icona del ramo git) e vedrai i file 
    → commit: "HTML: aggiunta struttura modal"
    ```
 
-## 📝 Compiti degli Studenti
+## 📝 Esercizio da Implementare
 
-Dopo la sessione iniziale, gli studenti dovranno completare le funzionalità
+Dopo la sessione iniziale, si dovranno completare le funzionalità 
 indicate dentro il file `script.js` seguendo il workflow Git.
 
-Dopo ogni funzionalità completata, devono fare un commit con un messaggio chiaro e significativo.
-Ogni tanto ricordarsi di fare push per evitare di perdere il lavoro!`
+Dopo ogni funzionalità completata, si deve fare un commit con un messaggio chiaro e significativo.
+Ogni tanto ricordarsi di fare push per evitare di perdere il lavoro!
 
-Gli esercizi da fare si possono dividere in 3 task principali:
+Gli esercizi da fare si possono dividere in 3 punti principali:
 
 1. Popolare la tabella con i dati dei prodotti
 2. Implementare il modal dei dettagli

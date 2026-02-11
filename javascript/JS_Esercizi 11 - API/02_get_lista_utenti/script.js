@@ -1,5 +1,5 @@
 // ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
-const BASE_URL = 'http://localhost:3000/api';
+const BASE_URL = 'http://localhost:5000/api';
 const loading = document.querySelector('#loading');
 const counter = document.querySelector('#counter');
 const result = document.querySelector('#result');

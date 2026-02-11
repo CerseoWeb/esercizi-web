@@ -24,7 +24,7 @@ server.use('/api', router);
 
 // Avvio del server
 const host = '0.0.0.0';
-const port = 3000;
+const port = 5000;
 server.listen(port, host, () => {
     console.log(`\nJSON Server is running:`);
 

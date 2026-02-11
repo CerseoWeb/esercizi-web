@@ -1,5 +1,5 @@
 // ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
-const BASE_URL = 'http://192.168.1.7:3000/api';
+const BASE_URL = 'http://localhost:5000/api';
 const keyword = document.querySelector('#keyword');
 const loading = document.querySelector('#loading');
 const results = document.querySelector('#results');
