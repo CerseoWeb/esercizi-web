@@ -34,30 +34,30 @@ h1 {
 }
 
 .search-box {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
 }
 
 .search-box h2 {
     color: #333;
-    margin-bottom: 20px;
-    font-size: 1.2em;
-}
-#f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 25px;
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
 }
 
 .search-box label {
     display: block;
     color: #555;
     font-weight: 600;
-    margin-bottom: 10 #ddd;
-    border-radius: 60px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .input-group input {
@@ -66,11 +66,13 @@ h1 {
     border: 2px solid #ddd;
     border-radius: 6px;
     font-size: 15px;
+    font-family: inherit;
 }
 
 .input-group input:focus {
     outline: none;
     border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 .input-group button {
@@ -81,17 +83,26 @@ h1 {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .input-group button:hover {
-    background: #85r056b3
+    background: #0056b3;
+}
+
+.hint-text {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
 
 .loading {
     text-align: center;
-    color: white;
-    font-size: 1.2em;
-    padding#666;
-    padding: 3
+    color: #666;
+    font-size: 1rem;
+    padding: 30px;
+    animation: pulse 1s infinite;
+}
 
 @keyframes pulse {
     0%, 100% { opacity: 1; }
@@ -102,14 +113,15 @@ h1 {
     margin-bottom: 50px;
 }
 
-.pokemon-card {30px;
-}
-
 .pokemon-card {
     background: #f9f9f9;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);-header {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+.card-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 20px;
@@ -117,44 +129,33 @@ h1 {
 }
 
 .card-header h2 {
-    font-size: 1.8em;
+    margin: 0;
+    font-size: 1.3rem;
 }
 
 .card-image {
-    background: #f9f9f9;
+    background: white;
     padding: 30px;
-    text-align: center;
-    border-bottom: 2px solid #f0f0f0;
-}007bff 0%, #0056b3 100%);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.card-header h2 {
-    margin: 0;
-    font-size: 1.3r
-.card-details {white;
-    padding: 20px;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
 }
 
 .card-image img {
-    max-width: 18 0;
-    border-bottom: 1px solid #eee;
+    max-width: 180px;
+    height: auto;
 }
 
-.detail-row:last-child {
-    border-bottom: none;
-}0px;
+.card-details {
+    padding: 20px;
 }
 
 .detail-row {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+    font-size: 0.95rem;
 }
 
 .detail-row:last-child {
@@ -162,33 +163,41 @@ h1 {
 }
 
 .detail-row strong {
-    color: #333solid #eee;
+    color: #333;
+    font-weight: 600;
+}
+
+.card-footer {
+    background: #f9f9f9;
+    padding: 12px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
 }
 
 .card-footer small {
     color: #999;
+    font-size: 0.8rem;
 }
 
 .card-footer a {
-    color: #667eea;
+    color: #007bff;
     text-decoration: none;
-    font-weight: 500;
-}2px;
-    text-align: center;
-    border-top: 1px solid #f0f0f0;
-    font-size: 0.85rem;
-    color: #999;
 }
 
-.card-footer a {
-    color: #007bff 8px;
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    background: #fee;
+    color: #c00;
+    padding: 15px;
+    border-radius: 6px;
     border-left: 4px solid #c00;
     font-weight: 500;
 }
 
 .instructions {
-    background: rgba(255, 255, 255, 0.95);
-    padding: -box {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
@@ -196,29 +205,30 @@ h1 {
     margin-top: 30px;
 }
 
-.instructions-box h2 {
+.instructions h2 {
     color: #333;
     margin: 0 0 15px 0;
     font-size: 1.1rem;
 }
 
-.instructions-box ol, .instructions-box ul {
+.instructions ol,
+.instructions ul {
     margin-left: 20px;
     color: #555;
     line-height: 1.7;
 }
 
-.instructions-box li {
+.instructions li {
     margin-bottom: 8px;
 }
 
-.instructions-box code {
+.instructions code {
     background: white;
     padding: 2px 5px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
     color: #d63384;
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 .hint {
@@ -240,6 +250,41 @@ h1 {
     padding: 10px;
     border-radius: 4px;
     overflow-x: auto;
-    font-size: 0.8em;
+    font-size: 0.85rem;
     color: #333;
-    margin: 0
+    margin: 0;
+}
+
+.challenge {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.challenge strong {
+    color: #28a745;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.challenge p {
+    margin: 0;
+    color: #555;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nascosto {
+    display: none;
+}

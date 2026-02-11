@@ -7,55 +7,101 @@
  * API Base: https://api.open-meteo.com/v1/forecast
  */
 
+// ===== VARIABILI DEL DOM =====
+const latitude = document.getElementById('latitude');
+const longitude = document.getElementById('longitude');
+const btnSearch = document.getElementById('btnSearch');
+const loading = document.getElementById('loading');
+const weatherContainer = document.getElementById('weatherContainer');
+
+
 /**
- * Ricerca il meteo per latitudine e longitudine
+ * FUNZIONE: Gestione errori
  * 
- * Parametri obbligatori:
+ * Mostra un messaggio di errore e logga in console
+ */
+function handleError(message) {
+    weatherContainer.innerHTML = `
+        <div class="error">
+            <strong>❌ ${message}</strong>
+        </div>
+    `;
+    console.error('Errore:', message);
+}
+
+
+/**
+ * FUNZIONE: Ricerca il meteo per latitudine e longitudine
+ * 
+ * Parametri obbligatori dell'API:
  * - latitude: numero decimale
  * - longitude: numero decimale
  * - current: variabili da ottenere (separati da virgola)
  * - timezone: 'auto' oppure fuso orario specifico
+ * 
+ * Passi:
+ * 1. Leggi latitudine e longitudine dagli input
+ * 2. Valida che siano compilati
+ * 3. Mostra lo spinner di caricamento
+ * 4. Costruisci l'URL con i parametri corretti
+ * 5. Fai una GET a https://api.open-meteo.com/v1/forecast
+ * 6. Se non OK, mostra errore e return
+ * 7. Converti in JSON
+ * 8. Estrai data.current
+ * 9. Chiama displayWeather() per visualizzare
+ * 10. Nascondi lo spinner
  */
 async function searchWeather() {
-    const latitude = document.getElementById('latitude').value;
-    const longitude = document.getElementById('longitude').value;
-    const loading = document.getElementById('loading');
-    const container = document.getElementById('weatherContainer');
+    const lat = latitude.value;
+    const lon = longitude.value;
 
     // VALIDAZIONE
-    if (!latitude || !longitude) {
-        container.innerHTML = '<div class="error">❌ Inserisci latitudine e longitudine</div>';
+    if (!lat || !lon) {
+        handleError('Inserisci latitudine e longitudine');
         return;
     }
 
-    loading.style.display = 'block';
-    container.innerHTML = '';
+    loading.classList.remove('nascosto');
+    weatherContainer.innerHTML = '';
 
     try {
         // 👇 SCRIVI QUI IL TUO CODICE 👇
         
-        // Costruisci l'URL con i parametri corretti:
-        // const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + ...
+        // 1. Costruisci l'URL con i parametri corretti:
+        // const url = 'https://api.open-meteo.com/v1/forecast' +
+        //     '?latitude=' + lat +
+        //     '&longitude=' + lon +
+        //     '&current=temperature_2m,relative_humidity_2m,weather_code' +
+        //     '&timezone=auto';
+        
+        // 2. Fai la fetch
         // const response = await fetch(url);
+        
+        // 3. Se non OK, mostra errore e return
+        // if (!response.ok) {
+        //     throw new Error('Errore nel caricamento dei dati meteo');
+        // }
+        
+        // 4. Converti in JSON
         // const data = await response.json();
-        // displayWeather(data.current, latitude, longitude);
+        
+        // 5. Estrai i dati meteo e visualizza
+        // displayWeather(data.current, lat, lon);
 
         throw new Error('Codice non implementato - Completa searchWeather()');
 
     } catch (error) {
-        container.innerHTML = `<div class="error">❌ ${error.message}</div>`;
-        console.error('Errore:', error);
+        handleError(error.message);
     } finally {
-        loading.style.display = 'none';
+        loading.classList.add('nascosto');
     }
 }
 
 /**
- * Visualizza i dati meteo
- * (Questa funzione è già fatta)
+ * FUNZIONE: Visualizza i dati meteo
+ * (Questa funzione è già fatta - non modificare)
  */
 function displayWeather(current, lat, lon) {
-    const container = document.getElementById('weatherContainer');
 
     // Converti codice meteo in descrizione
     const weatherDescriptions = {
@@ -95,17 +141,17 @@ function displayWeather(current, lat, lon) {
         </div>
     `;
 
-    container.innerHTML = html;
+    weatherContainer.innerHTML = html;
 }
 
-// COLLEGA IL BOTTONE
-document.getElementById('btnSearch').addEventListener('click', searchWeather);
+// ===== COLLEGA GLI EVENTI =====
+btnSearch.addEventListener('click', searchWeather);
 
 // PERMETTI ENTER
-document.getElementById('latitude').addEventListener('keypress', (e) => {
+latitude.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') searchWeather();
 });
 
-document.getElementById('longitude').addEventListener('keypress', (e) => {
+longitude.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') searchWeather();
 });

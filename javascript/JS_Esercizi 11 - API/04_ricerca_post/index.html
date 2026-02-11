@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 4 - Ricerca Post</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="../index.html" style="position: absolute; top: 20px; left: 20px; text-decoration: none; color: #555; font-weight: bold;">← Dashboard</a>
+
+    <div class="app-container">
+        <h1>🔍 Ricerca Post</h1>
+        <p class="subtitle">Fetch multipli con filtri incrociati</p>
+
+        <!-- SEZIONE CONFIGURAZIONE -->
+        <div class="config-box">
+            <label for="keyword">Ricerca per parola chiave:</label>
+            <div class="input-group">
+                <input type="text" id="keyword" placeholder="Es: JavaScript, CSS, React...">
+                <button id="btnSearch">Cerca</button>
+            </div>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading nascosto">
+            ⏳ Caricamento...
+        </div>
+
+        <!-- RISULTATI -->
+        <div id="resultsContainer" class="results-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

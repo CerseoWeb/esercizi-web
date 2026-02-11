@@ -481,6 +481,126 @@
             "contenuto": "Chi vuole aiutarmi con una app open source?",
             "likes": 0,
             "data": "2023-10-14"
+        },
+        {
+            "id": 11,
+            "userId": 5,
+            "titolo": "JavaScript async/await",
+            "contenuto": "Finalmente ho capito la differenza tra Promises e async/await.",
+            "likes": 67,
+            "data": "2023-10-16"
+        },
+        {
+            "id": 12,
+            "userId": 1,
+            "titolo": "API REST in 10 minuti",
+            "contenuto": "Un semplice tutorial su come creare una API.",
+            "likes": 34,
+            "data": "2023-10-18"
+        },
+        {
+            "id": 13,
+            "userId": 12,
+            "titolo": "Imparare CSS Grid",
+            "contenuto": "Grid è più semplice di quanto pensi.",
+            "likes": 28,
+            "data": "2023-10-17"
+        },
+        {
+            "id": 14,
+            "userId": 10,
+            "titolo": "Debugging con console.log",
+            "contenuto": "A volte le soluzioni più semplici funzionano meglio.",
+            "likes": 15,
+            "data": "2023-10-19"
+        },
+        {
+            "id": 15,
+            "userId": 7,
+            "titolo": "Open source per principianti",
+            "contenuto": "Iniziare a contribuire al tuo primo progetto.",
+            "likes": 42,
+            "data": "2023-10-20"
+        },
+        {
+            "id": 16,
+            "userId": 15,
+            "titolo": "Il mio primo npm package",
+            "contenuto": "Ho pubblicato la mia prima libreria JavaScript.",
+            "likes": 11,
+            "data": "2023-10-21"
+        },
+        {
+            "id": 17,
+            "userId": 2,
+            "titolo": "CSS Flexbox Tips",
+            "contenuto": "Alcuni trucchi utili per usare Flexbox meglio.",
+            "likes": 56,
+            "data": "2023-10-22"
+        },
+        {
+            "id": 18,
+            "userId": 20,
+            "titolo": "Testing in JavaScript",
+            "contenuto": "Perché i test sono importanti per il tuo codice.",
+            "likes": 73,
+            "data": "2023-10-23"
+        },
+        {
+            "id": 19,
+            "userId": 5,
+            "titolo": "TypeScript per chi inizia",
+            "contenuto": "Le basi di TypeScript senza complicazioni.",
+            "likes": 89,
+            "data": "2023-10-24"
+        },
+        {
+            "id": 20,
+            "userId": 12,
+            "titolo": "Responsive Design Essenziale",
+            "contenuto": "Mobile first è il nuovo standard.",
+            "likes": 44,
+            "data": "2023-10-25"
+        },
+        {
+            "id": 21,
+            "userId": 1,
+            "titolo": "DOM Manipulation Semplice",
+            "contenuto": "Come modificare il DOM senza framework.",
+            "likes": 26,
+            "data": "2023-10-26"
+        },
+        {
+            "id": 22,
+            "userId": 4,
+            "titolo": "Alternativa a jQuery",
+            "contenuto": "Non hai bisogno di jQuery per le cose semplici.",
+            "likes": 37,
+            "data": "2023-10-27"
+        },
+        {
+            "id": 23,
+            "userId": 15,
+            "titolo": "Gestione degli errori",
+            "contenuto": "Try/catch: quando e come usarlo.",
+            "likes": 19,
+            "data": "2023-10-28"
+        },
+        {
+            "id": 24,
+            "userId": 10,
+            "titolo": "Le Arrow Function",
+            "contenuto": "Cosa sono e quando usarle nella pratica.",
+            "likes": 31,
+            "data": "2023-10-29"
+        },
+        {
+            "id": 25,
+            "userId": 20,
+            "titolo": "Destructuring in JavaScript",
+            "contenuto": "Una sintassi comoda che ti farà risparmiare tempo.",
+            "likes": 52,
+            "data": "2023-10-30"
         }
     ],
     "todos": [
