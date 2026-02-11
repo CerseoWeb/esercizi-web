@@ -247,3 +247,7 @@ h1 {
     color: #333;
     margin: 0;
 }
+
+.nascosto {
+    display: none;
+}
