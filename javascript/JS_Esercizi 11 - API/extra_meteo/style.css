@@ -54,13 +54,13 @@ h1 {
     font-size: 0.95rem;
 }
 
-.coord-group {
+.input-group {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
 }
 
-.coord-group input {
+.input-group input {
     flex: 1;
     padding: 10px;
     border: 2px solid #ddd;
@@ -69,13 +69,13 @@ h1 {
     font-family: inherit;
 }
 
-.coord-group input:focus {
+.input-group input:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
-.coord-group button {
+.input-group button {
     padding: 10px 20px;
     background: #007bff;
     color: white;
@@ -86,7 +86,7 @@ h1 {
     transition: background 0.2s;
 }
 
-.coord-group button:hover {
+.input-group button:hover {
     background: #0056b3;
 }
 

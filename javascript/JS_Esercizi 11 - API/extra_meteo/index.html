@@ -17,7 +17,7 @@
         <div class="search-box">
             <h2>🔍 Ricerca Città</h2>
             <label>Latitudine e Longitudine:</label>
-            <div class="coord-group">
+            <div class="input-group">
                 <input type="number" id="latitude" placeholder="Lat" step="0.01" value="45.4642">
                 <input type="number" id="longitude" placeholder="Lon" step="0.01" value="9.1900">
                 <button id="btnSearch">Cerca Meteo</button>
@@ -38,35 +38,51 @@
             <h2>📝 Cosa Devi Fare</h2>
             <ol>
                 <li>Leggi latitudine e longitudine dagli input</li>
-                <li>Fai una GET a <code>https://api.open-meteo.com/v1/forecast</code> con parametri:
+                <li>Costruisci l'URL della richiesta con i parametri query
                     <ul style="margin-top: 10px;">
-                        <li><code>latitude={lat}</code></li>
-                        <li><code>longitude={lon}</code></li>
-                        <li><code>current=temperature_2m,relative_humidity_2m,weather_code</code></li>
-                        <li><code>timezone=auto</code></li>
+                        <li>URL base: <code>https://api.open-meteo.com/v1/forecast</code></li>
+                        <li>Parametri: <code>latitude</code>, <code>longitude</code>, <code>current</code>, <code>timezone</code></li>
                     </ul>
                 </li>
-                <li>Estrai i dati dal JSON: <code>response.current</code></li>
+                <li>Fai una GET all'URL che hai costruito</li>
+                <li>Crea l'oggetto dalla risposta JSON</li>
+                <li>
+                    Prendi i dati da dentro <code>response.current</code><br>
+                    L'oggetto è più complesso, ma ci servono solo i dati attuali.
+                </li>
                 <li>Visualizza temperatura, umidità, descrizione meteo</li>
             </ol>
 
             <div class="hint">
-                <strong>💡 URL Completo:</strong>
-                <pre>https://api.open-meteo.com/v1/forecast?latitude=45.46&longitude=9.19&current=temperature_2m,relative_humidity_2m,weather_code&timezone=auto</pre>
+                <strong>💡 Come costruire l'URL:</strong>
+                <p>I parametri query iniziano con <code>?</code> e sono separati da <code>&amp;</code></p>
+                <pre>const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&amp;longitude=${lon}&amp;current=temperature_2m,relative_humidity_2m,weather_code&amp;timezone=auto`;</pre>
+            </div>
+
+            <div class="hint">
+                <strong>💡 URL Completo (esempio con Milano):</strong>
+                <pre>https://api.open-meteo.com/v1/forecast?latitude=45.46&amp;longitude=9.19&amp;current=temperature_2m,relative_humidity_2m,weather_code&amp;timezone=auto</pre>
+                <p>Puoi testare questo URL direttamente nel browser per vedere la struttura della risposta.</p>
+                <p>
+                    Sarà in formato JSON, copiala e mettila in un visualizzatore JSON online per esplorarla meglio.<br>
+                    Oppure mettila in un file (es. response.json) e aprilo con VSCode, premi CTRL+SHIFT+F per formattarlo.
+                </p>
             </div>
 
             <div class="hint">
                 <strong>💡 Struttura Risposta:</strong>
                 <pre>response.current = {
+  time: "2024-06-01T12:00:00Z",
+  interval: 900,
   temperature_2m: 22.5,
   relative_humidity_2m: 65,
-  weather_code: 0  // 0=soleggiato, 1=nuvoloso, ecc
+  weather_code: 0  // 0=soleggiato, 1=nuvoloso, 2=coperto, 3=pioggia, ecc
 }</pre>
             </div>
 
             <div class="challenge">
                 <strong>🎯 Bonus Challenge:</strong>
-                <p>Converti il codice meteo in emoji (0=☀️, 1=⛅, 2=☁️, 3=🌧️, ecc.)</p>
+                <p>Converti il codice meteo in emoji (0=☀️, 1=⛅, 2=☁️, 3=🌧️, ecc.) usando una mappa di conversione</p>
             </div>
         </div>
     </div>

@@ -38,26 +38,50 @@
             <ol>
                 <li>Leggi il nome/numero dal campo input</li>
                 <li>Fai una GET a <code>https://pokeapi.co/api/v2/pokemon/{name_or_id}</code></li>
-                <li>Se ricevi un errore 404, mostra "Pokémon non trovato"</li>
-                <li>Estrai da <code>response</code>:
+                <li>Verifica che la risposta sia OK (gestisci errori 404)
+                    <ul style="margin-top: 10px;">
+                        <li>Se <code>!response.ok</code>, mostra un errore</li>
+                    </ul>
+                </li>
+                <li>Estrai i dati da <code>response</code>:
                     <ul style="margin-top: 10px;">
                         <li><code>name</code> - Nome</li>
                         <li><code>sprites.front_default</code> - Immagine</li>
                         <li><code>height</code> - Altezza (in decimetri)</li>
                         <li><code>weight</code> - Peso (in ettogrammi)</li>
-                        <li><code>types[].type.name</code> - Tipi (array)</li>
+                        <li><code>types[].type.name</code> - Tipi (è un ARRAY!)</li>
                     </ul>
                 </li>
                 <li>Visualizza le informazioni in una card</li>
             </ol>
 
             <div class="hint">
-                <strong>💡 URL Completo:</strong>
+                <strong>💡 URL Completo (esempio Pikachu):</strong>
                 <pre>https://pokeapi.co/api/v2/pokemon/pikachu</pre>
             </div>
 
             <div class="hint">
-                <strong>💡 Gestire errore 404:</strong>
+                <strong>💡 Array Annidati - Come Accedere a <code>types</code>:</strong>
+                <p><code>types</code> è un ARRAY di oggetti. Ogni elemento ha <code>type.name</code>:</p>
+                <pre>// response.types = [{type: {name: "electric"}}, {type: {name: "flying"}}]
+// Per estrarre i nomi, usa map():
+const typeNames = response.types.map(t => t.type.name);
+// Risultato: ["electric", "flying"]</pre>
+            </div>
+
+            <div class="hint">
+                <strong>💡 Struttura Card da Visualizzare:</strong>
+                <pre>&lt;div class="pokemon-card"&gt;
+  &lt;img src="sprites.front_default" alt="name"&gt;
+  &lt;h3&gt;name&lt;/h3&gt;
+  &lt;p&gt;Altezza: height dm&lt;/p&gt;
+  &lt;p&gt;Peso: weight hg&lt;/p&gt;
+  &lt;p&gt;Tipi: typeNames.join(", ")&lt;/p&gt;
+&lt;/div&gt;</pre>
+            </div>
+
+            <div class="hint">
+                <strong>💡 Gestire Errori:</strong>
                 <pre>if (!response.ok) {
     throw new Error('Pokémon non trovato');
 }</pre>
@@ -65,7 +89,7 @@
 
             <div class="challenge">
                 <strong>🎯 Bonus Challenge:</strong>
-                <p>Colora la card in base al tipo (Fire=rosso, Water=blu, ecc.). Oppure aggiungi 5 Pokémon random al caricamento della pagina.</p>
+                <p>Aggiungi una funzione che carica 6 Pokémon casuali al caricamento della pagina (usa numeri random tra 1 e 151 per Pokémon validi)</p>
             </div>
         </div>
     </div>
