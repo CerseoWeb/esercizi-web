@@ -1,85 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    background: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 20px;
-    max-width: 900px;
+    min-height: 100vh;
+}
+
+.wrapper {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .server-info {
-    background: #333;
+    background: linear-gradient(135deg, #3d4555 0%, #2a3142 100%);
     color: white;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 12px;
     margin-bottom: 30px;
     text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.resource-card {
+.server-info p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+.server-info strong {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Resource Section */
+.resource-section {
     background: white;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.resource-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.resource-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #007bff;
-}
-
-.resource-count {
-    background: #eee;
-    padding: 5px 10px;
     border-radius: 12px;
-    font-size: 0.9em;
-    font-weight: bold;
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 }
 
-.url-box {
+.resource-section:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.resource-section-header {
+    background: linear-gradient(135deg, #7577e0 0%, #8f65ac 100%);
+    color: white;
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    user-select: none;
+    transition: all 0.15s ease;
+}
+
+.resource-section-header:hover {
+    background: linear-gradient(135deg, #6668d5 0%, #7f559c 100%);
+}
+
+.resource-section-header.expanded {
+    border-bottom: 3px solid #fca130;
+}
+
+.resource-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    min-width: 180px;
+}
+
+.resource-url {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.toggle-icon {
+    font-size: 1.2em;
+    transition: transform 0.15s ease;
+    margin-left: auto;
+}
+
+.resource-section-header.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.resource-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.15s ease;
+    padding: 0;
+}
+
+.resource-content.expanded {
+    max-height: 10000px;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* Endpoint Card */
+.endpoint-card {
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
+
+.endpoint-card:hover {
+    border-color: #d0d0d0;
+    background: #f5f5f5;
+}
+
+.endpoint-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    background: white;
+    border-bottom: 1px solid #eee;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.endpoint-header:hover {
+    background: #fafafa;
+}
+
+.endpoint-header.expanded {
+    background: #f3f3f9;
+    border-bottom-color: #7577e0;
+}
+
+.method-badge {
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85em;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    grid-column: 1;
+    grid-row: 1;
+    flex-shrink: 0;
+}
+
+.endpoint-path {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #333;
+    grid-column: 2;
+    grid-row: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.endpoint-desc {
+    font-size: 0.85em;
+    color: #666;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.endpoint-toggle {
+    color: #999;
+    font-size: 1.2em;
+    transition: transform 0.15s ease;
+    grid-column: 3;
+    grid-row: 1;
+    flex-shrink: 0;
+}
+
+.endpoint-header.expanded .endpoint-toggle {
+    transform: rotate(45deg);
+    color: #7577e0;
+}
+
+/* Endpoint Details */
+.endpoint-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.15s ease;
+    background: #fafafa;
+}
+
+.endpoint-details[data-expanded="true"] {
+    max-height: 5000px;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+    padding: 14px;
+    background: white;
+    border-radius: 4px;
+}
+
+.detail-section:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.detail-section strong {
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ccc;
+    color: #333;
+    font-size: 1.05em;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.detail-section pre {
     background: #2d2d2d;
     color: #76ff03;
-    padding: 10px;
-    font-family: monospace;
+    padding: 12px;
     border-radius: 4px;
-    margin-top: 10px;
-    display: inline-block;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.preview {
-    background: #f9f9f9;
-    padding: 10px;
-    border-left: 4px solid #007bff;
-    margin-top: 15px;
-    font-family: monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    max-height: 200px;
-}
-
-.code-label {
+    font-family: 'Courier New', monospace;
     font-size: 0.85em;
+    overflow-x: auto;
+    max-height: 250px;
+    overflow-y: auto;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Parametri List */
+.params-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.param-category {
+    font-size: 0.95em;
+    font-weight: 700;
     color: #555;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-family: monospace;
+    margin-top: 14px;
+    margin-bottom: 10px;
+    padding: 8px 10px;
+    background: #f0f0f5;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    opacity: 0.85;
+}
+
+.param-category:first-child {
+    margin-top: 0;
+}
+
+.param-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fafafa;
+    border-radius: 6px;
+    align-items: center;
+}
+
+.param-name {
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 1em;
+    color: #333;
+    word-break: break-word;
+}
+
+.param-desc {
+    color: #7577e0;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .resource-section-header {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    .resource-title {
+        min-width: auto;
+        flex: 1 0 100%;
+    }
+
+    .resource-url {
+        flex: 1 0 calc(100% - 40px);
+        font-size: 0.85em;
+    }
+
+    .toggle-icon {
+        flex: 0 0 auto;
+    }
+
+    .endpoint-header {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px 14px;
+    }
+
+    .method-badge {
+        flex: 0 0 auto;
+        min-width: 50px;
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    .endpoint-path {
+        flex: 1 0 100%;
+        font-size: 0.85em;
+    }
+
+    .endpoint-desc {
+        flex: 1 0 100%;
+        font-size: 0.8em;
+    }
+
+    .endpoint-toggle {
+        flex: 0 0 auto;
+    }
+
+    .detail-section pre {
+        font-size: 0.75em;
+    }
 }

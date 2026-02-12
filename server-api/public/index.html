@@ -3,67 +3,270 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>API Dashboard</title>
+    <title>API Dashboard - Swagger</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <h1>🎛️ Pannello di Controllo API</h1>
+    <h1>Pannello di Controllo API</h1>
 
     <div class="server-info">
-        <p>Il server è attivo.</p>
-        <p>Indirizzo Base: <strong id="base-url">...</strong></p>
+        <p>✅ Il server è attivo</p>
+        <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.9;">URL Server: <strong id="base-url">...</strong></p>
     </div>
 
-    <div id="container">Loading resources...</div>
+    <div id="container">Caricamento risorse...</div>
 
     <script>
-        const container = document.getElementById('container');
-        const baseUrlDisplay = document.getElementById('base-url');
+        const container = document.querySelector('#container');
+        const baseUrlDisplay = document.querySelector('#base-url');
 
-        // Imposta l'URL base dinamico (così funziona sia su localhost che su IP di rete)
-        const BASE_URL = window.location.origin;
-        baseUrlDisplay.innerText = BASE_URL;
+        // Variabile globale per l'URL del server
+        let BASE_URL = '';
+
+        // Calcola l'URL con porta 5000 automaticamente
+        function initializeBaseUrl() {
+            const protocol = window.location.protocol;
+            const hostname = window.location.hostname;
+            BASE_URL = `${protocol}//${hostname}:5000`;
+            baseUrlDisplay.innerText = BASE_URL;
+        }
+
+        // Mappa dei metodi HTTP con colori
+        const methodColors = {
+            'GET': '#61affe',
+            'POST': '#49cc90',
+            'PUT': '#fca130',
+            'DELETE': '#f93e3e'
+        };
 
         async function scanDatabase() {
             try {
                 const response = await fetch(`${BASE_URL}/api`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('L\'endpoint /api non restituisce JSON. Ricevuto: ' + contentType);
+                }
+
                 const data = await response.json();
 
                 container.innerHTML = '';
 
-                for (const [key, _] of Object.entries(data)) {
-                    createResourceCard(key);
+                for (const [resourceName, fields] of Object.entries(data)) {
+                    await createResourceSection(resourceName, fields);
+                }
+
+                if (Object.keys(data).length === 0) {
+                    container.innerHTML = '<p style="color:#999; text-align:center;">Nessuna risorsa trovata</p>';
                 }
 
             } catch (error) {
-                container.innerHTML = `<h3 style="color:red">Errore di connessione al DB: ${error.message}</h3>`;
+                container.innerHTML = `
+                    <div style="background:#ffebee; border-left:4px solid #f44336; padding:20px; border-radius:8px;">
+                        <h3 style="color:#c62828; margin:0 0 10px 0;">❌ Errore di Connessione</h3>
+                        <p style="margin:0; color:#d32f2f; font-family:monospace;">${error.message}</p>
+                        <hr style="border:none; border-top:1px solid #ef5350; margin:15px 0;">
+                        <p style="margin:0; color:#666; font-size:0.9em;">
+                            <strong>Verificare:</strong><br>
+                            1. Che il server sia avviato<br>
+                            2. Che l'URL sia corretto: <code>${BASE_URL}/api</code><br>
+                            3. Che il browser non abbia problemi di CORS
+                        </p>
+                    </div>
+                `;
+                console.error('API Error:', error);
             }
         }
 
-        async function createResourceCard(name) {
-            const url = `${BASE_URL}/api/${name}`;
-            const sample = await fetch(url + "/1").catch(() => null);
-            const sampleJson = sample ? await sample.json() : "Nessun dato!";
+        async function createResourceSection(resourceName, fields) {
+            const resourceUrl = `${BASE_URL}/api/${resourceName}`;
 
-            const html = `
-                <div class="resource-card">
-                    <div class="resource-header">
-                        <span class="resource-name">/${name}</span>
-                    </div>
-                    <p>Endpoint per richieste GET, POST, ecc:</p>
-                    <div class="url-box">${url}</div>
-                    
-                    <h4>Esempio Risultato:</h4>
-                    <div class="code-label">GET ${url}/1</div>
-                    <div class="preview">${JSON.stringify(sampleJson, null, 2)}</div>
-                </div>
+            // Ottieni un esempio di dato
+            let sampleData = null;
+            try {
+                const sampleResponse = await fetch(resourceUrl);
+                const allData = await sampleResponse.json();
+                sampleData = Array.isArray(allData) && allData.length > 0 ? allData[0] : null;
+            } catch (e) {
+                sampleData = null;
+            }
+
+            // Crea la sezione della risorsa
+            const section = document.createElement('div');
+            section.className = 'resource-section';
+
+            const header = document.createElement('div');
+            header.className = 'resource-section-header';
+            header.innerHTML = `
+                <span class="resource-title">${resourceName}</span>
+                <span class="resource-url">${resourceUrl}</span>
+                <span class="toggle-icon">▼</span>
             `;
-            container.innerHTML += html;
+
+            const content = document.createElement('div');
+            content.className = 'resource-content';
+
+            // Crea gli endpoint
+            const endpoints = createEndpoints(resourceName, resourceUrl, fields, sampleData);
+            content.innerHTML = endpoints;
+
+            section.appendChild(header);
+            section.appendChild(content);
+
+            // Aggiungi il toggle
+            header.addEventListener('click', () => {
+                content.classList.toggle('expanded');
+                header.classList.toggle('expanded');
+            });
+
+            container.appendChild(section);
         }
 
-        // Avvio scansione
+        function createEndpoints(resourceName, resourceUrl, fields, sampleData) {
+            let html = '';
+
+            // GET - Recupera tutti i dati
+            html += createEndpointCard(
+                'GET',
+                `${resourceUrl}`,
+                'Recupera tutti i dati',
+                'Query Parameters:\n• _sort=field (ordinamento)\n• _filter=value (filtro)\n• _page=1 (paginazione)\n• _limit=10 (limite)',
+                null,
+                Array.isArray(sampleData) ? `[${JSON.stringify(sampleData, null, 2)}, ...]` : '[ {...}, {...} ]'
+            );
+
+            // GET by ID
+            html += createEndpointCard(
+                'GET',
+                `${resourceUrl}/{id}`,
+                'Recupera un singolo elemento',
+                'Path Parameters:\n• id (ID dell\'elemento)',
+                null,
+                JSON.stringify(sampleData || {}, null, 2)
+            );
+
+            // POST - Crea nuovo
+            const postBody = {};
+            fields.forEach(field => {
+                postBody[field] = `<${field}>`;
+            });
+            html += createEndpointCard(
+                'POST',
+                `${resourceUrl}`,
+                'Crea un nuovo elemento',
+                null,
+                JSON.stringify(postBody, null, 2),
+                JSON.stringify(sampleData || postBody, null, 2)
+            );
+
+            // PUT - Modifica completa
+            const putBody = {};
+            fields.forEach(field => {
+                putBody[field] = `<${field}>`;
+            });
+            html += createEndpointCard(
+                'PUT',
+                `${resourceUrl}/{id}`,
+                'Modifica un elemento (sostituzione completa)',
+                'Path Parameters:\n• id (ID dell\'elemento)',
+                JSON.stringify(putBody, null, 2),
+                JSON.stringify(sampleData || putBody, null, 2)
+            );
+
+            // DELETE
+            html += createEndpointCard(
+                'DELETE',
+                `${resourceUrl}/{id}`,
+                'Elimina un elemento',
+                'Path Parameters:\n• id (ID dell\'elemento)',
+                null,
+                '{}'
+            );
+
+            return html;
+        }
+
+        function createEndpointCard(method, endpoint, description, params, body, response) {
+            const methodColor = methodColors[method];
+            const isExpanded = false;
+
+            // Formatta i parametri come lista leggibile
+            const formattedParams = formatParams(params);
+
+            return `
+                <div class="endpoint-card">
+                    <div class="endpoint-header">
+                        <span class="method-badge" style="background-color: ${methodColor}">${method}</span>
+                        <span class="endpoint-path">${endpoint}</span>
+                        <span class="endpoint-desc">${description}</span>
+                        <span class="endpoint-toggle">+</span>
+                    </div>
+                    <div class="endpoint-details" data-expanded="false">
+                        ${formattedParams ? `<div class="detail-section">
+                            <strong>Parametri:</strong>
+                            ${formattedParams}
+                        </div>` : ''}
+                        ${body ? `<div class="detail-section">
+                            <strong>Body:</strong>
+                            <pre>${escapeHtml(body)}</pre>
+                        </div>` : ''}
+                        <div class="detail-section">
+                            <strong>Risposta:</strong>
+                            <pre>${escapeHtml(response)}</pre>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function formatParams(paramsText) {
+            if (!paramsText) return '';
+            
+            const lines = paramsText.split('\n').filter(line => line.trim());
+            let html = '<div class="params-list">';
+            
+            for (const line of lines) {
+                if (line.includes('Path Parameters:') || line.includes('Query Parameters:') || line.includes('Body (JSON):')) {
+                    const label = line.replace(':', '').trim();
+                    html += `<div class="param-category">${label}</div>`;
+                } else if (line.startsWith('•')) {
+                    const cleanLine = line.substring(1).trim();
+                    const [param, ...desc] = cleanLine.split(' ');
+                    const description = desc.join(' ');
+                    html += `<div class="param-item"><span class="param-name">${param}</span><span class="param-desc">${description}</span></div>`;
+                }
+            }
+            
+            html += '</div>';
+            return html;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Gestione toggle per gli endpoint
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.endpoint-header')) {
+                const header = e.target.closest('.endpoint-header');
+                const details = header.nextElementSibling;
+                const isExpanded = details.getAttribute('data-expanded') === 'true';
+
+                details.setAttribute('data-expanded', !isExpanded);
+                header.classList.toggle('expanded');
+            }
+        });
+
+        // Avvio: inizializza l'URL base e carica i dati
+        initializeBaseUrl();
         scanDatabase();
     </script>
 </body>
