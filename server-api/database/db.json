@@ -737,6 +737,51 @@
         },
         {
             "id": 10,
+            "nome": "Sedia Gaming Ergonomica",
+            "descrizione": "Sedia da ufficio/gaming con supporto lombare, braccioli 4D regolabili, reclinabile fino a 180°",
+            "categoria": "Arredamento",
+            "prezzo": 299.99,
+            "immagine": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQerRF7YKrUqeCsTkTYZc5-uQ72uSg4m8a-A7cqoG3H0JU9InyKeoLGX75MAjOZWHaONe9mypVw5JXKxUeCpP2wWNxYzFEHwAjaSqmyQjs7_40kTz5vp0JKY1k",
+            "disponibilita": true
+        },
+        {
+            "id": 11,
+            "nome": "Lampada LED da Scrivania",
+            "descrizione": "Lampada smart con 5 temperature di colore, dimmerabile, porta USB integrata",
+            "categoria": "Illuminazione",
+            "prezzo": 45.99,
+            "immagine": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQNgTu8WVY2HtMjD8etZjIEFsG_ogipt0RL2-D0NQaLQtPz9TmjK8jPbHBNLX3g0tW6vU47WVjmfC18aKbiui_qAiif7i1spLl_169p3OgZwGlNN4hjBNrr",
+            "disponibilita": true
+        },
+        {
+            "id": 12,
+            "nome": "Zaino Porta PC 17 pollici",
+            "descrizione": "Zaino impermeabile con scomparto imbottito per laptop, tasca antifurto e porta USB",
+            "categoria": "Accessori",
+            "prezzo": 59.99,
+            "immagine": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTZqTnx_yPdp08tBNzH6Pdgg3b9YfvPCIYIiqTMCJy3_QYWF9291EHn1z1nfsqRZdDlvDvdJvTcnXMKjIKfc3aNpgTKTOog6jT193FKV27-Fy-aoiKTWNwwgJY",
+            "disponibilita": true
+        },
+        {
+            "id": 13,
+            "nome": "Caricatore Wireless Rapido",
+            "descrizione": "Base di ricarica wireless 3-in-1 per smartphone, smartwatch e auricolari, 15W fast charge",
+            "categoria": "Accessori",
+            "prezzo": 39.99,
+            "immagine": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQOKHL_PIwftXq38dUiK6lNrLjRyiTCRuSKnzL9DlNXJvqvYRYJkGa2kKspm8PE_fjMkhsnLhNp8R9ewlqx8-vNNeqQHnMF-0Qc_hhD31lDPjqySdeLmSafNQ",
+            "disponibilita": false
+        },
+        {
+            "id": 14,
+            "nome": "Microfono USB Professionale",
+            "descrizione": "Microfono a condensatore con filtro anti-pop, braccio regolabile e supporto anti-shock",
+            "categoria": "Audio",
+            "prezzo": 89.99,
+            "immagine": "https://m.media-amazon.com/images/I/61egnO8q6ZL._AC_SY300_SX300_QL70_ML2_.jpg",
+            "disponibilita": true
+        },
+        {
+            "id": 15,
             "nome": "Stand per Laptop Ergonomico",
             "descrizione": "Stand in alluminio pieghevole e regolabile in altezza",
             "categoria": "Accessori",

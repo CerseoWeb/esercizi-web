@@ -1,6 +1,6 @@
 /**
  * Progetto finale JS - Prodotti Negozio Online
- * Crea una pagina che mostra una lista di prodotti recuperati da un'API (localhost:5000/api/products)
+ * Crea una pagina che mostra una lista di prodotti recuperati da un'API (es. http://localhost:5000/api/products)
  * Ogni prodotto ha: id, nome, descrizione, categoria, prezzo, immagine, disponibilità
  * 
  * FUNZIONALITÀ:
