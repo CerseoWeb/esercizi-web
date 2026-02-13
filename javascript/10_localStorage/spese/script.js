@@ -35,10 +35,9 @@ let ultimoId = 0;
  * 
  * Passi:
  * 1. Controlla se esiste la chiave "spese" in localStorage
- * 2. Se esiste, parsa il JSON e assegna a 'spese'
- * 3. Se esiste, trova il massimo ID per continuare da lì con ultimoId
- * 4. Se non esiste, lascia spese come array vuoto
- * 5. Chiama visualizzaLista() per mostrare i dati
+ * 2. Se esiste --> parsa il JSON e assegna a 'spese'
+ * 3. Trova il massimo ID e assegna a ultimoId (per evitare duplicati)
+ * 4. Chiama visualizzaLista() per mostrare i dati
  */
 function caricaSpeseStorage() {
 }
@@ -60,14 +59,21 @@ function salvaSpeseStorage() {
  * 
  * Passi:
  * 1. Leggi i valori dagli input (categoria, importo, descrizione)
- * 2. Valida che categoria sia selezionata e importo > 0
- * 3. Se non valido, mostra un alert e fermati
+ *    Nota che importo deve essere convertito a numero
+ * 2. Valida che:
+ *    - categoria non sia vuota
+ *    - importo sia un numero positivo (maggiore di 0)
+ *    Se uno dei campi non è valido, mostra un alert e interrompi la funzione
+ * 3. Incrementa ultimoId di 1 per ottenere un nuovo ID
  * 4. Crea un oggetto spesa con:
- *    - id: incrementa ultimoId e usa il nuovo valore
- *    - categoria: il valore selezionato
- *    - importo: converti a numero float
- *    - descrizione: il valore dell'input
- *    - data: la data odierna in formato "YYYY-MM-DD" (usa new Date())
+ *    - id: ultimoId
+ *    - categoria: la categoria selezionata
+ *    - importo: l'importo inserito
+ *    - descrizione: la descrizione inserita
+ *    - data: la data odierna --> new Date().toISOString().split('T')[0]
+ *      new Date() crea un oggetto data con la data e ora attuale
+ *      toISOString() converte la data in formato ISO (es: "2026-02-06T12:34:56.789Z")
+ *      split('T')[0] prende solo la parte della data (es: "2026-02-06")
  * 5. Aggiungi l'oggetto all'array 'spese'
  * 6. Salva con salvaSpeseStorage()
  * 7. Svuota gli input
@@ -79,9 +85,14 @@ function aggiungiSpesa() {
 
 /**
  * FUNZIONE 4: Elimina una spesa per indice
+ * L'indice è passato dal pulsante elimina nella lista, che chiama questa funzione con l'indice della spesa da eliminare
+ * Nota: L'indice è la posizione della spesa nell'array 'spese', non l'id.
  * 
  * Passi:
- * 1. Rimuovi l'elemento dall'array 'spese' usando splice(indice, 1)
+ * 1. Rimuovi l'elemento dall'array 'spese' usando spese.splice(indice, 1)
+ *    Nota: Splice serve per rimuovere uno o più elementi da un array a partire da un indice
+ *          Esempio: spese.splice(2, 1) parte da indice 2 e rimuove 1 elemento
+ *          Esempio: spese.splice(0, 2) parte da indice 0 e rimuove 2 elementi (i primi due)
  * 2. Salva con salvaSpeseStorage()
  * 3. Chiama visualizzaLista() per aggiornare l'UI
  */
@@ -115,6 +126,7 @@ function calcolaStatistiche() {
 
 /**
  * FUNZIONE 6: Raggruppa spese per categoria
+ * Funzione già implementata - non occorre modificarla
  * 
  * Passi:
  * 1. Crea un oggetto vuoto: { }
@@ -145,6 +157,7 @@ function raggruppaSpesePerCategoria() {
 
 /**
  * FUNZIONE 7: Visualizza e aggiorna tutta l'interfaccia
+ * Funzione già implementata - non occorre modificarla
  * 
  * Passi:
  * 1. Chiama calcolaStatistiche() e salva il risultato
