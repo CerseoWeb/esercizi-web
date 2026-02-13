@@ -1,5 +1,5 @@
 /**
- * Esercizio Intermedio: Gestione lista Pianeti
+ * Esercizio: Gestione lista Pianeti
  * 
  * Obiettivo: Manipolare un array aggiungendo e rimuovendo elementi.
  * 

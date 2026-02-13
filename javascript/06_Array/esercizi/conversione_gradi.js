@@ -1,5 +1,5 @@
 /**
- * Esercizio Intermedio: Convertitore Celsius-Fahrenheit
+ * Esercizio: Convertitore Celsius-Fahrenheit
  * 
  * Obiettivo: Utilizzare .map() per trasformare dati numerici.
  * 

@@ -1,5 +1,5 @@
 /**
- * Esercizio Intermedio: Debugging Indici (CORREGGI IL CODICE)
+ * Esercizio: Debugging Indici (CORREGGI IL CODICE)
  * 
  * Obiettivo: Identificare e correggere un errore comune relativo agli indici degli array.
  * 
