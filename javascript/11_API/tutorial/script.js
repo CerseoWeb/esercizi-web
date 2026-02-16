@@ -13,16 +13,28 @@ async function eseguiTutorial() {
      * JavaScript di solito corre veloce. Con i server, deve aspettare.
      * La keyword 'await' serve a dire "Fermati qui finché l'operazione non finisce".
      */
-    // Questa funzione simula un server che ci mette 2 secondi a rispondere
+    // Questa funzione simula un server che ci mette 1 secondo a rispondere
     // TODO: Aggiungi 'await' prima di wait(2000) per far funzionare l'attesa.
-    wait(2000);
+    wait(1000);
 
     mostraOutput(1, "Operazione completata!");
 
-
     /**
      * ===========================================
-     * === 2. Fetch Base (GET) ===
+     * === 2. Async/Await ===
+     * Per usare 'await', la funzione deve essere dichiarata come 'async'.
+     * Questo è un modo elegante per scrivere codice asincrono.
+     * Crea una funzione async chiamata 'aspetta2Secondi' che aspetta 2 secondi (usa la funzione wait).
+     * Poi stampa "2 secondi sono passati!" e mostra il risultato usando mostraOutput(2, "2 secondi sono passati!").
+     * Chiama la funzione subito dopo averla definita.
+     */
+
+    mostraOutput(2, "");
+
+    
+    /**
+     * ===========================================
+     * === 3. Fetch Base (GET) ===
      * Usiamo `fetch(url)` per chiamare un server vero.
      */
     // TODO: crea una costante 'urlBase' con l'indirizzo dettato a lezione
@@ -31,12 +43,12 @@ async function eseguiTutorial() {
     const urlBase = "https://sito-finto.com";
     const rispostaGrezza = null;
 
-    mostraOutput(2, rispostaGrezza ? "Risposta ricevuta (Response Object)" : "");
+    mostraOutput(3, rispostaGrezza ? "Risposta ricevuta (Response Object)" : "");
 
 
     /**
      * ===========================================
-     * === 3. Estrarre il JSON ===
+     * === 4. Estrarre il JSON ===
      * La risposta grezza contiene status code, headers, ecc.
      * A noi servono i dati. Dobbiamo usare il metodo .json().
      * ANCHE .json() è asincrono e vuole 'await'.
@@ -51,12 +63,12 @@ async function eseguiTutorial() {
         nomeUtente = "NOME MANCANTE"; 
     }
 
-    mostraOutput(3, nomeUtente);
+    mostraOutput(4, nomeUtente);
 
 
     /**
      * ===========================================
-     * === 4. Gestione Errori (Try / Catch) ===
+     * === 5. Gestione Errori (Try / Catch) ===
      * Se il server è giù o l'URL è sbagliato, fetch esplode.
      * Usiamo try/catch per gestire il problema.
      */
@@ -64,31 +76,35 @@ async function eseguiTutorial() {
         // TODO: Prova a fare una fetch a un URL sbagliato (es. 'https://sito-finto.com')
         // Ricorda l'await!
 
-        mostraOutput(4);
+        mostraOutput(5);
     } catch (errore) {
-        mostraOutput(4, errore.message);
+        mostraOutput(5, errore.message);
     }
 
 
     /**
      * ===========================================
-     * === 5. Liste di Dati (Array) ===
+     * === 6. Liste di Dati (Array) ===
      * Spesso riceviamo un array di oggetti. Dobbiamo ciclarlo.
      */
     // Scarichiamo 5 utenti
-    const responseUtenti = await fetch(`${urlBase}/users?_limit=5`);
-    const listaUtenti = await responseUtenti.json();
+    try {
+        const responseUtenti = await fetch(`${urlBase}/users?_limit=5`);
+        const listaUtenti = await responseUtenti.json();
 
-    // TODO: Usa .map() o un ciclo for per creare un array contenente SOLO i nomi degli utenti.
-    // Esempio: const nomi = listaUtenti.map(u => u.name);
-    const soloNomi = []; 
+        // TODO: Usa .map() o un ciclo for per creare un array contenente SOLO i nomi degli utenti.
+        // Esempio: const nomi = listaUtenti.map(u => u.name);
+        const soloNomi = []; 
 
-    mostraOutput(5, soloNomi);
+        mostraOutput(6, soloNomi);
+    } catch (errore) {
+        mostraOutput(6, "");
+    }
 
 
     /**
      * ===========================================
-     * === 6. Inviare Dati (POST) ===
+     * === 7. Inviare Dati (POST) ===
      * Per inviare dati, fetch accetta un secondo parametro di opzioni.
      */
     // TODO: Completa l'oggetto con i dati mancanti
@@ -102,14 +118,18 @@ async function eseguiTutorial() {
         avatar: "https://ui-avatars.com/api/?name=Nome+Cognome"
     };
 
-    // TODO: Completa la fetch.
-    // Aggiungi method: 'POST'
-    // Aggiungi headers: { 'Content-Type': 'application/json' }
-    // Aggiungi body: JSON.stringify(nuovoUtente)
-    const rispInvio = await fetch(`${urlBase}/posts`, {
-        
-    });
+    try {
+        // TODO: Completa la fetch.
+        // Aggiungi method: 'POST'
+        // Aggiungi headers: { 'Content-Type': 'application/json' }
+        // Aggiungi body: JSON.stringify(nuovoUtente)
+        const rispInvio = await fetch(`${urlBase}/posts`, {
+            
+        });
 
-    const risultatoInvio = await rispInvio.json();
-    mostraOutput(6, risultatoInvio);
+        const risultatoInvio = await rispInvio.json();
+        mostraOutput(7, risultatoInvio);
+    } catch (errore) {
+        mostraOutput(7, "");
+    }
 }
