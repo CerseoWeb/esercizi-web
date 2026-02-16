@@ -1,5 +1,5 @@
 /**
- * Esercizio: Trova il Minimo e Massimo in un Array
+ * Esercizio: Trova il Minimo in un Array
  * 
  * Obiettivo: Completa le funzioni 'trovaMinimo' per restituire il numero più piccolo
  * 
@@ -24,24 +24,19 @@ let minimo2 = trovaMinimo(altriNumeri);
 let ancoraNumeri = [10, 20, 30];
 let minimo3 = trovaMinimo(ancoraNumeri);
 
+
+
+
 // ZONA TEST - NON MODIFICARE
-if (minimo === 1) {
-    console.log("✅ 1. Test superato!");
-} else {
-    console.log("❌ 1. Test fallito. Minimo:", minimo);
+function assertEqual(actual, expected, test) {
+    if (actual === expected) {
+        console.log('✅ ' + test + ' Test superato!');
+    } else {
+        console.log('❌ ' + test + ' Test fallito. Minimo: ' + actual);
+    }
 }
 
-if (minimo2 === -1) {
-    console.log("✅ 2. Test superato!");
-} else {
-    console.log("❌ 2. Test fallito. Minimo:", minimo2);
-}
-
-if (minimo3 === 10) {
-    console.log("✅ 3. Test superato!");
-} else {
-    console.log("❌ 3. Test fallito. Minimo:", minimo3);
-}
-
-
+assertEqual(minimo, 1, "1.");
+assertEqual(minimo2, -1, "2.");
+assertEqual(minimo3, 10, "3.");
 
