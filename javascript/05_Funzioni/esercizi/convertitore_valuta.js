@@ -13,3 +13,11 @@
  * Con 50 euro, l'output dovrebbe essere "50 Euro sono 55 Dollari".
  * Con 100 euro, l'output dovrebbe essere "100 Euro sono 110 Dollari".
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// convertiInDollari(50) dovrebbe restituire 55
+// convertiInDollari(100) dovrebbe restituire 110

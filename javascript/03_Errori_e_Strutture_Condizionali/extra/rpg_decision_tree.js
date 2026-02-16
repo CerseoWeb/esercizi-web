@@ -17,10 +17,14 @@
  * 2. Altrimenti (se hai abbastanza vita):
  * - Se `hpMostro` < 10 -> Stampa "Il mostro è debole, lo finisci!"
  * - Altrimenti -> Stampa "Attacchi il mostro con forza."
- * 
- * Esempi di test:
- * - tuoiHp = 20, hpMostro = 50, pozione = true  => "Usi la pozione e ti curi."
- * - tuoiHp = 25, hpMostro = 50, pozione = false => "Sei nei guai! Attacchi disperatamente."
- * - tuoiHp = 40, hpMostro = 5, pozione = false  => "Il mostro è debole, lo finisci!"
- * - tuoiHp = 40, hpMostro = 30, pozione = true  => "Attacchi il mostro con forza."
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// Esempi di test:
+// - tuoiHp = 20, hpMostro = 50, pozione = true  => "Usi la pozione e ti curi."
+// - tuoiHp = 25, hpMostro = 50, pozione = false => "Sei nei guai! Attacchi disperatamente."
+// - tuoiHp = 40, hpMostro = 5, pozione = false  => "Il mostro è debole, lo finisci!"
+// - tuoiHp = 40, hpMostro = 30, pozione = true  => "Attacchi il mostro con forza."

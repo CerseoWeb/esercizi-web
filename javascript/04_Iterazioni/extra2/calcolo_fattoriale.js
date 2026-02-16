@@ -12,3 +12,11 @@
  * 4. Ad ogni giro, moltiplica `fattoriale` per il contatore del ciclo.
  * 5. Stampa il risultato finale.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Con numero=5, fattoriale dovrebbe essere 120
+// Con numero=6, fattoriale dovrebbe essere 720

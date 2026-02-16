@@ -37,3 +37,24 @@
  * converti(25, "C", "C") dovrebbe restituire 25
  * converti(25, "C", "X") dovrebbe restituire null e stampare un messaggio di errore
  */
+
+// Scrivi qui il tuo codice
+
+
+
+function converti(valore, da, a) {
+}
+
+
+// ZONA TEST - NON MODIFICARE
+function assertEqual(actual, expected, test) {
+    let result = (actual === expected);
+    let emoji = result ? '✅' : '❌';
+    let str = result ? 'superato!' : `fallito. Valore corretto: ${expected}; ottenuto: ${actual}`;
+    console.log(`${emoji} ${test} Test ${str}`);
+}
+
+assertEqual(converti(0, "C", "F"), 32, "1.");
+assertEqual(converti(100, "C", "F"), 212, "2.");
+assertEqual(converti(32, "F", "C"), 0, "3.");
+assertEqual(converti(98.6, "F", "C"), 37, "4.");

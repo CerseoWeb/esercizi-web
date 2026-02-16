@@ -12,9 +12,11 @@
  *    - incrementa `conteggio`
  * 4. Calcola la media come `somma / conteggio` e salvala in `media`.
  * 5. Stampa: "Somma: X, Media: Y".
- * 
- * Output atteso:
- * Somma: 165, Media: 16.5
  */
 
 // Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Verifica: somma dovrebbe essere 165, media dovrebbe essere 16.5

@@ -17,3 +17,7 @@
  * 3. Accumula gli asterischi in una variabile stringa.
  * 4. Stampa la riga e resetta la stringa per il prossimo giro.
  */
+
+// Scrivi qui il tuo codice
+
+

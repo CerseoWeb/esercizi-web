@@ -35,3 +35,23 @@
  * valutaPeso(100, 1.75) dovrebbe indicare "BMI: 32.7 | Categoria: Obeso"
  * valutaPeso(50, 1.75) dovrebbe indicare "BMI: 16.3 | Categoria: Sottopeso"
  */
+
+// Scrivi qui il tuo codice
+
+
+
+function valutaPeso(peso, altezza) {
+}
+
+
+// ZONA TEST - NON MODIFICARE
+function assertEqual(actual, expected, test) {
+    let result = (actual === expected);
+    let emoji = result ? '✅' : '❌';
+    let str = result ? 'superato!' : `fallito. Valore corretto: ${expected}; ottenuto: ${actual}`;
+    console.log(`${emoji} ${test} Test ${str}`);
+}
+
+assertEqual(valutaPeso(70, 1.75), "BMI: 22.9 | Categoria: Peso normale", "1.");
+assertEqual(valutaPeso(100, 1.75), "BMI: 32.7 | Categoria: Obeso", "2.");
+assertEqual(valutaPeso(50, 1.75), "BMI: 16.3 | Categoria: Sottopeso", "3.");

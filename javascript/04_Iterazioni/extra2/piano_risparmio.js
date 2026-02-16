@@ -15,3 +15,10 @@
  * - (Opzionale) Stampa lo stato corrente.
  * 4. Alla fine, stampa quante settimane sono state necessarie.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Con obiettivo 300 e risparmio settimanale 40, sono necessarie 8 settimane

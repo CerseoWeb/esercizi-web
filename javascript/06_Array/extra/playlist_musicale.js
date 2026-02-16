@@ -21,3 +21,10 @@
  * 6. Esegui il codice e verifica che funzioni come previsto
  *    (ogni esecuzione dovrebbe dare risultati diversi a causa della casualità).
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Verifica che 'inCoda' cambi ad ogni esecuzione e che la prima canzone venga rimossa

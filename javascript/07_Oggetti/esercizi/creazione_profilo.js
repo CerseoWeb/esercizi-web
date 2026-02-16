@@ -10,3 +10,8 @@
  */
 
 // Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Verifica che l'oggetto abbia username, email, online invertito e biografia

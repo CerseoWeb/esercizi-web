@@ -17,4 +17,11 @@
  * 4. Stampa il prezzo finale.
  */
 
+// Scrivi qui il tuo codice
 
+
+
+// Esempi da testare manualmente:
+// Con prezzoOriginale=100 e categoria="vip", prezzoFinale dovrebbe essere 80
+// Con prezzoOriginale=50 e categoria="standard", prezzoFinale dovrebbe essere 45
+// Con prezzoOriginale=100 e categoria="nuovo", prezzoFinale dovrebbe essere 100

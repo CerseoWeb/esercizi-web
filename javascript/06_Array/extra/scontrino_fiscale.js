@@ -12,3 +12,11 @@
  * 5. Stampa la lista dei prezzi finali.
  * 6. Calcola il totale dei prezzi ivati e stampalo.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Con prezzi [100, 50, 200, 10], i prezziIvati dovrebbero essere [122, 61, 244, 12.2]
+// Il totale dovrebbe essere 439.2

@@ -11,3 +11,10 @@
  * 4. Aggiungi il valore corrente a `somma`.
  * 5. Stampa il risultato finale (Dovrebbe fare 5+6+7+8+9+10 = 45).
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Con min=5 e max=10, somma dovrebbe essere 45

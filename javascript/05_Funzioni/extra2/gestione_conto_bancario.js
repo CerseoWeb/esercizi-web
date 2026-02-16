@@ -44,3 +44,10 @@
  * applicaInteresse(2)  // aggiunge circa 1.33 euro (0.02 × 800 / 12)
  * visualizzaSaldo()    // "€ 801,33"
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Testa le funzioni manualmente seguendo l'esempio sopra

@@ -9,3 +9,8 @@
  */
 
 // Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// La frase finale dovrebbe essere: "Il biglietto per il Cinema costa 8 euro."

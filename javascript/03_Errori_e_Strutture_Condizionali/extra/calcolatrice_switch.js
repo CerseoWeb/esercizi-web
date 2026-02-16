@@ -17,4 +17,12 @@
  * 4. Gestisci il caso `default` per operazioni non riconosciute.
  */
 
+// Scrivi qui il tuo codice
 
+
+
+// ZONA TEST - NON MODIFICARE
+// Testa manualmente:
+// num1=10, num2=5, operazione="+" → risultato: 15
+// num1=10, num2=3, operazione="*" → risultato: 30
+// num1=10, num2=0, operazione="/" → "Errore: Divisione per zero"

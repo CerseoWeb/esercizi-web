@@ -15,3 +15,10 @@
  * - `temp` (per calcolare il nuovo numero)
  * Ad ogni giro, devi aggiornare `a` e `b` facendo "scorrere" i valori.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// I primi 15 numeri di Fibonacci sono: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377

@@ -13,3 +13,12 @@
  * Con base = 5 e altezza = 10, l'output dovrebbe essere "L'area è: 50".
  * Con base = 7 e altezza = 3, l'output dovrebbe essere "L'area è: 21".
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Testa con diversi valori:
+// calcolaArea(5, 10) dovrebbe restituire 50
+// calcolaArea(7, 3) dovrebbe restituire 21

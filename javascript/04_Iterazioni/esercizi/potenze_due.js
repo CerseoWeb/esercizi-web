@@ -12,3 +12,9 @@
  * - Stampa `numero`.
  * - Moltiplica `numero` per 2.
  */
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Dovresti vedere stampato: 2, 4, 8, 16, 32, 64, 128, 256, 512

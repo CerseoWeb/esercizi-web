@@ -14,3 +14,8 @@
 let temperatureCelsius = [0, 10, 20, 30, 100];
 
 // Scrivi qui il tuo codice usando .map()
+
+
+
+// ZONA TEST - NON MODIFICARE
+// temperatureFahrenheit dovrebbe essere: [32, 50, 68, 86, 212]

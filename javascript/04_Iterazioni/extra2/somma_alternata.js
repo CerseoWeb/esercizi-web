@@ -14,3 +14,11 @@
  * 5. Altrimenti (se è dispari), AGGIUNGILO a `totale`.
  * 6. Stampa il risultato finale.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// Con limite=10, totale dovrebbe essere -5 (1-2+3-4+5-6+7-8+9-10)
+// Con limite=5, totale dovrebbe essere 3 (1-2+3-4+5)

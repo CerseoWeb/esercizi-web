@@ -24,3 +24,23 @@
  * Con 6, 7 e "*" dovrebbe restituire 42.
  * Con 20, 5 e "ciao" dovrebbe restituire undefined, null o NaN.
  */
+
+// Scrivi qui il tuo codice
+
+
+
+function eseguiOperazione(n1, n2, operazione) {
+}
+
+
+// ZONA TEST - NON MODIFICARE
+function assertEqual(actual, expected, test) {
+    let result = (actual === expected);
+    let emoji = result ? '✅' : '❌';
+    let str = result ? 'superato!' : `fallito. Valore corretto: ${expected}; ottenuto: ${actual}`;
+    console.log(`${emoji} ${test} Test ${str}`);
+}
+
+assertEqual(eseguiOperazione(5, 3, "+"), 8, "1.");
+assertEqual(eseguiOperazione(10, 4, "-"), 6, "2.");
+assertEqual(eseguiOperazione(6, 7, "*"), 42, "3.");

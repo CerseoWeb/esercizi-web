@@ -10,3 +10,8 @@
  */
 
 // Scrivi qui il tuo codice
+
+
+
+// ZONA TEST - NON MODIFICARE
+// L'array finale dovrebbe essere: ["Terra", "Giove"]
