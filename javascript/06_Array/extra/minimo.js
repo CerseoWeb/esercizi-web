@@ -29,11 +29,10 @@ let minimo3 = trovaMinimo(ancoraNumeri);
 
 // ZONA TEST - NON MODIFICARE
 function assertEqual(actual, expected, test) {
-    if (actual === expected) {
-        console.log('✅ ' + test + ' Test superato!');
-    } else {
-        console.log('❌ ' + test + ' Test fallito. Minimo: ' + actual);
-    }
+    let result = (actual === expected)
+    let emoji = (result) ? '✅' : '❌';
+    let str = (result) ? 'superato!' : `fallito. Valore corretto: ${expected}; ottenuto: ${actual}`;
+    console.log(`${emoji} ${test} Test ${str}`);
 }
 
 assertEqual(minimo, 1, "1.");
