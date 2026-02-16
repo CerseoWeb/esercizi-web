@@ -14,7 +14,7 @@ async function eseguiTutorial() {
      * La keyword 'await' serve a dire "Fermati qui finché l'operazione non finisce".
      */
     // Questa funzione simula un server che ci mette 1 secondo a rispondere
-    // TODO: Aggiungi 'await' prima di wait(2000) per far funzionare l'attesa.
+    // TODO: Aggiungi 'await' prima di wait(1000) per far funzionare l'attesa.
     wait(1000);
 
     mostraOutput(1, "Operazione completata!");
@@ -93,7 +93,6 @@ async function eseguiTutorial() {
         const listaUtenti = await responseUtenti.json();
 
         // TODO: Usa .map() o un ciclo for per creare un array contenente SOLO i nomi degli utenti.
-        // Esempio: const nomi = listaUtenti.map(u => u.name);
         const soloNomi = []; 
 
         mostraOutput(6, soloNomi);
@@ -123,7 +122,7 @@ async function eseguiTutorial() {
         // Aggiungi method: 'POST'
         // Aggiungi headers: { 'Content-Type': 'application/json' }
         // Aggiungi body: JSON.stringify(nuovoUtente)
-        const rispInvio = await fetch(`${urlBase}/posts`, {
+        const rispInvio = await fetch(`${urlBase}/users`, {
             
         });
 

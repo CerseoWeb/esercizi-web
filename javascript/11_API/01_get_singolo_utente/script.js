@@ -84,7 +84,7 @@ function handleError(message) {
  * 5. Fai una fetch GET a /users/{id}
  * 6. Se la risposta non è OK, usa handleError() per mostrare un messaggio e return
  * 7. Converti la risposta in JSON
- * 8. Mostra i dati dell'utente chiamando createUserCard(user)
+ * 8. Mostra i dati dell'utente chiamando creaCardUtente(user)
  * 9. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchUser() {
