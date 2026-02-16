@@ -21,7 +21,7 @@ valore fisso = 60;
 
 console.log(risultatoFinale);
 
-let risultatoFinale = 1numero + valore fisso;
+let risultatoFinale = 1numero * valore fisso;
 
 // OUTPUT ATTESO: 3000
 console.log(risultatoFinale);
