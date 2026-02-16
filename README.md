@@ -26,6 +26,7 @@ Esercizi progressivi per imparare JavaScript dal base ai concetti avanzati:
 - **09 - Manipolazione Dati**: Esercizi con array di oggetti e logica complessa
 - **10 - localStorage**: Persistenza dei dati nel browser
 - **11 - API**: Fetch, async/await e integrazione con API esterne
+- **12 - Progetti**: Progetti completi per mettere in pratica tutte le competenze acquisite
 
 
 #### `/html/` e `/css/`
