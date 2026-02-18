@@ -2,7 +2,7 @@
 
 // NON TOCCARE
 // Funzioni di supporto per il tutorial
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms)); // Simula server lento
+const delay = (ms) => new Promise(res => setTimeout(res, ms)); // Simula server lento
 
 // Funzione pricipale del tutorial
 async function eseguiTutorial() {
@@ -14,8 +14,8 @@ async function eseguiTutorial() {
      * La keyword 'await' serve a dire "Fermati qui finché l'operazione non finisce".
      */
     // Questa funzione simula un server che ci mette 1 secondo a rispondere
-    // TODO: Aggiungi 'await' prima di wait(1000) per far funzionare l'attesa.
-    wait(1000);
+    // TODO: Aggiungi 'await' prima di delay(1000) per far funzionare l'attesa.
+    delay(1000);
 
     mostraOutput(1, "Operazione completata!");
 
@@ -24,7 +24,7 @@ async function eseguiTutorial() {
      * === 2. Async/Await ===
      * Per usare 'await', la funzione deve essere dichiarata come 'async'.
      * Questo è un modo elegante per scrivere codice asincrono.
-     * Crea una funzione async chiamata 'aspetta2Secondi' che aspetta 2 secondi (usa la funzione wait).
+     * Crea una funzione async chiamata 'aspetta2Secondi' che aspetta 2 secondi (usa la funzione delay).
      * Poi stampa "2 secondi sono passati!" e mostra il risultato usando mostraOutput(2, "2 secondi sono passati!").
      * Chiama la funzione subito dopo averla definita.
      */
@@ -38,7 +38,7 @@ async function eseguiTutorial() {
      * Usiamo `fetch(url)` per chiamare un server vero.
      */
     // TODO: crea una costante 'urlBase' con l'indirizzo dettato a lezione
-    // TODO: Esegui una fetch a quell'URL.
+    // TODO: Esegui una fetch a urlBase + "/users/1" e salva la risposta in 'rispostaGrezza'.
     // Ricorda di mettere 'await' davanti a fetch!
     const urlBase = "https://sito-finto.com";
     const rispostaGrezza = null;
@@ -48,7 +48,23 @@ async function eseguiTutorial() {
 
     /**
      * ===========================================
-     * === 4. Estrarre il JSON ===
+     * === 4. Controllare la Risposta ===
+     * Prima di estrarre i dati, dobbiamo controllare se la risposta è OK.
+     * La proprietà 'ok' è true se status code è 200-299.
+     */
+    let statoRisposta = "";
+
+    if (rispostaGrezza) {
+        //TODO: mostrare il codice e il suo testo
+        statoRisposta = "";
+    }
+
+    mostraOutput(4, statoRisposta);
+
+
+    /**
+     * ===========================================
+     * === 5. Estrarre il JSON ===
      * La risposta grezza contiene status code, headers, ecc.
      * A noi servono i dati. Dobbiamo usare il metodo .json().
      * ANCHE .json() è asincrono e vuole 'await'.
@@ -63,12 +79,12 @@ async function eseguiTutorial() {
         nomeUtente = "NOME MANCANTE"; 
     }
 
-    mostraOutput(4, nomeUtente);
+    mostraOutput(5, nomeUtente);
 
 
     /**
      * ===========================================
-     * === 5. Gestione Errori (Try / Catch) ===
+     * === 6. Gestione Errori (Try / Catch) ===
      * Se il server è giù o l'URL è sbagliato, fetch esplode.
      * Usiamo try/catch per gestire il problema.
      */
@@ -76,15 +92,15 @@ async function eseguiTutorial() {
         // TODO: Prova a fare una fetch a un URL sbagliato (es. 'https://sito-finto.com')
         // Ricorda l'await!
 
-        mostraOutput(5);
+        mostraOutput(6);
     } catch (errore) {
-        mostraOutput(5, errore.message);
+        mostraOutput(6, errore.message);
     }
 
 
     /**
      * ===========================================
-     * === 6. Liste di Dati (Array) ===
+     * === 7. Liste di Dati (Array) ===
      * Spesso riceviamo un array di oggetti. Dobbiamo ciclarlo.
      */
     // Scarichiamo 5 utenti
@@ -95,15 +111,15 @@ async function eseguiTutorial() {
         // TODO: Usa .map() o un ciclo for per creare un array contenente SOLO i nomi degli utenti.
         const soloNomi = []; 
 
-        mostraOutput(6, soloNomi);
+        mostraOutput(7, soloNomi);
     } catch (errore) {
-        mostraOutput(6, "");
+        mostraOutput(7, "");
     }
 
 
     /**
      * ===========================================
-     * === 7. Inviare Dati (POST) ===
+     * === 8. Inviare Dati (POST) ===
      * Per inviare dati, fetch accetta un secondo parametro di opzioni.
      */
     // TODO: Completa l'oggetto con i dati mancanti
@@ -127,8 +143,8 @@ async function eseguiTutorial() {
         });
 
         const risultatoInvio = await rispInvio.json();
-        mostraOutput(7, risultatoInvio);
+        mostraOutput(8, risultatoInvio);
     } catch (errore) {
-        mostraOutput(7, "");
+        mostraOutput(8, "");
     }
 }

@@ -36,7 +36,7 @@
         [
             {
                 title: "1. Il concetto di Attesa (Simulazione)",
-                description: "Le API sono lente. Simuliamo un ritardo di 2 secondi prima di mostrare il messaggio.",
+                description: "Le API sono lente. Simuliamo un ritardo di 1 secondo prima di mostrare il messaggio.",
                 outputLabel: "Output Step 1:"
             },
             {
@@ -50,22 +50,27 @@
                 outputLabel: "Dati ricevuti:"
             },
             {
-                title: "4. Estrazione Dati (JSON)",
+                title: "4. Risposta Grezza (Raw Response)",
+                description: "La risposta di fetch è un oggetto complesso. Vediamo cosa contiene davvero.",
+                outputLabel: "Oggetto Response:"
+            },
+            {
+                title: "5. Estrazione Dati (JSON)",
                 description: "La risposta grezza non basta. Dobbiamo convertirla ed estrarre il titolo.",
                 outputLabel: "Titolo del Post:"
             },
             {
-                title: "5. Gestione Errori (Try/Catch)",
+                title: "6. Gestione Errori (Try/Catch)",
                 description: "Proviamo a chiamare un sito che non esiste per vedere se il codice sopravvive.",
                 outputLabel: "Stato operazione:"
             },
             {
-                title: "6. Lavorare con le Liste (Array)",
+                title: "7. Lavorare con le Liste (Array)",
                 description: "Scarichiamo 10 utenti e mostriamo solo i loro nomi.",
                 outputLabel: "Elenco Utenti:"
             },
             {
-                title: "7. Invio Dati (POST)",
+                title: "8. Invio Dati (POST)",
                 description: "Simuliamo l'invio di un nuovo post al server.",
                 outputLabel: "Risposta Server:"
             }
