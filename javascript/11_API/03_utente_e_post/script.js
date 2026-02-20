@@ -1,27 +1,18 @@
 // ⚠️ COMPILARE E CONTROLLARE PRIMA DI INIZIARE ⚠️
 const BASE_URL = 'http://localhost:5000/api';
-const userId = document.getElementById('userId');
-const loading = document.getElementById('loading');
-const userProfile = document.getElementById('userProfile');
-const postsContainer = document.getElementById('postsContainer');
-const btnFetch = document.getElementById('btnFetch');
+const userId = document.querySelector('#userId');
+const loading = document.querySelector('#loading');
+const userProfile = document.querySelector('#userProfile');
+const postsContainer = document.querySelector('#postsContainer');
+const btnFetch = document.querySelector('#btnFetch');
 
 
 /**
  * FUNZIONE: Crea un utente card
  * 
  * Crea la card completa dell'utente e la inserisce nell'elemento userProfile
- * L'oggetto user ha questa struttura:
- * {
- *   id: number,
- *   nome: string,
- *   cognome: string,
- *   email: string,
- *   avatar: string (url),
- *   dataNascita: string (formato YYYY-MM-DD),
- *   comune: string,
- *   attivo: boolean
- * }
+ * La struttura dell'oggetto user è visibile nella documentazione API.
+ * Funzione già fatta - non modificare
  */
 function creaCardUtente(user) {
     userProfile.innerHTML = `
@@ -90,13 +81,13 @@ function creaCardPosts(postList) {
  * 
  * Mostra un messaggio di errore e logga in console
  */
-function handleError(message) {
+function mostraErrore(message) {
+    console.error('Errore:', message);
     userProfile.innerHTML = `
         <div class="error">
             <strong>❌ ${message}</strong>
         </div>
     `;
-    console.error('Errore:', message);
 }
 
 
@@ -110,15 +101,16 @@ function handleError(message) {
  * 4. Apri un blocco try/catch
  * 5. Fai DUE fetch:
  *    - GET /users/{id}
- *    - GET /posts
- * 6. Filtra i post per trovare solo quelli di questo utente (usando userId)
- *    - Il filtro va fatto in JS, ma puoi anche usare un endpoint come /posts?userId={id}
+ *    - GET /posts?userId={id}
+ *      Nota che il secondo endpoint è un filtro: ti restituirà solo i post di quell'utente
+ * 6. Se una delle due risposte non è OK, lancia un errore con un messaggio che includa lo status code
  * 7. Mostra i risultati chiamando prima creaCardUtente(user) e poi creaCardPosts(posts)
- * 8. Gestisci gli errori con handleError()
+ * 8. Nel catch, mostra un messaggio di errore usando mostraErrore()
+ * 9. Alla fine, nascondi lo spinner di caricamento
  */
 async function fetchUserAndPosts() {
     // TODO Rimuovi questa riga e completa la funzione
-    handleError('Codice non implementato - Completa la funzione fetchUserAndPosts()');
+    mostraErrore('Codice non implementato - Completa la funzione fetchUserAndPosts()');
 }
 
 

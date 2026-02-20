@@ -15,79 +15,9 @@ const pokemonContainer = document.getElementById('pokemonContainer');
 
 
 /**
- * FUNZIONE: Gestione errori
- * 
- * Mostra un messaggio di errore e logga in console
- */
-function handleError(message) {
-    pokemonContainer.innerHTML = `
-        <div class="error">
-            <strong>❌ ${message}</strong>
-        </div>
-    `;
-    console.error('Errore:', message);
-}
-
-
-/**
- * FUNZIONE: Ricerca un Pokémon per nome o numero
- * 
- * Parametri:
- * - Accetta nome (in minuscolo) o numero ID
- * - Ritorna oggetto con tutte le info del Pokémon
- * 
- * Passi:
- * 1. Leggi il valore dall'input
- * 2. Converti a minuscolo e trim()
- * 3. Valida che non sia vuoto
- * 4. Mostra lo spinner di caricamento
- * 5. Fai una GET a https://pokeapi.co/api/v2/pokemon/{input}
- * 6. Se la risposta non è OK (404), mostra "Pokémon non trovato" e return
- * 7. Converti in JSON
- * 8. Chiama displayPokemon() per visualizzare
- * 9. Nascondi lo spinner
- */
-async function searchPokemon() {
-    const input = pokemonInput.value.trim().toLowerCase();
-
-    // VALIDAZIONE
-    if (!input) {
-        handleError('Inserisci il nome o numero di un Pokémon');
-        return;
-    }
-
-    loading.classList.remove('nascosto');
-    pokemonContainer.innerHTML = '';
-
-    try {
-        // 👇 SCRIVI QUI IL TUO CODICE 👇
-        
-        // 1. Fai una fetch GET a: https://pokeapi.co/api/v2/pokemon/ + input
-        // const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + input);
-        
-        // 2. Controlla se la risposta è OK (non 404)
-        // if (!response.ok) {
-        //     throw new Error('Pokémon non trovato');
-        // }
-        
-        // 3. Converti in JSON
-        // const pokemon = await response.json();
-        
-        // 4. Visualizza
-        // displayPokemon(pokemon);
-
-        throw new Error('Codice non implementato - Completa searchPokemon()');
-
-    } catch (error) {
-        handleError(error.message);
-    } finally {
-        loading.classList.add('nascosto');
-    }
-}
-
-/**
  * FUNZIONE: Visualizza le informazioni del Pokémon
- * (Questa funzione è già fatta - non modificare)
+ * Crea una card con nome, immagine, tipi, altezza e peso.
+ * Funzione già fatta - non modificare
  */
 function displayPokemon(pokemon) {
 
@@ -99,7 +29,7 @@ function displayPokemon(pokemon) {
     const weight = (pokemon.weight / 10).toFixed(1); // Converti da hg a kg
     const types = pokemon.types.map(t => t.type.name).join(', ');
 
-    const html = `
+    pokemonContainer.innerHTML = `
         <div class="pokemon-card">
             <div class="card-header">
                 <h2>#${id} - ${name}</h2>
@@ -129,9 +59,61 @@ function displayPokemon(pokemon) {
             </div>
         </div>
     `;
-
-    pokemonContainer.innerHTML = html;
 }
+
+/**
+ * FUNZIONE: Gestione errori
+ * Mostra un messaggio di errore e logga in console
+ * Funzione già fatta - non modificare
+ */
+function mostraErrore(message) {
+    console.error('Errore:', message);
+    pokemonContainer.innerHTML = `
+        <div class="error">
+            <strong>❌ ${message}</strong>
+        </div>
+    `;
+}
+
+
+/**
+ * FUNZIONE: Ricerca un Pokémon per nome o numero
+ * La funzione cerca un Pokémon e lo visualizza. Se non trovato, mostra un errore.
+ * 
+ * Parametri dell'API:
+ * - Accetta nome (in minuscolo) o numero ID
+ * - Ritorna oggetto con tutte le info del Pokémon
+ */
+async function searchPokemon() {
+    const input = pokemonInput.value.trim().toLowerCase();
+
+    // VALIDAZIONE
+    if (!input) {
+        mostraErrore('Inserisci il nome o numero di un Pokémon');
+        return;
+    }
+
+    loading.classList.remove('nascosto');
+    pokemonContainer.innerHTML = '';
+
+    try {
+        // 1. Fai una fetch GET a: `https://pokeapi.co/api/v2/pokemon/${input}`
+        
+        // 2. Controlla se la risposta è OK, altrimenti lancia un errore con "Pokémon non trovato"
+        
+        // 3. Converti in JSON
+        
+        // 4. Visualizza con displayPokemon()
+
+        throw new Error('Codice non implementato - Completa searchPokemon()'); // Da rimuovere
+
+    } catch (error) {
+        mostraErrore(error.message);
+    }
+
+    loading.classList.add('nascosto');
+}
+
 
 // ===== COLLEGA GLI EVENTI =====
 btnSearch.addEventListener('click', searchPokemon);
