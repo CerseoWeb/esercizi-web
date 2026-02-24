@@ -79,26 +79,22 @@ http://www.omdbapi.com/?apikey=TUA_CHIAVE&s=matrix
 
 ## Come Iniziare
 
-1. **Ottieni la Chiave API**: Segui i passaggi sopra per ottenere la tua chiave OMDb.
+Per iniziare il progetto ci sono due strade:
 
-2. **Crea la Repository su GitHub**: Crea una nuova repository su github.com con il seguente nome: DatabaseFilm
+1. **Fork** del repository base. Lo trovate [qui](https://github.com/CerseoWeb/DatabaseFilm) e potete fare un fork per avere una copia personale su cui lavorare.
 
-3. **Clona il Progetto**
-   ```bash
-   git clone https://github.com/[tuonome]/DatabaseFilm.git
-   cd DatabaseFilm
-   ```
+2. **Creare una nuova repository** seguendo i passaggi qui sotto (consigliato per chi vuole fare tutto da zero e imparare il workflow completo di GitHub).
+   * **Nuova Repo**: Vai su [github.com](https://github.com) e crea una nuova repository (In alto un pulsante "+" e poi "New Repository"), con Repository Name: `DatabaseFilm`, Description: "Progetto Database Film per corso Web", Public, Initialize with README (opzionale).
+   * **Aggiungi Files**: Dopo aver creato la repo, puoi aggiungere i file `index.html`, `style.css`, `script.js` e `README.md` direttamente da GitHub (usando il tasto "+" (vicino a "Code") → "Upload files". Nella pagina di upload, trascina i file o selezionali dal tuo computer, poi scrolla in basso e fai commit dei file con un messaggio chiaro come "Add initial project files".
 
-4. **Copia i File**: Copia tutti i file del progetto nella tua cartella:
-   - `index.html`
-   - `preferiti.html`
-   - `style.css`
-   - `script.js`
-   - `preferiti.js`
+A questo punto possiamo iniziare a lavorare localmente con VSCode e GitHub:
 
-5. **Inserisci la Chiave API**: ricorda di inserire la tua chiave API in `script.js` prima di fare il commit iniziale, altrimenti non potrai prendere i dati dei film dall'API.
+**Clona**: Copia l'URL della repo (es: `https://github.com/[tuonome]/DatabaseFilm.git`) e clonala localmente usando Git o direttamente dentro VSCode.
 
-6. **Commit Iniziale**: Fai un commit iniziale con i file base e la chiave API configurata.
+**VSCode**: Da dentro vs code, apri la cartella del progetto se non già fatto.\
+*NOTA*: Prima di iniziare, assicurati di aver fatto il login a GitHub da VSCode, in modo da poter fare commit e push direttamente dall'editor.
+
+**Ottieni la Chiave API**: Segui i passaggi sopra per ottenere la tua chiave OMDb (se non l'hai già fatto) e inseriscila in `script.js` prima di fare il commit iniziale.
 
 
 ## 💡 Suggerimenti per l'Implementazione

@@ -11,54 +11,48 @@ Le funzionalità principali da implementare sono:
 
 ## Come Iniziare
 
-1. **Creare la Repository su GitHub**
-    * Vai su [github.com](https://github.com) e crea una nuova repository (In alto un pulsante "+" e poi "New Repository")
-    * Repository Name: `NegozioWeb` → Create Repository
-    * **Copia l'URL** della repo (es: `https://github.com/[tuonome]/NegozioWeb.git`)
+Per iniziare il progetto ci sono due strade:
+1. **Fork** del repository base. Lo trovate [qui](https://github.com/CerseoWeb/NegozioWeb) e potete fare un fork per avere una copia personale su cui lavorare.
+2. **Creare una nuova repository** seguendo i passaggi qui sotto (consigliato per chi vuole fare tutto da zero e imparare il workflow completo di GitHub).
+   * **Nuova Repo**: Vai su [github.com](https://github.com) e crea una nuova repository (In alto un pulsante "+" e poi "New Repository"), con Repository Name: `NegozioWeb`, Description: "Progetto Negozio Online per corso Web", Public, Initialize with README (opzionale).
+   * **Aggiungi Files**: Dopo aver creato la repo, puoi aggiungere i file `index.html`, `style.css`, `script.js` e `README.md` direttamente da GitHub (usando il tasto "+" (vicino a "Code") → "Upload files". Nella pagina di upload, trascina i file o selezionali dal tuo computer, poi scrolla in basso e fai commit dei file con un messaggio chiaro come "Add initial project files".
 
-2. **Clonare la Repository**
-    ```bash
-    git clone https://github.com/[tuonome]/NegozioWeb.git
-    cd NegozioWeb
-    ```
+A questo punto possiamo iniziare a lavorare localmente con VSCode e GitHub:
 
-3. **Copiare i File Base**: copia i file forniti (`index.html`, `style.css`, `script.js`, `README.md`) nella tua cartella di progetto.
+**Clona**: Copia l'URL della repo (es: `https://github.com/[tuonome]/NegozioWeb.git`) e clonala localmente usando Git o direttamente dentro VSCode.
 
-4. **Apri il Progetto in VSCode**: Da dentro vs code, apri la cartella del progetto (`File → Open Folder`).\
+**VSCode**: Da dentro vs code, apri la cartella del progetto se non già fatto.\
 *NOTA*: Prima di iniziare, assicurati di aver fatto il login a GitHub da VSCode, in modo da poter fare commit e push direttamente dall'editor.
 
-5. **Commit Iniziale**: Dopo aver copiato i file, è importante fare un commit iniziale per avere una base di partenza.
-Nel tab di VSCode, vai su "Source Control" (icona del ramo git) e vedrai i file non tracciati. Aggiungili al commit e scrivi un messaggio chiaro come "Initial commit: HTML + CSS structure", poi fai commit+push.
-
-6. **Struttura HTML**: In questo primo punto faremo la struttura base della pagina assieme, in modo da mostrare come lavorare con Git e fare commit frequenti.
-   ```
-   🎯 Colleghiamo i vari files
-   1. Collega il file CSS in index.html
-   2. Collega il file JS in index.html
-   3. Creiamo un div con class "container" che conterrà tutta la pagina
-   → commit: "HTML: aggiunta struttura tabella"
-   ```
-   ```
-   🎯 Creiamo l'HTML della tabella
-   1. Tabella vuota
-   2. Header della tabella con: Immagine, Nome, Prezzo, Disponibilità
-   3. Body con id "tabellaProdotti" (dove inseriremo i prodotti dinamicamente)
-   → commit: "HTML: aggiunta struttura tabella"
-   ```
-   ```
-   🎯 Creiamo il modale
-   1. Div con class "modal nascosto" e id "modale"
-   2. Div interno con class "modal-content"
-   3. Contenuto del modal:
-     - H2 con id "prodottoNome"
-     - Immagine con id "prodottoImmagine"
-     - Paragrafo con id "prodottoDescrizione"
-     - Paragrafo con id "prodottoPrezzo"
-     - Paragrafo con id "prodottoDisponibilita"
-     - span con id "chiudi" e class "close" con dentro il simbolo "×"
-   → commit: "HTML: aggiunta struttura modal"
-   → push o sincronizzazione per salvare su GitHub
-   ```
+**Inizio Insieme**: Dopo questi passaggi, iniziamo a fare i primi passi assieme per vedere il workflow di Git e come strutturare la pagina:
+```
+🎯 Colleghiamo i vari files
+1. Collega il file CSS in index.html
+2. Collega il file JS in index.html
+3. Creiamo un div con class "container" che conterrà tutta la pagina
+→ commit: "HTML: aggiunta struttura tabella"
+```
+```
+🎯 Creiamo l'HTML della tabella
+1. Tabella vuota
+2. Header della tabella con: Immagine, Nome, Prezzo, Disponibilità
+3. Body con id "tabellaProdotti" (dove inseriremo i prodotti dinamicamente)
+→ commit: "HTML: aggiunta struttura tabella"
+```
+```
+🎯 Creiamo il modale
+1. Div con class "modal nascosto" e id "modale"
+2. Div interno con class "modal-content"
+3. Contenuto del modal:
+   - H2 con id "prodottoNome"
+   - Immagine con id "prodottoImmagine"
+   - Paragrafo con id "prodottoDescrizione"
+   - Paragrafo con id "prodottoPrezzo"
+   - Paragrafo con id "prodottoDisponibilita"
+   - span con id "chiudi" e class "close" con dentro il simbolo "×"
+→ commit: "HTML: aggiunta struttura modal"
+→ push o sincronizzazione per salvare su GitHub
+```
 
 ## 📝 Esercizio da Implementare
 
