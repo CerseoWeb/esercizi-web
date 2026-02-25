@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 2 — La Rubrica Contatti</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+        /* ═══════════════════════════════════════════════════════
+           TEMA APP MODERNA — Accento Teal con glassmorphism
+           ═══════════════════════════════════════════════════════ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #e8f4f2 0%, #f0f4f8 40%, #ebe8f3 100%);
+            color: #2d3748;
+            padding: 24px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow:
+                0 1px 3px rgba(0,0,0,0.04),
+                0 8px 32px rgba(26,122,109,0.08);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #1a7a6d, #2c9f8f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.3px;
+        }
+
+        .sottotitolo {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        /* ─── STATISTICHE ─── */
+        #stats {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: linear-gradient(145deg, #ffffff, #f7fafc);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 28px;
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .stat-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1a7a6d, #4fd1c5);
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26,122,109,0.1);
+        }
+
+        .stat-box:hover::after {
+            opacity: 1;
+        }
+
+        .stat-box .label {
+            font-size: 0.75em;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+
+        .stat-box .valore {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1a7a6d, #38a89d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ─── FORM ─── */
+        .form-area {
+            background: linear-gradient(145deg, #f7faf9, #f0f9f7);
+            border: 1px solid #d5e8e4;
+            border-radius: 14px;
+            padding: 26px;
+            margin-bottom: 24px;
+        }
+
+        .form-area h2 {
+            font-size: 1.15em;
+            margin-bottom: 18px;
+            color: #1a7a6d;
+            font-weight: 700;
+        }
+
+        .form-riga {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-riga input,
+        .form-riga select {
+            flex: 1;
+            min-width: 160px;
+            padding: 11px 16px;
+            border: 1.5px solid #d5e8e4;
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-family: inherit;
+            background: rgba(255,255,255,0.8);
+            color: #2d3748;
+            transition: all 0.25s ease;
+        }
+
+        .form-riga input:focus,
+        .form-riga select:focus {
+            outline: none;
+            border-color: #1a7a6d;
+            box-shadow: 0 0 0 3px rgba(26, 122, 109, 0.1);
+            background: #fff;
+        }
+
+        .form-riga input::placeholder {
+            color: #a0b4b0;
+        }
+
+        /* ─── BOTTONI ─── */
+        .bottoni {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primario {
+            background: linear-gradient(135deg, #1a7a6d, #2c9f8f);
+            color: white;
+            box-shadow: 0 2px 10px rgba(26,122,109,0.25);
+        }
+        .btn-primario:hover {
+            box-shadow: 0 4px 16px rgba(26,122,109,0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondario {
+            background: rgba(255,255,255,0.7);
+            color: #4a5568;
+            border: 1.5px solid #d5e8e4;
+        }
+        .btn-secondario:hover {
+            background: #fff;
+            border-color: #1a7a6d;
+            transform: translateY(-1px);
+        }
+
+        .btn-danger {
+            background: #fff5f5;
+            color: #c53030;
+            border: 1.5px solid #fcc;
+            padding: 5px 12px;
+            font-size: 0.85em;
+            border-radius: 8px;
+        }
+        .btn-danger:hover {
+            background: #fed7d7;
+            border-color: #c53030;
+        }
+
+        /* ─── RICERCA ─── */
+        .ricerca-area {
+            margin-bottom: 22px;
+        }
+
+        .ricerca-area input {
+            width: 100%;
+            padding: 12px 18px;
+            border: 1.5px solid #d5e8e4;
+            border-radius: 24px;
+            font-size: 0.95em;
+            font-family: inherit;
+            background: rgba(255,255,255,0.8);
+            color: #2d3748;
+            transition: all 0.25s ease;
+        }
+
+        .ricerca-area input:focus {
+            outline: none;
+            border-color: #1a7a6d;
+            box-shadow: 0 0 0 3px rgba(26, 122, 109, 0.1);
+            background: #fff;
+        }
+
+        .ricerca-area input::placeholder {
+            color: #a0b4b0;
+        }
+
+        /* ─── TABELLA ─── */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #f0faf8, #f7fafc);
+        }
+
+        th {
+            text-align: left;
+            padding: 13px 18px;
+            font-size: 0.78em;
+            text-transform: uppercase;
+            color: #1a7a6d;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            border-bottom: 2px solid #d5e8e4;
+        }
+
+        td {
+            padding: 13px 18px;
+            border-bottom: 1px solid #edf2f7;
+            color: #2d3748;
+        }
+
+        tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: #f0faf8;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ─── TAG CATEGORIA ─── */
+        .tag-famiglia {
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+            color: #22543d;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .tag-lavoro {
+            background: linear-gradient(135deg, #bee3f8, #90cdf4);
+            color: #2a4365;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .tag-amici {
+            background: linear-gradient(135deg, #fefcbf, #faf089);
+            color: #744210;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .tag-altro {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            color: #4a5568;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.82em;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* ─── MESSAGGIO ─── */
+        #messaggio {
+            display: none;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-top: 18px;
+            font-weight: 600;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-successo {
+            background: linear-gradient(135deg, #c6f6d5, #d5f5e3);
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+
+        .msg-errore {
+            background: linear-gradient(135deg, #fed7d7, #fde8e8);
+            color: #c53030;
+            border: 1px solid #feb2b2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📇 La Rubrica Contatti</h1>
+    <p class="sottotitolo">Esercizio semi-guidato</p>
+
+    <!-- STATISTICHE -->
+    <div id="stats">
+        <div class="stat-box">
+            <div class="label">Contatti</div>
+            <div class="valore" id="stat-totale">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="label">Preferiti</div>
+            <div class="valore" id="stat-preferiti">0</div>
+        </div>
+        <div class="stat-box">
+            <div class="label">Categoria Top</div>
+            <div class="valore" id="stat-categoria">—</div>
+        </div>
+    </div>
+
+    <!-- FORM INSERIMENTO -->
+    <div class="form-area">
+        <h2>➕ Nuovo Contatto</h2>
+        <div class="form-riga">
+            <input type="text" id="input-nome" placeholder="Nome">
+            <input type="text" id="input-cognome" placeholder="Cognome">
+        </div>
+        <div class="form-riga">
+            <input type="tel" id="input-telefono" placeholder="Telefono">
+            <input type="email" id="input-email" placeholder="Email">
+        </div>
+        <div class="form-riga">
+            <select id="select-categoria">
+                <option value="">-- Categoria --</option>
+                <option value="Famiglia">👨‍👩‍👧 Famiglia</option>
+                <option value="Lavoro">💼 Lavoro</option>
+                <option value="Amici">🎉 Amici</option>
+                <option value="Altro">📌 Altro</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- BOTTONI -->
+    <div class="bottoni">
+        <button class="btn-primario" id="btn-aggiungi">➕ Aggiungi Contatto</button>
+        <button class="btn-secondario" id="btn-salva">💾 Salva</button>
+        <button class="btn-secondario" id="btn-carica">📂 Carica</button>
+        <button class="btn-danger" id="btn-reset">🗑️ Reset</button>
+    </div>
+
+    <!-- RICERCA -->
+    <div class="ricerca-area">
+        <input type="text" id="input-cerca" placeholder="🔍 Cerca contatti per nome o cognome...">
+    </div>
+
+    <!-- TABELLA CONTATTI -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Categoria</th>
+                <th>Azioni</th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabella">
+            <!-- Le righe verranno create da JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- MESSAGGIO -->
+    <div id="messaggio"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 1 — Il Menu della Pizzeria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #faf6f1;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(211,84,0,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(243,156,18,0.04) 0%, transparent 50%);
+            color: #3d2c1e;
+            padding: 24px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #c0392b;
+            font-size: 2.4em;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        .subtitle {
+            color: #8b7355;
+            font-size: 0.9em;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .decorazione {
+            margin: 12px auto;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d35400, transparent);
+            border-radius: 2px;
+        }
+
+        /* ============ AREA INTERATTIVA ============ */
+        #area-menu {
+            background: #fffcf8;
+            border: 1px solid #e8ddd0;
+            border-radius: 16px;
+            padding: 28px 30px;
+            margin: 0 auto;
+            max-width: 820px;
+            box-shadow:
+                0 1px 3px rgba(139,115,85,0.06),
+                0 8px 24px rgba(139,115,85,0.08);
+        }
+
+        #area-menu h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #c0392b;
+            font-size: 1.5em;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #e8ddd0;
+        }
+
+        #area-menu h3 {
+            color: #5d4e37;
+            margin: 20px 0 10px 0;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.85em;
+        }
+
+        #area-menu h3::before {
+            content: '— ';
+            color: #d35400;
+        }
+
+        /* ============ FORM ============ */
+        #form-container {
+            background: linear-gradient(135deg, #fdf4ec 0%, #fef9f4 100%);
+            border: 1px solid #e8ddd0;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 16px 0;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            color: #6b5b4a;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            max-width: 380px;
+            padding: 10px 14px;
+            background: #fff;
+            border: 1px solid #d4c5b3;
+            border-radius: 8px;
+            color: #3d2c1e;
+            font-size: 0.95em;
+            font-family: inherit;
+            transition: all 0.25s ease;
+        }
+
+        input::placeholder {
+            color: #b8a898;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #d35400;
+            box-shadow: 0 0 0 3px rgba(211,84,0,0.1);
+            background: #fffaf5;
+        }
+
+        /* ============ BOTTONI ============ */
+        button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            font-family: inherit;
+            margin: 5px 5px 5px 0;
+            transition: all 0.25s ease;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(211,84,0,0.25);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #bf4900, #d35400);
+            box-shadow: 0 4px 12px rgba(211,84,0,0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-danger {
+            background: #fff;
+            color: #c0392b;
+            border: 1.5px solid #e5c5c0;
+        }
+
+        .btn-danger:hover {
+            background: #fdf0ee;
+            border-color: #c0392b;
+        }
+
+        .btn-secondary {
+            background: #f5ede4;
+            color: #5d4e37;
+            border: 1px solid #d4c5b3;
+        }
+
+        .btn-secondary:hover {
+            background: #efe4d8;
+            transform: translateY(-1px);
+        }
+
+        /* ============ LISTA PIZZE ============ */
+        #lista-pizze {
+            list-style: none;
+            padding: 0;
+        }
+
+        #lista-pizze li {
+            background: #fff;
+            border: 1px solid #e8ddd0;
+            border-left: 4px solid #d35400;
+            border-radius: 0 10px 10px 0;
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        #lista-pizze li:hover {
+            background: #fef9f4;
+            box-shadow: 0 2px 8px rgba(139,115,85,0.1);
+            transform: translateX(4px);
+        }
+
+        #lista-pizze li .info-pizza { flex: 1; }
+
+        #lista-pizze li .nome-pizza {
+            color: #c0392b;
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        #lista-pizze li .dettagli-pizza {
+            color: #8b7355;
+            font-size: 0.85em;
+            margin-top: 2px;
+        }
+
+        /* ============ STATISTICHE ============ */
+        #stats-container {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+
+        .stat-box {
+            background: #fff;
+            border: 1px solid #e8ddd0;
+            border-radius: 12px;
+            padding: 16px 22px;
+            min-width: 130px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d35400, #f39c12);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139,115,85,0.12);
+        }
+
+        .stat-box .stat-valore {
+            font-size: 1.9em;
+            font-weight: 700;
+            color: #d35400;
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.75em;
+            color: #8b7355;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* ============ RICERCA ============ */
+        #ricerca-container {
+            margin: 18px 0;
+        }
+
+        #input-ricerca {
+            max-width: 420px;
+            border-radius: 20px;
+            padding-left: 18px;
+        }
+
+        /* ============ MESSAGGI ============ */
+        #messaggio {
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 12px 0;
+            display: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-successo {
+            background: linear-gradient(135deg, #eafaf1, #d5f5e3);
+            border: 1px solid #82e0aa;
+            color: #1e8449;
+        }
+
+        .msg-errore {
+            background: linear-gradient(135deg, #fdf0ee, #fadbd8);
+            border: 1px solid #f1948a;
+            color: #c0392b;
+        }
+
+        /* ============ UTILITY ============ */
+        .nascosto { display: none !important; }
+
+        hr {
+            border: none;
+            border-top: 1px dashed #d4c5b3;
+            margin: 22px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #fef5e7, #fdebd0);
+            color: #d35400;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.78em;
+            font-weight: 600;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🍕 Il Menu della Pizzeria</h1>
+        <div class="decorazione"></div>
+        <p class="subtitle">Ripasso completo JavaScript (guidato)</p>
+    </div>
+
+    <!-- ============ AREA INTERATTIVA PRINCIPALE ============ -->
+    <div id="area-menu">
+
+        <h2 id="titolo-menu">Il Nostro Menu</h2>
+
+        <!-- Messaggio feedback -->
+        <div id="messaggio"></div>
+
+        <!-- Statistiche -->
+        <div id="stats-container">
+            <div class="stat-box">
+                <div class="stat-valore" id="stat-totale">0</div>
+                <div class="stat-label">Pizze nel Menu</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-valore" id="stat-media">0</div>
+                <div class="stat-label">Prezzo Medio</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-valore" id="stat-piu-cara">-</div>
+                <div class="stat-label">Più Costosa</div>
+            </div>
+        </div>
+
+        <!-- Form aggiunta pizza -->
+        <div id="form-container">
+            <h3>Aggiungi una Pizza</h3>
+            <div class="form-group">
+                <label for="input-nome">Nome della pizza</label>
+                <input type="text" id="input-nome" placeholder="es. Margherita">
+            </div>
+            <div class="form-group">
+                <label for="input-ingredienti">Ingredienti principali</label>
+                <input type="text" id="input-ingredienti" placeholder="es. Pomodoro, mozzarella, basilico">
+            </div>
+            <div class="form-group">
+                <label for="input-prezzo">Prezzo (€)</label>
+                <input type="number" id="input-prezzo" placeholder="es. 8.50" min="1" max="50" step="0.50">
+            </div>
+            <div class="form-group">
+                <label for="select-categoria">Categoria</label>
+                <select id="select-categoria">
+                    <option value="">-- Scegli --</option>
+                    <option value="Classica">Classica</option>
+                    <option value="Speciale">Speciale</option>
+                    <option value="Gourmet">Gourmet</option>
+                    <option value="Stagionale">Stagionale</option>
+                </select>
+            </div>
+            <button class="btn-primary" id="btn-aggiungi">Aggiungi Pizza</button>
+            <button class="btn-secondary" id="btn-reset">Reset Menu</button>
+            <button class="btn-secondary" id="btn-salva">💾 Salva</button>
+            <button class="btn-secondary" id="btn-carica">📂 Carica</button>
+        </div>
+
+        <!-- Ricerca -->
+        <div id="ricerca-container">
+            <h3>Cerca nel Menu</h3>
+            <input type="text" id="input-ricerca" placeholder="Cerca per nome...">
+        </div>
+
+        <!-- Lista pizze -->
+        <h3>Menu Attuale</h3>
+        <ul id="lista-pizze">
+            <!-- Le pizze appariranno qui -->
+        </ul>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
