@@ -12,13 +12,14 @@
  * Suggerimenti per l'implementazione:
  * - Crea una funzione che genera una riga di un singolo prodotto
  * - Crea una funzione che visualizza l'intera tabella dei prodotti (che richiama la funzione precedente per ogni prodotto)
- * - Crea una funzione che fa il toggle della sezione dei dettagli (mostra/nascondi)
- * - Aggiungi un event listener a ogni riga della tabella per mostrare i dettagli del prodotto cliccato (usa la funzione di toggle)
- * - Aggiungi un event listener al pulsante "Chiudi" per nascondere la sezione dei dettagli (richiama la stessa funzione di toggle)
+ * - Crea una funzione che fa mostra la sezione dei dettagli con le info del prodotto passato per parametro
+ * - Aggiungi un event listener a ogni riga della tabella per mostrare i dettagli del prodotto cliccato (usa la funzione di visualizzazione dei dettagli)
+ * - Aggiungi un event listener al pulsante "Chiudi" per nascondere la sezione dei dettagli
  * 
  * Bonus:
  * - Aggiungi una barra di ricerca per filtrare i prodotti per nome (filtro testuale)
  * - Aggiungi un filtro per categoria (dropdown) per mostrare solo i prodotti di una certa categoria
+ * Nota: i filtri devono lavorare insieme e sui dati già recuperati, senza fare nuove richieste all'API
  */
 
 
