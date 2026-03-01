@@ -2,7 +2,7 @@
 
 ## Obiettivo
 
-Questi due esercizi coprono **TUTTO** il programma JavaScript, dal primo `console.log` fino a `localStorage`.
+Questi esercizi coprono **TUTTO** il programma JavaScript, dal primo `console.log` fino alle `API`.
 Sono pensati per essere fatti **in autonomia**, senza bisogno di aiuto, a patto di seguire le istruzioni passo passo e di non saltare nessun concetto.
 
 ---
@@ -18,6 +18,7 @@ Sono pensati per essere fatti **in autonomia**, senza bisogno di aiuto, a patto 
 7. **Non saltare nessun step** — ogni step usa ciò che hai fatto prima
 8. Salva e ricarica la pagina per vedere i risultati
 9. Quando hai finito il primo esercizio, ripeti i passaggi 3-8 per il secondo esercizio
+10. Per il **terzo esercizio** (API), prima avvia il server: apri il terminale nella cartella `server-api` e lancia `npm start`
 
 ---
 
@@ -71,6 +72,31 @@ Stessi concetti dell'Esercizio 1, ma con **meno aiuto**:
 - Nessun esempio, nessun output scritto
 
 Se ti blocchi, torna all'Esercizio 1 per rivedere il concetto.
+
+---
+
+### Esercizio 3 — "La Biblioteca Online" (API)
+
+Un esercizio dedicato alla **comunicazione con un server API** usando `fetch()`.
+Copre le operazioni CRUD:
+
+| Step | Operazione | Metodo HTTP | Cosa fa                      |
+| ---- | ---------- | ----------- | ---------------------------- |
+| 1    | READ       | GET         | Caricare tutti i libri       |
+| 2    | READ       | GET         | Cercare un libro per ID      |
+| 3    | CREATE     | POST        | Aggiungere un nuovo libro    |
+| 4    | UPDATE     | PATCH       | Segnare un libro come letto  |
+| 5    | DELETE     | DELETE       | Eliminare un libro           |
+| 6    | BONUS      | —           | Caricamento auto, filtri, ricerca |
+
+**Prerequisito:** avviare il server API prima di iniziare (chiedere al docente).
+
+Per ogni step trovi:
+
+- 📖 **Spiegazione** del concetto (fetch, async/await, metodi HTTP)
+- 💡 **Esempio** di sintassi
+- ✏️ **TODO** — il codice che devi scrivere tu
+- ✅ **Verifica** — come controllare che hai fatto giusto
 
 ---
 

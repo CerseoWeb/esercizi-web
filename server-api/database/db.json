@@ -789,5 +789,167 @@
             "immagine": "https://media.startech.com/cms/products/gallery_large/laptop-stand-silver.main.jpg",
             "disponibilita": true
         }
+    ],
+    "books": [
+        {
+            "id": 1,
+            "titolo": "Il nome della rosa",
+            "autore": "Umberto Eco",
+            "genere": "Giallo",
+            "pagine": 512,
+            "letto": true
+        },
+        {
+            "id": 2,
+            "titolo": "Harry Potter e la pietra filosofale",
+            "autore": "J.K. Rowling",
+            "genere": "Fantasy",
+            "pagine": 293,
+            "letto": true
+        },
+        {
+            "id": 3,
+            "titolo": "Il piccolo principe",
+            "autore": "Antoine de Saint-Exupéry",
+            "genere": "Narrativa",
+            "pagine": 96,
+            "letto": true
+        },
+        {
+            "id": 4,
+            "titolo": "1984",
+            "autore": "George Orwell",
+            "genere": "Fantascienza",
+            "pagine": 328,
+            "letto": false
+        },
+        {
+            "id": 5,
+            "titolo": "Il Signore degli Anelli",
+            "autore": "J.R.R. Tolkien",
+            "genere": "Fantasy",
+            "pagine": 1216,
+            "letto": false
+        },
+        {
+            "id": 6,
+            "titolo": "Orgoglio e pregiudizio",
+            "autore": "Jane Austen",
+            "genere": "Romanzo",
+            "pagine": 432,
+            "letto": true
+        },
+        {
+            "id": 7,
+            "titolo": "Fahrenheit 451",
+            "autore": "Ray Bradbury",
+            "genere": "Fantascienza",
+            "pagine": 158,
+            "letto": false
+        },
+        {
+            "id": 8,
+            "titolo": "Diario di una schiappa",
+            "autore": "Jeff Kinney",
+            "genere": "Umorismo",
+            "pagine": 217,
+            "letto": true
+        },
+        {
+            "id": 9,
+            "titolo": "IT",
+            "autore": "Stephen King",
+            "genere": "Horror",
+            "pagine": 1138,
+            "letto": false
+        },
+        {
+            "id": 10,
+            "titolo": "Il codice da Vinci",
+            "autore": "Dan Brown",
+            "genere": "Giallo",
+            "pagine": 597,
+            "letto": true
+        },
+        {
+            "id": 11,
+            "titolo": "Percy Jackson e gli dei dell'Olimpo",
+            "autore": "Rick Riordan",
+            "genere": "Fantasy",
+            "pagine": 375,
+            "letto": true
+        },
+        {
+            "id": 12,
+            "titolo": "Assassinio sull'Orient Express",
+            "autore": "Agatha Christie",
+            "genere": "Giallo",
+            "pagine": 256,
+            "letto": false
+        },
+        {
+            "id": 13,
+            "titolo": "Hunger Games",
+            "autore": "Suzanne Collins",
+            "genere": "Fantascienza",
+            "pagine": 374,
+            "letto": true
+        },
+        {
+            "id": 14,
+            "titolo": "Il giovane Holden",
+            "autore": "J.D. Salinger",
+            "genere": "Narrativa",
+            "pagine": 214,
+            "letto": false
+        },
+        {
+            "id": 15,
+            "titolo": "Shining",
+            "autore": "Stephen King",
+            "genere": "Horror",
+            "pagine": 447,
+            "letto": true
+        },
+        {
+            "id": 16,
+            "titolo": "Il vecchio e il mare",
+            "autore": "Ernest Hemingway",
+            "genere": "Narrativa",
+            "pagine": 127,
+            "letto": false
+        },
+        {
+            "id": 17,
+            "titolo": "Maze Runner - Il labirinto",
+            "autore": "James Dashner",
+            "genere": "Fantascienza",
+            "pagine": 384,
+            "letto": false
+        },
+        {
+            "id": 18,
+            "titolo": "Frankenstein",
+            "autore": "Mary Shelley",
+            "genere": "Horror",
+            "pagine": 280,
+            "letto": true
+        },
+        {
+            "id": 19,
+            "titolo": "Le cronache di Narnia",
+            "autore": "C.S. Lewis",
+            "genere": "Fantasy",
+            "pagine": 767,
+            "letto": false
+        },
+        {
+            "id": 20,
+            "titolo": "Il diario di Anna Frank",
+            "autore": "Anna Frank",
+            "genere": "Narrativa",
+            "pagine": 283,
+            "letto": true
+        }
     ]
 }
