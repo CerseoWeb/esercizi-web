@@ -797,7 +797,8 @@
             "autore": "Umberto Eco",
             "genere": "Giallo",
             "pagine": 512,
-            "letto": true
+            "letto": true,
+            "cover": "https://covers.openlibrary.org/b/id/8598263-L.jpg"
         },
         {
             "id": 2,
@@ -805,7 +806,8 @@
             "autore": "J.K. Rowling",
             "genere": "Fantasy",
             "pagine": 293,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=cdoHAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
             "id": 3,
@@ -813,7 +815,8 @@
             "autore": "Antoine de Saint-Exupéry",
             "genere": "Narrativa",
             "pagine": 96,
-            "letto": true
+            "letto": true,
+            "cover": "https://covers.openlibrary.org/b/id/13626459-L.jpg"
         },
         {
             "id": 4,
@@ -821,7 +824,8 @@
             "autore": "George Orwell",
             "genere": "Fantascienza",
             "pagine": 328,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/8745958-L.jpg"
         },
         {
             "id": 5,
@@ -829,7 +833,8 @@
             "autore": "J.R.R. Tolkien",
             "genere": "Fantasy",
             "pagine": 1216,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/13119612-L.jpg"
         },
         {
             "id": 6,
@@ -837,7 +842,8 @@
             "autore": "Jane Austen",
             "genere": "Romanzo",
             "pagine": 432,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=iiP40AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
             "id": 7,
@@ -845,7 +851,8 @@
             "autore": "Ray Bradbury",
             "genere": "Fantascienza",
             "pagine": 158,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/12993656-L.jpg"
         },
         {
             "id": 8,
@@ -853,7 +860,8 @@
             "autore": "Jeff Kinney",
             "genere": "Umorismo",
             "pagine": 217,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=pqncAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
             "id": 9,
@@ -861,7 +869,8 @@
             "autore": "Stephen King",
             "genere": "Horror",
             "pagine": 1138,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/8569284-L.jpg"
         },
         {
             "id": 10,
@@ -869,7 +878,8 @@
             "autore": "Dan Brown",
             "genere": "Giallo",
             "pagine": 597,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=cXCxGzF9ghMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
             "id": 11,
@@ -877,7 +887,8 @@
             "autore": "Rick Riordan",
             "genere": "Fantasy",
             "pagine": 375,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=jItjUT9W4sAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
             "id": 12,
@@ -885,7 +896,8 @@
             "autore": "Agatha Christie",
             "genere": "Giallo",
             "pagine": 256,
-            "letto": false
+            "letto": false,
+            "cover": "https://books.google.com/books/content?id=AnyejIR0XW0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
             "id": 13,
@@ -893,7 +905,8 @@
             "autore": "Suzanne Collins",
             "genere": "Fantascienza",
             "pagine": 374,
-            "letto": true
+            "letto": true,
+            "cover": "https://covers.openlibrary.org/b/id/12646537-L.jpg"
         },
         {
             "id": 14,
@@ -901,7 +914,8 @@
             "autore": "J.D. Salinger",
             "genere": "Narrativa",
             "pagine": 214,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/15120068-L.jpg"
         },
         {
             "id": 15,
@@ -909,7 +923,8 @@
             "autore": "Stephen King",
             "genere": "Horror",
             "pagine": 447,
-            "letto": true
+            "letto": true,
+            "cover": "https://covers.openlibrary.org/b/id/12376585-L.jpg"
         },
         {
             "id": 16,
@@ -917,7 +932,8 @@
             "autore": "Ernest Hemingway",
             "genere": "Narrativa",
             "pagine": 127,
-            "letto": false
+            "letto": false,
+            "cover": "https://books.google.com/books/content?id=ydcnTyDQGPkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
             "id": 17,
@@ -925,7 +941,8 @@
             "autore": "James Dashner",
             "genere": "Fantascienza",
             "pagine": 384,
-            "letto": false
+            "letto": false,
+            "cover": "https://books.google.com/books/content?id=lIY3DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
             "id": 18,
@@ -933,7 +950,8 @@
             "autore": "Mary Shelley",
             "genere": "Horror",
             "pagine": 280,
-            "letto": true
+            "letto": true,
+            "cover": "https://covers.openlibrary.org/b/id/12356249-L.jpg"
         },
         {
             "id": 19,
@@ -941,7 +959,8 @@
             "autore": "C.S. Lewis",
             "genere": "Fantasy",
             "pagine": 767,
-            "letto": false
+            "letto": false,
+            "cover": "https://covers.openlibrary.org/b/id/12075354-L.jpg"
         },
         {
             "id": 20,
@@ -949,7 +968,8 @@
             "autore": "Anna Frank",
             "genere": "Narrativa",
             "pagine": 283,
-            "letto": true
+            "letto": true,
+            "cover": "https://books.google.com/books/content?id=qxnHEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         }
     ]
 }
