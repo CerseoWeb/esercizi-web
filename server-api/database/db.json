@@ -798,6 +798,7 @@
             "genere": "Giallo",
             "pagine": 512,
             "letto": true,
+            "descrizione": "In un'abbazia medievale, un frate francescano e il suo giovane novizio indagano su eventi inquietanti legati alla biblioteca. Tra dibattiti teologici e tensioni politiche, l'indagine prende forma passo dopo passo.",
             "cover": "https://covers.openlibrary.org/b/id/8598263-L.jpg"
         },
         {
@@ -807,6 +808,7 @@
             "genere": "Fantasy",
             "pagine": 293,
             "letto": true,
+            "descrizione": "Harry scopre di appartenere al mondo della magia e inizia il suo primo anno a Hogwarts. Tra lezioni, nuove amicizie e misteri del castello, si avvicina a un segreto custodito nella scuola.",
             "cover": "https://books.google.com/books/content?id=cdoHAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
@@ -816,6 +818,7 @@
             "genere": "Narrativa",
             "pagine": 96,
             "letto": true,
+            "descrizione": "Un aviatore incontra nel deserto un bambino proveniente da un piccolo pianeta. Attraverso i suoi racconti di viaggio, emergono riflessioni semplici e profonde sul mondo degli adulti.",
             "cover": "https://covers.openlibrary.org/b/id/13626459-L.jpg"
         },
         {
@@ -825,6 +828,7 @@
             "genere": "Fantascienza",
             "pagine": 328,
             "letto": false,
+            "descrizione": "In una societa controllata da un regime totalitario, Winston svolge un lavoro legato alla riscrittura del passato. La sua quotidianita e segnata da sorveglianza costante e paura di ogni deviazione.",
             "cover": "https://covers.openlibrary.org/b/id/8745958-L.jpg"
         },
         {
@@ -834,6 +838,7 @@
             "genere": "Fantasy",
             "pagine": 1216,
             "letto": false,
+            "descrizione": "Nella Terra di Mezzo, un giovane hobbit riceve il compito di portare un anello di grande potere lontano dal nemico. Un gruppo eterogeneo lo accompagna attraverso territori pieni di pericoli.",
             "cover": "https://covers.openlibrary.org/b/id/13119612-L.jpg"
         },
         {
@@ -843,6 +848,7 @@
             "genere": "Romanzo",
             "pagine": 432,
             "letto": true,
+            "descrizione": "Nell'Inghilterra di inizio Ottocento, Elizabeth Bennet affronta aspettative sociali, questioni familiari e nuovi incontri. Il rapporto con il signor Darcy nasce tra incomprensioni e giudizi iniziali.",
             "cover": "https://books.google.com/books/content?id=iiP40AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
@@ -852,6 +858,7 @@
             "genere": "Fantascienza",
             "pagine": 158,
             "letto": false,
+            "descrizione": "In un futuro dove i libri sono proibiti, Montag lavora come pompiere incaricato di bruciarli. Alcuni incontri inattesi lo spingono a osservare in modo diverso la realta che lo circonda.",
             "cover": "https://covers.openlibrary.org/b/id/12993656-L.jpg"
         },
         {
@@ -861,6 +868,7 @@
             "genere": "Umorismo",
             "pagine": 217,
             "letto": true,
+            "descrizione": "Greg racconta con ironia la vita quotidiana alle scuole medie, tra amicizie, piccole figuracce e tentativi di farsi notare. Il diario segue episodi semplici e molto riconoscibili.",
             "cover": "https://books.google.com/books/content?id=pqncAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
         },
         {
@@ -870,6 +878,7 @@
             "genere": "Horror",
             "pagine": 1138,
             "letto": false,
+            "descrizione": "Nella cittadina di Derry, un gruppo di ragazzi si trova ad affrontare paure inspiegabili legate a misteriose sparizioni. Il racconto alterna vita di tutti i giorni e un'atmosfera sempre piu inquietante.",
             "cover": "https://covers.openlibrary.org/b/id/8569284-L.jpg"
         },
         {
@@ -879,6 +888,7 @@
             "genere": "Giallo",
             "pagine": 597,
             "letto": true,
+            "descrizione": "Dopo un omicidio al Louvre, il professore Robert Langdon viene coinvolto in una corsa contro il tempo tra simboli e indizi nascosti. Con l'aiuto di Sophie Neveu, cerca di ricostruire una traccia complessa.",
             "cover": "https://books.google.com/books/content?id=cXCxGzF9ghMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
@@ -888,6 +898,7 @@
             "genere": "Fantasy",
             "pagine": 375,
             "letto": true,
+            "descrizione": "Percy scopre di avere origini straordinarie e viene introdotto in un mondo dove miti greci e presente si incontrano. Un viaggio avventuroso lo porta a capire meglio se stesso e i suoi compagni.",
             "cover": "https://books.google.com/books/content?id=jItjUT9W4sAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
@@ -897,6 +908,7 @@
             "genere": "Giallo",
             "pagine": 256,
             "letto": false,
+            "descrizione": "Durante un viaggio in treno, un passeggero viene trovato morto e il celebre investigatore Hercule Poirot avvia le indagini. Ogni testimonianza aggiunge dettagli a un caso tutt'altro che semplice.",
             "cover": "https://books.google.com/books/content?id=AnyejIR0XW0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
@@ -906,6 +918,7 @@
             "genere": "Fantascienza",
             "pagine": 374,
             "letto": true,
+            "descrizione": "In una societa divisa in distretti, Katniss prende il posto della sorella in una competizione imposta dal potere centrale. L'inizio del percorso mostra regole dure e scelte difficili.",
             "cover": "https://covers.openlibrary.org/b/id/12646537-L.jpg"
         },
         {
@@ -915,6 +928,7 @@
             "genere": "Narrativa",
             "pagine": 214,
             "letto": false,
+            "descrizione": "Holden Caulfield racconta alcuni giorni della sua adolescenza tra scuola, incontri e pensieri disordinati. Il tono diretto mette in luce il suo senso di estraneita verso il mondo che lo circonda.",
             "cover": "https://covers.openlibrary.org/b/id/15120068-L.jpg"
         },
         {
@@ -924,6 +938,7 @@
             "genere": "Horror",
             "pagine": 447,
             "letto": true,
+            "descrizione": "Jack accetta il lavoro di custode invernale di un grande albergo isolato insieme alla famiglia. L'ambiente silenzioso e i segnali insoliti contribuiscono a creare una tensione crescente.",
             "cover": "https://covers.openlibrary.org/b/id/12376585-L.jpg"
         },
         {
@@ -933,6 +948,7 @@
             "genere": "Narrativa",
             "pagine": 127,
             "letto": false,
+            "descrizione": "Un anziano pescatore cubano, dopo molti giorni senza catture, torna in mare con determinazione. Il racconto segue la sua prova personale tra fatica, pazienza e dignita.",
             "cover": "https://books.google.com/books/content?id=ydcnTyDQGPkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
@@ -942,6 +958,7 @@
             "genere": "Fantascienza",
             "pagine": 384,
             "letto": false,
+            "descrizione": "Thomas si risveglia senza memoria in una radura circondata da un enorme labirinto abitato da altri ragazzi. Insieme cercano di capire le regole del luogo e trovare una via d'uscita.",
             "cover": "https://books.google.com/books/content?id=lIY3DQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         },
         {
@@ -951,6 +968,7 @@
             "genere": "Horror",
             "pagine": 280,
             "letto": true,
+            "descrizione": "Il giovane scienziato Victor Frankenstein dedica i suoi studi a un esperimento estremo sulla vita. Le prime conseguenze della sua scelta aprono subito questioni morali e personali molto forti.",
             "cover": "https://covers.openlibrary.org/b/id/12356249-L.jpg"
         },
         {
@@ -960,6 +978,7 @@
             "genere": "Fantasy",
             "pagine": 767,
             "letto": false,
+            "descrizione": "Alcuni fratelli scoprono un passaggio verso Narnia, un mondo fantastico in difficolta. L'inizio dell'avventura li porta a conoscere luoghi, creature e alleanze decisive.",
             "cover": "https://covers.openlibrary.org/b/id/12075354-L.jpg"
         },
         {
@@ -969,6 +988,7 @@
             "genere": "Narrativa",
             "pagine": 283,
             "letto": true,
+            "descrizione": "Attraverso le pagine del diario, Anna racconta la vita quotidiana durante il periodo di clandestinita. Le annotazioni iniziali mostrano pensieri, paure e speranze di una ragazza molto giovane.",
             "cover": "https://books.google.com/books/content?id=qxnHEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
         }
     ]
