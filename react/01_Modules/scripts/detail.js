@@ -3,7 +3,8 @@
 import { getBookById } from "./modules/api.js";
 import { mountHeader } from "./modules/header.js";
 import { mountFooter } from "./modules/footer.js";
-import { sanitizeHTML, showLoading, showNotFound } from "./modules/errors.js";
+import { showLoading, showNotFound } from "./modules/errors.js";
+import { createBookDetail } from "./modules/book-ui.js";
 
 /**
  * Estrae l'ID del libro dai parametri URL
@@ -12,29 +13,6 @@ import { sanitizeHTML, showLoading, showNotFound } from "./modules/errors.js";
 function getBookIdFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
-}
-
-/**
- * Crea l'HTML per il dettaglio libro
- * @param {Object} book - Oggetto libro
- * @returns {string} - HTML del dettaglio
- */
-function createDetailHTML(book) {
-    return `
-        <button class="back-button" onclick="history.back()">← Torna alla lista</button>
-        <article class="book-detail-content">
-        <div class="book-detail-cover">
-            ${book.cover ? `<img src="${book.cover}" alt="${book.titolo}">` : '<div class="book-placeholder-large">📖</div>'}
-        </div>
-        <div class="book-detail-info">
-            <h1>${sanitizeHTML(book.titolo)}</h1>
-            <p class="detail-author"><strong>Autore:</strong> ${sanitizeHTML(book.autore || "Sconosciuto")}</p>
-            ${book.pagine ? `<p class="detail-pagine"><strong>Pagine:</strong> ${book.pagine}</p>` : ""}
-            ${book.genere ? `<p class="detail-genere"><strong>Genere:</strong> ${sanitizeHTML(book.genere)}</p>` : ""}
-            ${book.descrizione ? `<p class="detail-descrizione"><strong>Descrizione:</strong><br>${sanitizeHTML(book.descrizione)}</p>` : ""}
-        </div>
-        </article>
-    `;
 }
 
 /**
@@ -63,7 +41,7 @@ async function loadBookDetail() {
         document.title = `${book.titolo} - Libreria`;
 
         // Popola il container
-        container.innerHTML = createDetailHTML(book);
+        container.innerHTML = createBookDetail(book);
     } catch (error) {
         showNotFound(container, `Errore nel caricamento: ${error.message}`);
     }
@@ -72,18 +50,9 @@ async function loadBookDetail() {
 /**
  * Inizializza la pagina
  */
-function initPage() {
-    // Monta header e footer
-    mountHeader("Libreria");
-    mountFooter();
+// Monta header e footer
+mountHeader();
+mountFooter();
 
-    // Carica il dettaglio del libro
-    loadBookDetail();
-}
-
-// Avvia quando il DOM è pronto
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPage);
-} else {
-    initPage();
-}
+// Carica il dettaglio del libro
+loadBookDetail();

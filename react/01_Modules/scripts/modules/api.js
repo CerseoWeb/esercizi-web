@@ -4,11 +4,20 @@ const API_BASE_URL = "http://localhost:5000/api";
 /**
  * Recupera la lista dei libri dal server
  * @param {number} limit - Numero massimo di libri da recuperare (default: 20)
+ * @param {Object} filters - Filtri opzionali (es: { letto: true })
  * @returns {Promise<Array>} - Array di libri
  */
-export async function getBooks(limit = 20) {
+export async function getBooks(limit = 20, filters = {}) {
     try {
-        const response = await fetch(`${API_BASE_URL}/books?_limit=${limit}`);
+        const params = new URLSearchParams({ _limit: String(limit) });
+
+        Object.entries(filters).forEach(([key, value]) => {
+            if (value !== undefined && value !== null && value !== "") {
+                params.set(key, String(value));
+            }
+        });
+
+        const response = await fetch(`${API_BASE_URL}/books?${params.toString()}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
