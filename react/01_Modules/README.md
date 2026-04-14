@@ -14,117 +14,88 @@ Capire bene i concetti che poi ritroverete in React:
 
 ## Stato attuale del progetto
 
-Pagine presenti:
+Il progetto è gia strutturato con moduli e pagine, ma alcune parti sono incomplete o da modificare. L'obiettivo e completare le funzionalita mancanti seguendo i passi descritti nella sezione "Consegna studenti".
+
+Lo stato attuale del progetto è il seguente (directory view)
+```
+01_Modules/
+├── assets/icons/
+├── scripts/
+│   ├── modules/
+│   ├── detail.js
+│   ├── index.js
+│   └── read.js
+├── detail.html
+├── favorites.html
+├── index.html
+├── read.html
+└── style.css
+```
+
+Pagine HTML:
 
 - `index.html`: lista libri
 - `detail.html`: dettaglio libro
 - `read.html`: pagina scaffold per libri letti
+- `favorites.html`: pagina scaffold per libri preferiti
 
 Script principali:
 
 - `scripts/index.js`
 - `scripts/detail.js`
-- `scripts/read.js` (scaffold TODO)
+- `scripts/read.js` (TODO)
 
 Moduli in `scripts/modules`:
 
-- `api.js`: chiamate API (`getBooks`, `getBookById`)
-- `book-ui.js`: rendering card libro e dettaglio
-- `errors.js`: loading, errori, empty state, sanitize
-- `header.js`: header riusabile con link configurabili
-- `footer.js`: footer riusabile
-- `local-favorite.js`: gestione preferiti in localStorage
-
-## API usata
-
-Base URL configurata in `scripts/modules/api.js`:
-
-- `http://localhost:5000/api`
-
-Endpoint usati:
-
-- `GET /api/books?_limit=20`
-- `GET /api/books/:id`
-
-`getBooks(limit, filters)` supporta filtri opzionali, ad esempio:
-
-```js
-getBooks(20, { letto: true });
-```
-
-## Cosa e gia stato spezzato in moduli
-
-- Il rendering dei libri non e piu in `index.js` e `detail.js`: e in `book-ui.js`.
-- La gestione preferiti e gia isolata in `local-favorite.js`.
-- Errori/loading/empty e sanitizzazione sono centralizzati in `errors.js`.
-- Header e footer sono componenti riusabili.
+- `api.js`: chiamate API (`getBooks`, `getBookById`) già implementate come funzioni.
+- `book-ui.js`: rendering card libro e dettaglio.
+- `errors.js`: loading, errori, empty state, sanitize.
+- `header.js`: header riusabile.
+- `footer.js`: footer riusabile.
+- `local-favorite.js`: gestione preferiti in localStorage.
 
 ## Consegna studenti (step-by-step)
 
-### Step 1 - Completare `read.js`
+### Step 1 - Modificare prima `header.js`
 
-Obiettivo: mostrare solo i libri letti.
+Obiettivo: prendere confidenza con la repo e con la struttura dei moduli.
 
-- Importare `getBooks` da `api.js`
-- Chiamare `getBooks(20, { letto: true })`
-- Renderizzare con `renderBookList` da `book-ui.js`
-- Usare `showLoading`, `showEmpty`, `showError` per gli stati UI
-
-Checkpoint: `read.html` mostra solo elementi con `letto: true`.
-
-### Step 2 - Aggiungere la stellina preferiti in `book-ui.js`
-
-Obiettivo: aggiungere un bottone preferiti nelle card.
-
-- Usare `isFavorite` e `toggleFavorite` da `local-favorite.js`
-- Mostrare icona diversa se il libro e preferito
-- Evitare che il click sulla stellina apra il dettaglio (`event.preventDefault()` e `event.stopPropagation()`)
-
-Checkpoint: la stellina cambia stato e persiste dopo refresh.
-
-### Step 3 - Creare pagina `favorites.html`
-
-Obiettivo: mostrare solo i libri preferiti.
-
-- Creare `favorites.html`
-- Creare `scripts/favorites.js`
-- Leggere id preferiti da localStorage (`getFavorites`)
-- Caricare i libri da API e filtrare per id preferiti
-- Renderizzare con `renderBookList`
-
-Checkpoint: pagina preferiti funzionante con fallback se lista vuota.
-
-### Step 4 - Aggiornare il menu header
-
-Obiettivo: navigazione completa tra pagine.
-
-- In ogni entrypoint (`index.js`, `detail.js`, `read.js`, `favorites.js`) passare i link a `mountHeader`
-- Link richiesti:
+- Aprire `scripts/modules/header.js`
+- Aggiungere manualmente i pulsanti del menu nell'header
+- Inserire almeno questi link:
   - Home (`index.html`)
   - Letti (`read.html`)
   - Preferiti (`favorites.html`)
+- Verificare che il menu sia visibile in tutte le pagine che montano l'header
 
-Checkpoint: nav coerente su tutte le pagine.
+### Step 2 - Aggiungere la stellina in `book-ui.js`
 
-## Criteri di valutazione
+Obiettivo: capire come una modifica in un modulo UI impatta tutte le pagine.
 
-- Moduli separati correttamente (no duplicazioni evidenti)
-- Import/export corretti
-- Gestione errori/loading presente
-- Codice leggibile e funzioni piccole
-- Funzionalita richieste complete
+- Aprire `scripts/modules/book-ui.js`
+- Aggiungere/gestire l'icona stellina nella card libro
+- Leggere lo stato preferito da localStorage (`isFavorite`)
+- Applicare la classe CSS `favorite` quando il libro e nei preferiti
+- Verificare che la modifica si veda ovunque venga usata la card
 
-## Avvio progetto
+### Step 3 - Completare `read.js`
 
-Aprire il sito tramite un server locale HTTP (non `file://`).
+Obiettivo: lavorare sulla parte JavaScript di logica dati.
 
-Esempio rapido:
+- Aprire `scripts/read.js`
+- Importare `getBooks` da `api.js`
+- Caricare i libri letti con filtro `letto=true`
+- Renderizzare con `renderBookList` da `book-ui.js`
+- Gestire loading, errore e lista vuota con `errors.js`
 
-```bash
-cd react/01_Modules
-python -m http.server 8000
-```
+### Step 4 - Implementare la pagina preferiti (solo JS)
 
-Poi aprire:
+Obiettivo: esercitarsi con import/export tra moduli.
 
-- `http://localhost:8000/index.html`
+- Creare `scripts/favorites.js`
+- Usare `getFavorites` da `local-favorite.js`
+- Caricare libri da API e filtrare per gli id preferiti
+- Renderizzare con `renderBookList`
+- Gestire stati UI con `errors.js`
+
+Nota: per l'HTML di `favorites`, e sufficiente copiare la struttura delle altre pagine.
