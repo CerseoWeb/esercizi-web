@@ -1,7 +1,6 @@
 // book-ui.js - Renderer UI per lista e dettaglio libri
 
 import { clearContainer, sanitizeHTML } from "./errors.js";
-import { isFavorite } from "./local-favorite.js";
 
 /**
  * Crea una card libro con link al dettaglio
@@ -11,7 +10,6 @@ import { isFavorite } from "./local-favorite.js";
 export function createBookCard(book) {
     const card = document.createElement("article");
     card.className = "book-card";
-    const favoriteClass = isFavorite(book.id) ? "favorite" : "";
 
     card.innerHTML = `
         <a href="detail.html?id=${book.id}" class="book-link">
@@ -24,6 +22,13 @@ export function createBookCard(book) {
             </div>
         </a>
     `;
+
+    const star = card.querySelector(".icon-star");
+    if (star) {
+        star.addEventListener("click", (event) => {
+            event.preventDefault();
+        });
+    }
 
     return card;
 }

@@ -34,9 +34,6 @@ async function loadBooks() {
     }
 }
 
-/**
- * Inizializza la pagina
- */
 // Monta header e footer
 mountHeader();
 mountFooter();

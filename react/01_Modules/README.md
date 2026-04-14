@@ -4,7 +4,7 @@ Questo progetto e un esercizio ponte tra JavaScript base e React.
 
 ## Obiettivo didattico
 
-Capire bene i concetti che poi ritroverete in React:
+Consolidare i concetti che poi ritroverete in React:
 
 - separazione delle responsabilita
 - import/export tra file
@@ -12,11 +12,8 @@ Capire bene i concetti che poi ritroverete in React:
 - stato locale lato client
 - pagine diverse che condividono moduli
 
-## Stato attuale del progetto
+## Struttura del progetto
 
-Il progetto è gia strutturato con moduli e pagine, ma alcune parti sono incomplete o da modificare. L'obiettivo e completare le funzionalita mancanti seguendo i passi descritti nella sezione "Consegna studenti".
-
-Lo stato attuale del progetto è il seguente (directory view)
 ```
 01_Modules/
 ├── assets/icons/
@@ -36,18 +33,19 @@ Pagine HTML:
 
 - `index.html`: lista libri
 - `detail.html`: dettaglio libro
-- `read.html`: pagina scaffold per libri letti
-- `favorites.html`: pagina scaffold per libri preferiti
+- `read.html`: libri letti (TODO)
+- `favorites.html`: libri preferiti (TODO)
 
 Script principali:
 
 - `scripts/index.js`
 - `scripts/detail.js`
 - `scripts/read.js` (TODO)
+- `scripts/favorites.js` (TODO)
 
 Moduli in `scripts/modules`:
 
-- `api.js`: chiamate API (`getBooks`, `getBookById`) già implementate come funzioni.
+- `api.js`: chiamate API (`getBooks`, `getBookById`).
 - `book-ui.js`: rendering card libro e dettaglio.
 - `errors.js`: loading, errori, empty state, sanitize.
 - `header.js`: header riusabile.
@@ -56,31 +54,32 @@ Moduli in `scripts/modules`:
 
 ## Consegna studenti (step-by-step)
 
-### Step 1 - Modificare prima `header.js`
+### Step 1 - Header condiviso
 
-Obiettivo: prendere confidenza con la repo e con la struttura dei moduli.
+Obiettivo: prendere confidenza con la repo e con la struttura a moduli.
 
 - Aprire `scripts/modules/header.js`
-- Aggiungere manualmente i pulsanti del menu nell'header
-- Inserire almeno questi link:
+- Inserire i pulsanti del menu nell'header
+- Includere almeno questi link:
   - Home (`index.html`)
   - Letti (`read.html`)
   - Preferiti (`favorites.html`)
 - Verificare che il menu sia visibile in tutte le pagine che montano l'header
 
-### Step 2 - Aggiungere la stellina in `book-ui.js`
+### Step 2 - Stellina preferiti nelle card
 
 Obiettivo: capire come una modifica in un modulo UI impatta tutte le pagine.
 
 - Aprire `scripts/modules/book-ui.js`
-- Aggiungere/gestire l'icona stellina nella card libro
+- Aggiungere la stellina nella card libro (usa il un tag `span` con classe `icon-star`)
 - Leggere lo stato preferito da localStorage (`isFavorite`)
 - Applicare la classe CSS `favorite` quando il libro e nei preferiti
-- Verificare che la modifica si veda ovunque venga usata la card
+- Gestire il click sulla stellina con toggle dei preferiti (`toggleFavorite`)
+- Evitare che il click sulla stellina apra il dettaglio libro
 
-### Step 3 - Completare `read.js`
+### Step 3 - Pagina libri letti
 
-Obiettivo: lavorare sulla parte JavaScript di logica dati.
+Obiettivo: lavorare sulla logica dati asincrona.
 
 - Aprire `scripts/read.js`
 - Importare `getBooks` da `api.js`
@@ -88,14 +87,16 @@ Obiettivo: lavorare sulla parte JavaScript di logica dati.
 - Renderizzare con `renderBookList` da `book-ui.js`
 - Gestire loading, errore e lista vuota con `errors.js`
 
-### Step 4 - Implementare la pagina preferiti (solo JS)
+### Step 4 - Pagina preferiti (solo JS)
 
 Obiettivo: esercitarsi con import/export tra moduli.
 
 - Creare `scripts/favorites.js`
 - Usare `getFavorites` da `local-favorite.js`
-- Caricare libri da API e filtrare per gli id preferiti
+- Caricare libri da API e filtrare per ID preferiti
 - Renderizzare con `renderBookList`
-- Gestire stati UI con `errors.js`
+- Gestire loading, errore e lista vuota con `errors.js`
 
-Nota: per l'HTML di `favorites`, e sufficiente copiare la struttura delle altre pagine.
+## Nota didattica
+
+L'esercizio è pensato in questo modo: i passi 1-2 sono base, i passi 3-4 sono il ponte verso la logica che poi verra gestita in React con componenti e stato.
