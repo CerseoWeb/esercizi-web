@@ -50,12 +50,23 @@ function createZipForDir(dirPath) {
   const { number, desc } = splitName(dirName);
   const zipName = sanitizeFilename(`JS_Esercizi ${number} - ${desc}.zip`);
   const zipPath = path.join(outputDir, zipName);
-  const sourceGlob = path.join(dirPath, "*");
+
+  // Get all entries excluding node_modules
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true })
+    .filter((entry) => entry.name !== "node_modules")
+    .map((entry) => path.join(dirPath, entry.name));
+
+  if (entries.length === 0) {
+    console.log(`Nessun file da zippare in: ${dirName}`);
+    return;
+  }
+
+  const pathsQuoted = entries.map(psQuote).join(", ");
 
   const psCommand = [
     "$ErrorActionPreference = 'Stop'",
     `if (Test-Path -LiteralPath ${psQuote(zipPath)}) { Remove-Item -LiteralPath ${psQuote(zipPath)} -Force }`,
-    `Compress-Archive -Path ${psQuote(sourceGlob)} -DestinationPath ${psQuote(zipPath)} -Force`
+    `Compress-Archive -Path @(${pathsQuoted}) -DestinationPath ${psQuote(zipPath)} -Force`
   ].join("; ");
 
   execFileSync("powershell", ["-NoProfile", "-Command", psCommand], {
