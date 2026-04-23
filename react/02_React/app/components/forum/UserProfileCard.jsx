@@ -1,23 +1,21 @@
-function UserProfileCard({ user }) {
-    const firstName = user?.nome ?? user?.name ?? "Nome";
-    const lastName = user?.cognome ?? "";
-    const fullName = `${firstName} ${lastName}`.trim() || "Utente";
-    const avatar = user?.avatar ?? `https://ui-avatars.com/api/?name=${encodeURIComponent(fullName)}&background=0D8ABC&color=fff`;
+import Pill from "../Pill";
 
+function UserProfileCard({ user: { nome, cognome, email, avatar, comune, dataNascita, attivo } }) {
+
+    const fullName = `${nome} ${cognome}`.trim() || "Utente";
     return (
         <section className="forum-profile-card">
             <img src={avatar} alt={`Avatar di ${fullName}`} className="forum-profile-avatar" />
 
             <div className="forum-profile-body">
                 <h3>{fullName}</h3>
-                <p>{user?.email ?? "Email non disponibile"}</p>
+                <p>{email}</p>
 
                 <div className="forum-profile-meta">
-                    <span>Comune: {user?.comune ?? "-"}</span>
-                    <span>Data nascita: {user?.dataNascita ?? "-"}</span>
-                    <span>
-                        Stato: {typeof user?.attivo !== "undefined" ? (user.attivo ? "Attivo" : "Non attivo") : "-"}
-                    </span>
+                    <span>Comune: {comune || "-"}</span>
+                    <span>Data nascita: {dataNascita || "-"}</span>
+
+                    <Pill label={attivo ? "Attivo" : "Non attivo"} tone={attivo ? "default" : "warm"} />
                 </div>
             </div>
         </section>

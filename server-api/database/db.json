@@ -603,6 +603,290 @@
             "data": "2023-10-30"
         }
     ],
+    "comments": [
+        {
+            "id": 1,
+            "postId": 4,
+            "userId": 35,
+            "contenuto": "Confermo, in produzione queste scelte fanno la differenza."
+        },
+        {
+            "id": 2,
+            "postId": 4,
+            "userId": 28,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 3,
+            "postId": 4,
+            "userId": 2,
+            "contenuto": "Confermo, in produzione queste scelte fanno la differenza."
+        },
+        {
+            "id": 4,
+            "postId": 4,
+            "userId": 22,
+            "contenuto": "Concordo, questo punto mi ha chiarito parecchie idee."
+        },
+        {
+            "id": 5,
+            "postId": 4,
+            "userId": 21,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 6,
+            "postId": 9,
+            "userId": 28,
+            "contenuto": "Confermo, in produzione queste scelte fanno la differenza."
+        },
+        {
+            "id": 7,
+            "postId": 9,
+            "userId": 2,
+            "contenuto": "In fase di review questo tipo di note e oro."
+        },
+        {
+            "id": 8,
+            "postId": 9,
+            "userId": 34,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 9,
+            "postId": 9,
+            "userId": 40,
+            "contenuto": "Secondo me questa e la base giusta da cui partire."
+        },
+        {
+            "id": 10,
+            "postId": 19,
+            "userId": 8,
+            "contenuto": "Curioso di vedere una parte 2 su questo argomento."
+        },
+        {
+            "id": 11,
+            "postId": 19,
+            "userId": 19,
+            "contenuto": "Io avevo dubbi, ma scritto cosi e molto chiaro."
+        },
+        {
+            "id": 12,
+            "postId": 19,
+            "userId": 13,
+            "contenuto": "Confermo, in produzione queste scelte fanno la differenza."
+        },
+        {
+            "id": 13,
+            "postId": 19,
+            "userId": 8,
+            "contenuto": "Io l'ho provato ieri e mi sono trovato bene."
+        },
+        {
+            "id": 14,
+            "postId": 18,
+            "userId": 11,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 15,
+            "postId": 18,
+            "userId": 29,
+            "contenuto": "Curioso di vedere una parte 2 su questo argomento."
+        },
+        {
+            "id": 16,
+            "postId": 18,
+            "userId": 38,
+            "contenuto": "Interessante prospettiva, grazie per averla condivisa."
+        },
+        {
+            "id": 17,
+            "postId": 11,
+            "userId": 20,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 18,
+            "postId": 11,
+            "userId": 34,
+            "contenuto": "Aggiungerei anche un esempio con edge case reali."
+        },
+        {
+            "id": 19,
+            "postId": 11,
+            "userId": 9,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 20,
+            "postId": 17,
+            "userId": 1,
+            "contenuto": "Concordo, questo punto mi ha chiarito parecchie idee."
+        },
+        {
+            "id": 21,
+            "postId": 17,
+            "userId": 27,
+            "contenuto": "Mi piace il taglio concreto del post."
+        },
+        {
+            "id": 22,
+            "postId": 17,
+            "userId": 14,
+            "contenuto": "Nel mio progetto ho fatto qualcosa di simile e ha funzionato."
+        },
+        {
+            "id": 23,
+            "postId": 25,
+            "userId": 21,
+            "contenuto": "Aggiungerei anche un esempio con edge case reali."
+        },
+        {
+            "id": 24,
+            "postId": 25,
+            "userId": 5,
+            "contenuto": "Curioso di vedere una parte 2 su questo argomento."
+        },
+        {
+            "id": 25,
+            "postId": 25,
+            "userId": 18,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 26,
+            "postId": 2,
+            "userId": 7,
+            "contenuto": "Nel mio progetto ho fatto qualcosa di simile e ha funzionato."
+        },
+        {
+            "id": 27,
+            "postId": 2,
+            "userId": 36,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 28,
+            "postId": 20,
+            "userId": 23,
+            "contenuto": "Ottimo spunto, lo porto nel prossimo refactor."
+        },
+        {
+            "id": 29,
+            "postId": 20,
+            "userId": 16,
+            "contenuto": "Bella spiegazione, soprattutto la parte pratica."
+        },
+        {
+            "id": 30,
+            "postId": 15,
+            "userId": 38,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 31,
+            "postId": 15,
+            "userId": 39,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 32,
+            "postId": 22,
+            "userId": 22,
+            "contenuto": "Io avevo dubbi, ma scritto cosi e molto chiaro."
+        },
+        {
+            "id": 33,
+            "postId": 22,
+            "userId": 37,
+            "contenuto": "Io l'ho provato ieri e mi sono trovato bene."
+        },
+        {
+            "id": 34,
+            "postId": 12,
+            "userId": 14,
+            "contenuto": "Io avevo dubbi, ma scritto cosi e molto chiaro."
+        },
+        {
+            "id": 35,
+            "postId": 12,
+            "userId": 29,
+            "contenuto": "In fase di review questo tipo di note e oro."
+        },
+        {
+            "id": 36,
+            "postId": 6,
+            "userId": 36,
+            "contenuto": "Piccolo tip: documentare questi passaggi aiuta molto il team."
+        },
+        {
+            "id": 37,
+            "postId": 6,
+            "userId": 8,
+            "contenuto": "In fase di review questo tipo di note e oro."
+        },
+        {
+            "id": 38,
+            "postId": 24,
+            "userId": 2,
+            "contenuto": "Aggiungerei anche un esempio con edge case reali."
+        },
+        {
+            "id": 39,
+            "postId": 24,
+            "userId": 28,
+            "contenuto": "Curioso di vedere una parte 2 su questo argomento."
+        },
+        {
+            "id": 40,
+            "postId": 13,
+            "userId": 21,
+            "contenuto": "Io avevo dubbi, ma scritto cosi e molto chiaro."
+        },
+        {
+            "id": 41,
+            "postId": 13,
+            "userId": 19,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 42,
+            "postId": 21,
+            "userId": 35,
+            "contenuto": "Finalmente un post senza fuffa, diretto e utile."
+        },
+        {
+            "id": 43,
+            "postId": 21,
+            "userId": 33,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 44,
+            "postId": 8,
+            "userId": 27,
+            "contenuto": "Curioso di vedere una parte 2 su questo argomento."
+        },
+        {
+            "id": 45,
+            "postId": 23,
+            "userId": 21,
+            "contenuto": "Questo tema merita un approfondimento in un altro post."
+        },
+        {
+            "id": 46,
+            "postId": 14,
+            "userId": 4,
+            "contenuto": "Nel mio progetto ho fatto qualcosa di simile e ha funzionato."
+        },
+        {
+            "id": 47,
+            "postId": 1,
+            "userId": 35,
+            "contenuto": "Interessante prospettiva, grazie per averla condivisa."
+        }
+    ],
     "todos": [
         {
             "id": 1,

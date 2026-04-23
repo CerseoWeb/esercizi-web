@@ -38,7 +38,7 @@ function ForumPage() {
                 emptyMessage="Nessun post disponibile al momento."
             />
 
-            {!loading && !error && posts.length > 0 && <ForumPostsTable posts={posts} />}
+            <ForumPostsTable posts={posts} />
         </section>
     );
 }

@@ -8,10 +8,10 @@ function CounterDemo({ initialCount = 0, step = 1 }) {
             <h4>CounterDemo</h4>
             <p className="counter-value">Contatore: {count}</p>
             <div className="button-row">
-                <button onClick={() => setCount((prev) => prev + step)}>
+                <button onClick={() => setCount(count + step)}>
                     +{step}
                 </button>
-                <button onClick={() => setCount((prev) => prev - step)}>
+                <button onClick={() => setCount(count - step)}>
                     -{step}
                 </button>
                 <button onClick={() => setCount(initialCount)}>Reset</button>

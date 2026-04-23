@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ForumPostsTable({ posts, hidePostLink = false }) {
+function ForumPostsTable({ posts, hideActions = false }) {
     return (
         <div className="table-wrap">
             <table className="forum-table">
@@ -15,29 +15,17 @@ function ForumPostsTable({ posts, hidePostLink = false }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {posts.map((post) => {
-                        const title = post?.titolo ?? post?.title ?? "Post senza titolo";
-                        const content = post?.contenuto ?? post?.content ?? "Contenuto non disponibile.";
-                        const dateText = post?.data ?? post?.date ?? "Data non indicata";
-
+                    {posts.map(({ id, titolo, contenuto, data, likes, userId }) => {
                         return (
-                            <tr key={post.id}>
-                                <td>{post.id}</td>
-                                <td>{title}</td>
-                                <td>{content}</td>
-                                <td>{dateText}</td>
-                                <td>{typeof post?.likes !== "undefined" ? post.likes : "-"}</td>
+                            <tr key={id}>
+                                <td>{id}</td>
+                                <td>{titolo}</td>
+                                <td>{contenuto}</td>
+                                <td>{data}</td>
+                                <td>{likes}</td>
                                 <td className="forum-actions-cell">
-                                    {!hidePostLink && (
-                                        <Link to={`/forum/post/${post.id}`} className="inline-link">
-                                            Apri post
-                                        </Link>
-                                    )}
-                                    {post?.userId && (
-                                        <Link to={`/forum/user/${post.userId}`} className="inline-link">
-                                            Utente
-                                        </Link>
-                                    )}
+                                    <Link to={`/forum/post/${id}`} className="inline-link">Apri post</Link>
+                                    <Link to={`/forum/user/${userId}`} className="inline-link">Utente</Link>
                                 </td>
                             </tr>
                         );

@@ -5,7 +5,8 @@ function ColorChangeDemo() {
     const [color, setColor] = useState(palette[0]);
 
     const changeColor = () => {
-        const next = palette[Math.floor(Math.random() * palette.length)];
+        const randomIndex = Math.floor(Math.random() * palette.length);
+        const next = palette[randomIndex];
         setColor(next);
     };
 

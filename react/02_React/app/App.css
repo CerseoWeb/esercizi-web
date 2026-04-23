@@ -186,7 +186,9 @@ body {
 }
 
 .forum-table tbody tr:hover {
-    background: rgba(31, 138, 91, 0.06);
+    background: rgba(31, 138, 91, 0.1);
+    transform: scale(1.005);
+    transform-origin: center;
 }
 
 .forum-actions-cell {

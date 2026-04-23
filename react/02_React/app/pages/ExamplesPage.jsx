@@ -40,7 +40,7 @@ function ExamplesPage() {
             <section className="examples-group">
                 <h3>Componenti con State / useEffect</h3>
                 <div className="component-grid">
-                    <CounterDemo initialCount={2} step={1} />
+                    <CounterDemo initialCount={0} step={1} />
                     <ColorChangeDemo />
                     <ToggleDetails />
                     <TimerDemo />

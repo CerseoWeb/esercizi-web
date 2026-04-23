@@ -18,8 +18,8 @@ function App() {
 
             <nav className="main-nav" aria-label="Navigazione principale">
                 <NavLink to="/" end>Home</NavLink>
-                <NavLink to="/esempi">Esempi</NavLink>
-                <NavLink to="/forum">Forum</NavLink>
+                <NavLink to="/esempi" end>Esempi</NavLink>
+                <NavLink to="/forum" end>Forum</NavLink>
             </nav>
 
             <main className="page-panel">

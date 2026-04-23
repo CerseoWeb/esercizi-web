@@ -5,16 +5,11 @@ function ForumCommentsList({ comments }) {
 
             {comments.length === 0 ? (<p>Nessun commento per questo post.</p>) : (
                 <div className="forum-comments-list">
-                    {comments.map((comment) => {
-                        const content = comment?.contenuto ?? comment?.content ?? "Commento senza contenuto.";
-
+                    {comments.map(({ id, contenuto, userId, postId }) => {
                         return (
-                            <article key={comment.id} className="forum-comment-card">
-                                <p>{content}</p>
-                                <span>
-                                    Commento #{comment.id}
-                                    {comment?.userId ? ` - utente ${comment.userId}` : ""}
-                                </span>
+                            <article key={id} className="forum-comment-card">
+                                <p>{contenuto}</p>
+                                <span>{userId}</span>
                             </article>
                         );
                     })}
