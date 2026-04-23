@@ -6,6 +6,8 @@ import { showEmpty } from "./modules/errors.js";
 
 async function loadReadBooks() {
     const container = document.getElementById("read-books-container");
+
+    // Rimuovere il commento e implementare la logica per caricare i libri letti dal server
     showEmpty(container, "TODO: Implementare il caricamento dei libri letti");
 }
 

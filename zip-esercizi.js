@@ -7,6 +7,21 @@ const baseDir = process.argv[2]
   : path.join(__dirname, "javascript");
 const outputDir = path.join(__dirname, ".zip");
 
+function getSigna(dirName) {
+  // Se contiene underscore, prende prima lettera di ogni parola
+  if (dirName.includes("_")) {
+    return dirName
+      .split("_")
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+  }
+  // Altrimenti prende le prime 2 lettere
+  return dirName.substring(0, 2).toUpperCase();
+}
+
+const sigla = getSigna(path.basename(baseDir));
+
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -48,7 +63,7 @@ function splitName(dirName) {
 function createZipForDir(dirPath) {
   const dirName = path.basename(dirPath);
   const { number, desc } = splitName(dirName);
-  const zipName = sanitizeFilename(`JS_Esercizi ${number} - ${desc}.zip`);
+  const zipName = sanitizeFilename(`${sigla}_Esercizi ${number} - ${desc}.zip`);
   const zipPath = path.join(outputDir, zipName);
 
   // Get all entries excluding node_modules

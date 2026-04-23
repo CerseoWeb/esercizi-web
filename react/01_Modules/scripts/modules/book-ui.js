@@ -3,9 +3,15 @@
 import { clearContainer, sanitizeHTML } from "./errors.js";
 
 /**
- * Crea una card libro con link al dettaglio
- * @param {Object} book - Oggetto libro
- * @returns {HTMLElement}
+ * Crea una card libro.
+ * 
+ * La card sarà composta da un'immagine di copertina (se disponibile), titolo e autore.
+ * Cliccando sulla card si viene portati alla pagina di dettaglio del libro.
+ * 
+ * Inoltre possiede un'icona stella per indicare se il libro è preferito o meno.
+ * 
+ * @param {Object} book - Oggetto libro { id, titolo, autore, cover, ... }
+ * @returns {HTMLElement} - Elemento card libro
  */
 export function createBookCard(book) {
     const card = document.createElement("article");
@@ -34,17 +40,17 @@ export function createBookCard(book) {
 }
 
 /**
- * Renderizza una lista di libri in un contenitore
- * @param {string|HTMLElement} containerSelector - Id o elemento container
+ * Renderizza una lista di libri in un contenitore.
+ * Se il contenitore non esiste, la funzione lancia un errore.
+ * La funzione si occupa anche di svuotare il contenitore prima di renderizzare i nuovi libri.
+ * 
+ * @param {HTMLElement} container - Elemento del DOM
  * @param {Array<Object>} books - Lista libri
  */
-export function renderBookList(containerSelector, books) {
-    const container =
-        typeof containerSelector === "string"
-            ? document.getElementById(containerSelector)
-            : containerSelector;
-
-    if (!container) return;
+export function renderBookList(container, books) {
+    if (!container) {
+        throw new Error("Container non trovato: ", container);
+    }
 
     clearContainer(container);
 
@@ -54,9 +60,13 @@ export function renderBookList(containerSelector, books) {
 }
 
 /**
- * Crea l'HTML del dettaglio libro
- * @param {Object} book - Oggetto libro
- * @returns {string}
+ * Crea l'HTML del dettaglio libro.
+ * 
+ * Questo è diverso da createBookCard perché mostra più informazioni e non è un link, ma una pagina a sé stante.
+ * Il dettaglio include titolo, autore, numero di pagine, genere e descrizione (se disponibili).
+ * 
+ * @param {Object} book - Oggetto libro { id, titolo, autore, cover, pagine, genere, descrizione, ... }
+ * @returns {string} - HTML del dettaglio libro
  */
 export function createBookDetail(book) {
     return `

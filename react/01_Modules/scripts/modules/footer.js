@@ -1,7 +1,7 @@
 // footer.js - Modulo per il footer riutilizzabile
 
 /**
- * Crea e ritorna l'elemento footer
+ * Crea e ritorna l'elemento footer.
  * @returns {HTMLElement} - Elemento footer
  */
 export function createFooter() {
@@ -20,10 +20,14 @@ export function createFooter() {
 }
 
 /**
- * Monta il footer nel DOM
+ * Monta il footer nel DOM al termine del body.
+ * 
+ * Il footer verrà sempre posizionato alla FINE dell'elemento passato.
+ * Se non viene passato alcun container, il footer verrà montato alla fine del body.
+ * 
  * @param {HTMLElement} container - Contenitore dove montare il footer (default: body)
  */
 export function mountFooter(container = document.body) {
     const footer = createFooter();
-    container.appendChild(footer);
+    container.append(footer);
 }
