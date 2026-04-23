@@ -1,6 +1,9 @@
-import { Link, Route, Routes } from "react-router-dom";
-import Counter from "./pages/Counter";
-import ColorChange from "./pages/ColorChange";
+import { NavLink, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ExamplesPage from "./pages/ExamplesPage";
+import ForumPage from "./pages/forum/ForumPage";
+import ForumUserPage from "./pages/forum/ForumUserPage";
+import ForumPostPage from "./pages/forum/ForumPostPage";
 import "./App.css";
 
 function App() {
@@ -10,31 +13,23 @@ function App() {
 
             <header className="app-header">
                 <h1>Esercizi React</h1>
-                <p>Mini playground con routing e componenti interattivi.</p>
+                <p>Mini playground su componenti, props, state e useEffect.</p>
             </header>
 
             <nav className="main-nav" aria-label="Navigazione principale">
-                <Link to="/">Home</Link>
-                <Link to="/counter">Esercizio Counter</Link>
-                <Link to="/color">Esercizio Colore</Link>
+                <NavLink to="/" end>Home</NavLink>
+                <NavLink to="/esempi">Esempi</NavLink>
+                <NavLink to="/forum">Forum</NavLink>
             </nav>
 
             <main className="page-panel">
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <section className="home-view">
-                                <h2>Home</h2>
-                                <p>
-                                    Usa il menu qui sopra per aprire i due
-                                    esercizi.
-                                </p>
-                            </section>
-                        }
-                    />
-                    <Route path="/counter" element={<Counter />} />
-                    <Route path="/color" element={<ColorChange />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/esempi" element={<ExamplesPage />} />
+                    <Route path="/forum" element={<ForumPage />} />
+                    <Route path="/forum/user/:id" element={<ForumUserPage />} />
+                    <Route path="/forum/post/:id" element={<ForumPostPage />} />
+                    <Route path="*" element={<HomePage />} />
                 </Routes>
             </main>
         </div>
