@@ -24,6 +24,10 @@ NON chiudere il terminale o premere `Ctrl+C`, dato che è necessario per mantene
 
 Compiti semplici: modifica di componenti per accettare nuove props e renderizzare contenuti diversi.
 
+### HomePage
+- [ ] Creare un componente `ConceptCard` che accetta props `title`, `description`.
+- [ ] Sostituire i box concetti con `ConceptCard` per rendere il codice più modulare.
+
 ### ForumPostsTable
 - [ ] Aggiungere prop `hideActions` per nascondere la colonna azioni dove non serve.
 - [ ] Aggiungere prop `showIds` per mostrare/nascondere la colonna ID.

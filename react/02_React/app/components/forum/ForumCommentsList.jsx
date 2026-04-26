@@ -3,7 +3,9 @@ function ForumCommentsList({ comments }) {
         <section className="forum-section">
             <h3>Commenti</h3>
 
-            {comments.length === 0 ? (<p>Nessun commento per questo post.</p>) : (
+            {comments.length === 0 ? (
+                <p>Nessun commento per questo post.</p>
+            ) : (
                 <div className="forum-comments-list">
                     {comments.map(({ id, contenuto, userId, postId }) => {
                         return (

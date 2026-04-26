@@ -1,5 +1,11 @@
 function Pill({ label, tone = "default" }) {
-    const className = tone === "warm" ? "pill warm" : tone === "soft" ? "pill soft" : "pill";
+    let className = "pill";
+
+    if (tone === "warm") {
+        className += " warm";
+    } else if (tone === "soft") {
+        className += " soft";
+    }
 
     return <span className={className}>{label}</span>;
 }

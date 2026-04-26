@@ -9,7 +9,7 @@ function ToggleDetails() {
             <p>
                 Stato attuale: <strong>{open ? "Aperto" : "Chiuso"}</strong>
             </p>
-            <button onClick={() => setOpen((prev) => !prev)}>
+            <button onClick={() => setOpen(!open)}>
                 {open ? "Nascondi" : "Mostra"}
             </button>
             {open && (
