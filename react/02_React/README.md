@@ -2,55 +2,60 @@
 
 Piccole attività incrementali per migliorare il progetto senza fare refactor enormi.
 
-## Forum - Lista Post (tabella)
+# COMPONENTS — Props e Rendering
 
-- [ ] Aggiungere `hideActions` nella tabella post per nascondere la colonna azioni dove non serve.
-- [ ] Aggiungere `showIds` nella tabella post per poter nascondere la colonna ID.
-- [ ] Troncare il contenuto post in tabella a 120 caratteri con `...`.
-- [ ] Aggiungere tooltip con testo completo del contenuto troncato.
-- [ ] Rendere ordinabile la tabella per `data` (asc/desc).
-- [ ] Rendere ordinabile la tabella per `likes` (asc/desc).
-- [ ] Evidenziare la riga selezionata con stato locale (`selectedPostId`).
-- [ ] Aggiungere paginazione client-side nella vista forum (`prev/next`).
-- [ ] Mostrare numero totale post caricati sopra la tabella.
-- [ ] Aggiungere un filtro testuale locale su titolo/contenuto.
+Compiti semplici: modifica di componenti per accettare nuove props e renderizzare contenuti diversi.
 
-## Forum - Profilo Utente
+### ForumPostsTable
+- [ ] Aggiungere prop `hideActions` per nascondere la colonna azioni dove non serve.
+- [ ] Aggiungere prop `showIds` per mostrare/nascondere la colonna ID.
 
-- [ ] Mostrare fallback avatar quando l'immagine non carica (`onError`).
-- [ ] Rendere cliccabile email con `mailto:`.
-- [ ] Aggiungere etichetta "Membro dal" derivata da `dataNascita` (placeholder logico).
-- [ ] Mostrare badge stato (`Attivo`/`Non attivo`) con colori dedicati in CSS.
-- [ ] Inserire mini-statistiche: numero post caricati, data ultimo post.
-- [ ] Aggiungere skeleton durante caricamento profilo.
-- [ ] Aggiungere bottone "Torna al forum" sticky su mobile.
-- [ ] Mostrare i post utente senza colonna azioni (quando `hideActions=true`).
+### UserProfileCard
+- [ ] Aggiungere fallback avatar con `onError` quando l'immagine non carica.
+- [ ] Rendere email cliccabile con `mailto:email`.
+- [ ] Aggiungere etichetta "Membro dal" derivata da `dataNascita`.
 
-## Forum - Dettaglio Post + Commenti
+### ForumPostDetail
+- [ ] Aggiungere link al profilo autore nel box post (link a `/forum/user/:userId`).
 
-- [ ] Mostrare titolo pagina dinamico: `Post #id - titolo`.
-- [ ] Aggiungere link al profilo autore nel box post.
-- [ ] Mostrare data in formato locale (`toLocaleDateString('it-IT')`).
-- [ ] Ordinare commenti dal più vecchio al più recente.
-- [ ] Aggiungere link al profilo utente per ogni commento.
-- [ ] Mostrare avatar anche nei commenti (lookup utente).
-- [ ] Aggiungere campo "Rispondi" (solo UI, senza submit reale).
-- [ ] Aggiungere toggle "Mostra/Nascondi commenti".
-- [ ] Aggiungere contatore commenti vicino al titolo sezione.
-- [ ] Gestire stato "nessun commento" con CTA (scrivi il primo commento).
+### ForumCommentsList
+- [ ] Aggiungere contatore commenti nel titolo della sezione.
+- [ ] Migliorare lo stato "nessun commento" con CTA più esplicita ("Sii il primo a commentare").
 
-## API Layer
+### Ritorno dal dettaglio
+- [ ] Aggiungere bottone "Torna al forum" in `ForumPostPage` e `ForumUserPage` (link di ritorno).
 
-- [ ] Centralizzare i messaggi errore in una utility (`apiErrors.js`).
-- [ ] Aggiungere timeout alle richieste `fetch` con `AbortController`.
-- [ ] Normalizzare i payload (fallback `title/titolo`, `content/contenuto`).
-- [ ] Estrarre query builder in helper condiviso.
-- [ ] Aggiungere funzione `getUserMapByIds(ids)` per evitare N chiamate duplicate.
-- [ ] Inserire funzione `formatApiDate(value)` condivisa.
 
-## Routing
+# STATE — useState e Interattività
 
-- [ ] Aggiungere pagina 404 dedicata al posto del redirect su Home.
-- [ ] Aggiungere breadcrumb semplice nelle pagine forum (`Forum / User / Post`).
-- [ ] Salvare ultimo path visitato nel forum (sessionStorage).
-- [ ] Evidenziare link attivo anche sulle route figlie (`/forum/user/:id`, `/forum/post/:id`).
+Compiti intermedi: aggiungere stato locale per interazioni e filtraggio.
+
+### ForumPostsTable (stato locale)
+- [ ] Evidenziare la riga selezionata con stato `selectedPostId`.
+- [ ] Rendere ordinabile per `data` (asc/desc) con `sortBy` e `sortOrder`.
+- [ ] Rendere ordinabile per `likes` (asc/desc).
+
+### ForumPage (stato locale)
+- [ ] Aggiungere filtro testuale locale su titolo/contenuto (input search + stato `searchTerm`).
+
+### ForumPostPage (stato locale)
+- [ ] Aggiungere toggle "Mostra/Nascondi commenti" con stato `showComments`.
+- [ ] Ordinare commenti dal più vecchio al più recente prima del render.
+
+# EFFECTS — useEffect e Side Effects
+
+Compiti: usare `useEffect` per aggiornare il documento o formattare dati dinamici.
+
+### ForumPostPage
+- [ ] Aggiungere titolo pagina dinamico usando `useEffect`: `Post #id - titolo` (in `document.title`).
+
+### Utility Globale
+- [ ] Creare utility `formatDate(dateString)` per mostrare date in formato locale (`toLocaleDateString('it-IT')`).
+- [ ] Usare la utility nei componenti `ForumPostDetail`, `ForumPostsTable`, `ForumCommentsList`.
+
+# ROUTES — Routing
+
+Compiti: modifiche al routing della app.
+
+- [ ] Aggiungere pagina 404 dedicata (`NotFoundPage.jsx`).
+- [ ] Aggiungere route catch-all `*` che punta a NotFoundPage.
