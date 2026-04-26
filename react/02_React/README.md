@@ -1,6 +1,24 @@
-# TODO - 02_React
+# React
 
-Piccole attività incrementali per migliorare il progetto senza fare refactor enormi.
+Esercitazione di React.
+
+Qui ci saranno tutti i fondamenti di un progetto React: Componenti, Stati, Effetti e Routes.
+
+Per prima cosa bisogna installare il progetto usando il comando nella cartella del progetto:
+```bash
+npm install
+```
+
+Dopo aver fatto questo si può avviare il progetto con:
+```bash
+npx vite
+
+# oppure con
+npm run start
+```
+
+Dopodiche si può accedere alla app all'indirizzo `http://localhost:5173` (o altra porta indicata nel terminale).\
+NON chiudere il terminale o premere `Ctrl+C`, dato che è necessario per mantenere il server del frontend attivo.
 
 # COMPONENTS — Props e Rendering
 
