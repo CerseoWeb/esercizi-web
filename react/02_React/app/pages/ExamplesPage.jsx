@@ -1,5 +1,6 @@
 import CounterDemo from "../components/CounterDemo";
 import ColorChangeDemo from "../components/ColorChangeDemo";
+import CountWordDemo from "../components/CountWordDemo";
 import InfoCard from "../components/InfoCard";
 import Pill from "../components/Pill";
 import ProfileMini from "../components/ProfileMini";
@@ -44,6 +45,10 @@ function ExamplesPage() {
                     <ColorChangeDemo />
                     <ToggleDetails />
                     <TimerDemo />
+                    <CountWordDemo
+                        title="LiveMessageDemo - Feedback live"
+                        placeholder="Scrivi una frase breve o lunga"
+                    />
                 </div>
             </section>
         </section>

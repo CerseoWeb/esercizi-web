@@ -13,8 +13,8 @@ Dopo aver fatto questo si può avviare il progetto con:
 ```bash
 npx vite
 
-# oppure con
-npm run start
+# oppure (se definito in package.json)
+npm run dev
 ```
 
 Dopodiche si può accedere alla app all'indirizzo `http://localhost:5173` (o altra porta indicata nel terminale).\
