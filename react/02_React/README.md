@@ -4,6 +4,8 @@ Esercitazione di React.
 
 Qui ci saranno tutti i fondamenti di un progetto React: Componenti, Stati, Effetti e Routes.
 
+### Setup
+
 Per prima cosa bisogna installare il progetto usando il comando nella cartella del progetto:
 ```bash
 npm install
@@ -19,6 +21,12 @@ npm run dev
 
 Dopodiche si può accedere alla app all'indirizzo `http://localhost:5173` (o altra porta indicata nel terminale).\
 NON chiudere il terminale o premere `Ctrl+C`, dato che è necessario per mantenere il server del frontend attivo.
+
+### API
+
+L'API è già definita e funzionante, non è necessario modificarla.\
+Se però il forum non funziona, e non avete il backend attivo in locale, potete farlo partire o cambiare l'URL dell'API in `app/scripts/api/baseUrl.js` puntando al computer dove è attivo (es. `http://192.168.1.131:5000`).
+
 
 # COMPONENTS — Props e Rendering
 
