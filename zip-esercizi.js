@@ -7,6 +7,21 @@ const baseDir = process.argv[2]
   : path.join(__dirname, "javascript");
 const outputDir = path.join(__dirname, ".zip");
 
+function getSigna(dirName) {
+  // Se contiene underscore, prende prima lettera di ogni parola
+  if (dirName.includes("_")) {
+    return dirName
+      .split("_")
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+  }
+  // Altrimenti prende le prime 2 lettere
+  return dirName.substring(0, 2).toUpperCase();
+}
+
+const sigla = getSigna(path.basename(baseDir));
+
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -48,14 +63,25 @@ function splitName(dirName) {
 function createZipForDir(dirPath) {
   const dirName = path.basename(dirPath);
   const { number, desc } = splitName(dirName);
-  const zipName = sanitizeFilename(`JS_Esercizi ${number} - ${desc}.zip`);
+  const zipName = sanitizeFilename(`${sigla}_Esercizi ${number} - ${desc}.zip`);
   const zipPath = path.join(outputDir, zipName);
-  const sourceGlob = path.join(dirPath, "*");
+
+  // Get all entries excluding node_modules
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true })
+    .filter((entry) => entry.name !== "node_modules")
+    .map((entry) => path.join(dirPath, entry.name));
+
+  if (entries.length === 0) {
+    console.log(`Nessun file da zippare in: ${dirName}`);
+    return;
+  }
+
+  const pathsQuoted = entries.map(psQuote).join(", ");
 
   const psCommand = [
     "$ErrorActionPreference = 'Stop'",
     `if (Test-Path -LiteralPath ${psQuote(zipPath)}) { Remove-Item -LiteralPath ${psQuote(zipPath)} -Force }`,
-    `Compress-Archive -Path ${psQuote(sourceGlob)} -DestinationPath ${psQuote(zipPath)} -Force`
+    `Compress-Archive -Path @(${pathsQuoted}) -DestinationPath ${psQuote(zipPath)} -Force`
   ].join("; ");
 
   execFileSync("powershell", ["-NoProfile", "-Command", psCommand], {
