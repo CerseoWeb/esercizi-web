@@ -64,7 +64,7 @@ function createZipForDir(dirPath) {
   const dirName = path.basename(dirPath);
   const { number, desc } = splitName(dirName);
   const zipName = sanitizeFilename(`${sigla}_Esercizi ${number} - ${desc}.zip`);
-  const zipPath = path.join(outputDir, zipName);
+  const zipPath = psQuote(path.join(outputDir, zipName));
 
   // Get all entries excluding node_modules
   const entries = fs.readdirSync(dirPath, { withFileTypes: true })
@@ -76,12 +76,20 @@ function createZipForDir(dirPath) {
     return;
   }
 
-  const pathsQuoted = entries.map(psQuote).join(", ");
+  const pathsQuoted = entries.map(psQuote);
+
+  // Se su windows uso PowerShell per comprimere, altrimenti uso zip
+  if (process.platform !== "win32") {
+    const zipCommand = ["zip", "-q", "-r", zipPath, ...pathsQuoted].join(" ");
+    execFileSync("sh", ["-c", zipCommand], { stdio: "inherit" });
+    console.log(`Creato: ${zipName}`);
+    return;
+  }
 
   const psCommand = [
     "$ErrorActionPreference = 'Stop'",
-    `if (Test-Path -LiteralPath ${psQuote(zipPath)}) { Remove-Item -LiteralPath ${psQuote(zipPath)} -Force }`,
-    `Compress-Archive -Path @(${pathsQuoted}) -DestinationPath ${psQuote(zipPath)} -Force`
+    `if (Test-Path -LiteralPath ${zipPath}) { Remove-Item -LiteralPath ${zipPath} -Force }`,
+    `Compress-Archive -Path @(${pathsQuoted.join(", ")}) -DestinationPath ${zipPath} -Force`
   ].join("; ");
 
   execFileSync("powershell", ["-NoProfile", "-Command", psCommand], {
