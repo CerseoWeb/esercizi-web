@@ -16,6 +16,18 @@ function getSigna(dirName) {
       .join("")
       .toUpperCase();
   }
+
+  const potential = {
+    "javascript": "JS",
+    "react": "RE",
+    "css": "CSS",
+    "html": "HTML",
+    "base": ""
+  }[dirName.toLowerCase()];
+  if (potential !== undefined) {
+    return potential;
+  }
+
   // Altrimenti prende le prime 2 lettere
   return dirName.substring(0, 2).toUpperCase();
 }
@@ -63,7 +75,7 @@ function splitName(dirName) {
 function createZipForDir(dirPath) {
   const dirName = path.basename(dirPath);
   const { number, desc } = splitName(dirName);
-  const zipName = sanitizeFilename(`${sigla}_Esercizi ${number} - ${desc}.zip`);
+  const zipName = sanitizeFilename(`${sigla ? sigla + "_" : ""}Esercizi ${number} - ${desc}.zip`);
   const zipPath = psQuote(path.join(outputDir, zipName));
 
   // Get all entries excluding node_modules
