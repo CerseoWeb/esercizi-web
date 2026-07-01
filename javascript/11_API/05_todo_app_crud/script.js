@@ -22,7 +22,7 @@ const counter = document.querySelector('#counter');
  * Se l'array è vuoto, mostra un messaggio "Nessun TODO. Creane uno!".
  * Funzione già fatta - non modificare
  */
-function creaListaTodos(todos) {
+function displayTODOS(todos) {
 
     if (!Array.isArray(todos) || todos.length === 0) {
         todosContainer.innerHTML = '<div class="empty">Nessun TODO. Creane uno!</div>';
@@ -42,18 +42,18 @@ function creaListaTodos(todos) {
     `;
     counter.classList.remove('nascosto');
 
-    todosContainer.innerHTML = todos.map((todo) => `
+    todosContainer.innerHTML = todos.map((todo, index) => `
       <div class="todo-item ${todo.completato ? 'completed' : ''}">
             <div class="todo-checkbox">
                 <input type="checkbox" 
                        ${todo.completato ? 'checked' : ''} 
-                       onchange="toggleTodo(${todo.id}, ${todo.completato})">
+                       onchange="toggleTodo(${index})">
             </div>
             <div class="todo-content">
                 <div class="todo-title">${todo.titolo}</div>
                 <div class="todo-id">ID: ${todo.id}</div>
             </div>
-            <button class="btn-delete" onclick="deleteTodo(${todo.id})">🗑️ Elimina</button>
+            <button class="btn-delete" onclick="deleteTodo(${index})">🗑️ Elimina</button>
         </div>
     `).join('');
 }
@@ -75,7 +75,7 @@ function mostraErrore(message) {
 
 
 /**
- * ESERCIZIO 4: Todo App CRUD Completa
+ * ESERCIZIO: Todo App CRUD Completa
  * 
  * Devi implementare 4 funzioni:
  * 1. fetchTodosUtente()  - GET    /todos?userId={id}  (READ)
@@ -90,9 +90,9 @@ function mostraErrore(message) {
  * - Pre-compila l'input e carica automaticamente i TODO se presente
  */
 
-// ===== VARIABILE DI STATO =====
+// ===== VARIABILI DI STATO =====
 let currentUserId = null; // Variabile globale per tenere traccia dell'ID utente corrente
-
+let currentTodos = []; // Variabile globale per tenere traccia dei TODO correnti
 
 /**
  * FUNZIONE 1️⃣: Carica TODO (GET)
@@ -100,15 +100,15 @@ let currentUserId = null; // Variabile globale per tenere traccia dell'ID utente
  * Passi:
  *  1. Leggi l'ID utente dall'input
  *  2. Valida che sia un numero tra 1 e 40
- *  3. Mostra lo spinner di caricamento
- *  4. Apri un blocco try/catch
- *  5. Fai una GET a /todos?userId={id}
- *  6. Se non OK, lancia un errore con messaggio che include lo status code
- *  7. Converti la risposta in JSON
- *  8. Chiama displayTodos() per visualizzare
- *  9. Nel catch, mostra un messaggio di errore
- * 10. Nascondi lo spinner e mostra addTodoSection
- * 11. Salva l'ID utente nella variabile globale currentUserId
+ *  3. Salva l'ID utente nella variabile globale currentUserId
+ *  4. Mostra lo spinner di caricamento
+ *  5. Apri un blocco try/catch
+ *  6. Fai una GET a /todos?userId={id}
+ *  7. Se non OK, lancia un errore con messaggio che include lo status code
+ *  8. Converti la risposta in JSON e salvala in currentTodos
+ *  9. Chiama displayTODOS() per visualizzare
+ * 10. Nel catch, mostra un messaggio di errore
+ * 11. Nascondi lo spinner e mostra addTodoSection
  */
 async function fetchTodosUtente() {
     // TODO Rimuovi questa riga e completa la funzione
@@ -129,8 +129,8 @@ async function fetchTodosUtente() {
  *  6. Fai una POST a /todos con body: {userId, titolo, completato: false}
  *  7. Se non OK, lancia un errore con messaggio che include lo status code
  *  8. Se OK, svuota l'input e ricarica la lista chiamando fetchTodosUtente()
- * 10. Nel catch, mostra un messaggio di errore
- * 11. Nascondi lo spinner di caricamento
+ *  9. Nel catch, mostra un messaggio di errore
+ * 10. Nascondi lo spinner di caricamento
  */
 async function addTodo() {
 }
@@ -140,13 +140,14 @@ async function addTodo() {
  * FUNZIONE 3️⃣: Modifica TODO (PUT)
  * 
  * Passi:
- * 1. Ricevi id e currentCompleted come parametri
- * 2. Fai una PUT a /todos/{id} con body: {completato: !currentCompleted}
- * 3. Se non OK, lancia un errore con messaggio che include lo status code
- * 4. Se OK, ricarica la lista chiamando fetchTodosUtente()
- * 5. Nel catch, mostra un messaggio di errore
+ * 1. Ricevi l'indice del TODO come parametro
+ * 2. Recupera l'oggetto TODO corrispondente da currentTodos
+ * 3. Fai una PUT a /todos/{id} modificando il campo completato negandolo (true -> false, false -> true)
+ * 4. Se non OK, lancia un errore con messaggio che include lo status code
+ * 5. Se OK, ricarica la lista chiamando fetchTodosUtente()
+ * 6. Nel catch, mostra un messaggio di errore
  */
-async function toggleTodo(id, currentCompleted) {
+async function toggleTodo(indice) {
 }
 
 
@@ -154,12 +155,14 @@ async function toggleTodo(id, currentCompleted) {
  * FUNZIONE 4️⃣: Elimina TODO (DELETE)
  * 
  * Passi:
- * 1. Fai una DELETE a /todos/{id}
- * 2. Se non OK, lancia un errore con messaggio che include lo status code
- * 3. Se OK, ricarica la lista chiamando fetchTodosUtente()
- * 4. Nel catch, mostra un messaggio di errore
+ * 1. Ricevi l'indice del TODO come parametro
+ * 2. Recupera l'oggetto TODO corrispondente da currentTodos
+ * 3. Fai una DELETE a /todos/{id}
+ * 4. Se non OK, lancia un errore con messaggio che include lo status code
+ * 5. Se OK, ricarica la lista chiamando fetchTodosUtente()
+ * 6. Nel catch, mostra un messaggio di errore
  */
-async function deleteTodo(id) {
+async function deleteTodo(indice) {
 }
 
 
@@ -175,8 +178,8 @@ async function deleteTodo(id) {
  * 
  * PASSI DA IMPLEMENTARE:
  * 
- * 1️⃣ SALVATAGGIO (in fetchTodosUtente, al passo 10): Salva l'ID come stringa
- * 2️⃣ CARICAMENTO ALL'AVVIO (aggiungi DOPO gli event listener):
+ * 1️⃣ SALVATAGGIO (in fetchTodosUtente, al passo 3): Salva l'ID anche nel localStorage
+ * 2️⃣ CARICAMENTO ALL'AVVIO (aggiungi DOPO gli event listener qua sotto):
  *   - Recupera l'ID dal localStorage
  *   - Se esiste, pre-compila l'input e chiama fetchTodosUtente() automaticamente
  * 
@@ -184,6 +187,7 @@ async function deleteTodo(id) {
  * - Salvare: localStorage.setItem('key', valore)
  * - Recuperare: localStorage.getItem('key')
  * - Se serve un numero intero: parseInt(localStorage.getItem('key'))
+ * CONSIGLIO: Salva la chiave in una costante es. const ID_KEY = 'todoAppUserId' per evitare errori di battitura
  */
 
 

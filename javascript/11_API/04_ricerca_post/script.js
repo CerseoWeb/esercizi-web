@@ -54,7 +54,7 @@ function mostraErrore(message) {
 
 
 /**
- * ESERCIZIO 5: Ricerca Post con Autori
+ * ESERCIZIO: Ricerca Post con Autori
  * 
  * Devi completare questa funzione:
  *  1. Leggi la parola chiave dall'input
@@ -67,7 +67,7 @@ function mostraErrore(message) {
  *     (ricorda minuscole per la ricerca in entrambe le stringhe)
  *  8. Se nessun post trovato lancia un errore "Nessun post trovato"
  *  9. Per ogni post trovato:
- *     - Prendi l'id autore e fai una GET a /users?id=[id]
+ *     - Prendi l'id autore e fai una GET a /users/{id}
  *     - Crea un nuovo elemento della lista dei risultati con creaElementoPost(post, autore)
  * 10. Nel catch, mostra un messaggio di errore usando mostraErrore()
  * 11. Nascondi lo spinner di caricamento

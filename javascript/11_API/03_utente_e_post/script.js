@@ -92,7 +92,7 @@ function mostraErrore(message) {
 
 
 /**
- * ESERCIZIO 3: Recupera un utente E tutti i suoi post
+ * ESERCIZIO: Recupera un utente E tutti i suoi post
  * 
  * Devi completare questa funzione:
  * 1. Leggi l'ID dell'utente

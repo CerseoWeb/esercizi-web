@@ -30,7 +30,7 @@ A questo punto possiamo iniziare a lavorare localmente con VSCode e GitHub:
 1. Collega il file CSS in index.html
 2. Collega il file JS in index.html
 3. Creiamo un div con class "container" che conterrà tutta la pagina
-→ commit: "HTML: aggiunta struttura tabella"
+→ commit: "HTML: collegati CSS e JS, aggiunto container"
 ```
 ```
 🎯 Creiamo l'HTML della tabella
@@ -98,3 +98,9 @@ Ogni prodotto dovrebbe avere questa struttura (esempio):
    - Apri la console e verifica che il fetch funzioni (print dei dati come prova)
    - Verifica che la tabella si popoli correttamente
    - Clicca su una riga e verifica che appaia il modal
+
+
+## Risorse Utili
+
+- [MDN - Fetch API](https://developer.mozilla.org/it/docs/Web/API/Fetch_API)
+- [MDN - Array Methods](https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Global_Objects/Array)

@@ -60,7 +60,7 @@ function mostraErrore(message) {
 
 
 /**
- * FUNZIONE: Fetch singolo utente
+ * ESERCIZIO: Fetch singolo utente
  * 
  * Questa funzione deve recuperare l'ID utente dall'input,
  * fare una chiamata GET a BASE_URL + "/users/" + id e mostrare i dati
@@ -68,14 +68,14 @@ function mostraErrore(message) {
  * Passi:
  *  1. Leggi l'ID utente dall'input
  *  2. Controlla che l'ID sia valido, ovvero un numero tra 1 e 40
- *     In caso contrario, mostra un messaggio di errore (usa handleError()) e return
+ *     In caso contrario, mostra un messaggio di errore (usa mostraErrore()) e return
  *  3. Mostra lo spinner di caricamento (rimuovi la classe nascosto)
  *  4. Apri un blocco try/catch
  *  5. Fai una fetch GET a /users/{id}
  *  6. Se la risposta non è OK, lancia un errore con un messaggio che includa lo status code
  *  7. Converti la risposta in JSON
  *  8. Mostra i dati dell'utente chiamando creaCardUtente(user)
- *  9. Nel catch, mostra un messaggio di errore usando handleError() e logga l'errore in console
+ *  9. Nel catch, mostra un messaggio di errore usando mostraErrore() e logga l'errore in console
  * 10. Nascondi lo spinner di caricamento (aggiungi la classe nascosto)
  */
 async function fetchUser() {

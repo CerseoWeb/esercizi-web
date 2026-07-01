@@ -26,7 +26,8 @@ function creaListaUtenti(users) {
 
 
 /**
- * FUNZIONE che crea la stringa con la struttura HTML della card per un singolo utente
+ * ESERCIZIO: creazione card utente
+ * Questa funzione crea la stringa con la struttura HTML della card per un singolo utente
  * Questa viene restituita a creaListaUtenti() per ogni utente e poi inserita nel DOM
  * La struttura dell'oggetto user è visibile nella documentazione API.
  * 
@@ -70,7 +71,7 @@ function mostraErrore(message) {
 
 
 /**
- * FUNZIONE: Fetch lista utenti
+ * ESERCIZIO: Fetch lista utenti
  * 
  * Passi:
  * 1. Mostra lo spinner di caricamento (rimuovi la classe nascosto)
