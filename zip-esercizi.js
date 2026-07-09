@@ -76,12 +76,18 @@ function createZipForDir(dirPath) {
   const dirName = path.basename(dirPath);
   const { number, desc } = splitName(dirName);
   const zipName = sanitizeFilename(`${sigla ? sigla + "_" : ""}Esercizi ${number} - ${desc}.zip`);
-  const zipPath = psQuote(path.join(outputDir, zipName));
+  const targetZipPath = path.join(outputDir, zipName);
+  const zipPath = psQuote(targetZipPath);
+
+  // Remove existing zip if it exists
+  if (fs.existsSync(targetZipPath)) {
+    fs.rmSync(targetZipPath, { force: true });
+  }
 
   // Get all entries excluding node_modules
   const entries = fs.readdirSync(dirPath, { withFileTypes: true })
     .filter((entry) => entry.name !== "node_modules")
-    .map((entry) => path.join(dirPath, entry.name));
+    .map((entry) => entry.name);
 
   if (entries.length === 0) {
     console.log(`Nessun file da zippare in: ${dirName}`);
@@ -93,7 +99,7 @@ function createZipForDir(dirPath) {
   // Se su windows uso PowerShell per comprimere, altrimenti uso zip
   if (process.platform !== "win32") {
     const zipCommand = ["zip", "-q", "-r", zipPath, ...pathsQuoted].join(" ");
-    execFileSync("sh", ["-c", zipCommand], { stdio: "inherit" });
+    execFileSync("sh", ["-c", zipCommand], { stdio: "inherit", cwd: dirPath });
     console.log(`Creato: ${zipName}`);
     return;
   }
@@ -105,7 +111,8 @@ function createZipForDir(dirPath) {
   ].join("; ");
 
   execFileSync("powershell", ["-NoProfile", "-Command", psCommand], {
-    stdio: "inherit"
+    stdio: "inherit",
+    cwd: dirPath
   });
 
   console.log(`Creato: ${zipName}`);
