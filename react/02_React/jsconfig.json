@@ -3,7 +3,8 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "target": "ES2025",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "checkJs": false
   },
   "include": ["**/*"]
 }
