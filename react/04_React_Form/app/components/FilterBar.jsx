@@ -7,9 +7,9 @@ import React from 'react';
  *
  * @param {Object} props
  * @param {Object} props.filtri
- * @param {string} props.filtri.nomeCognome - testo cercato in nome+cognome
- * @param {string} props.filtri.email - testo cercato nell'email
- * @param {string} props.filtri.dataNascita - data di nascita esatta (yyyy-mm-dd)
+ * @param {string} props.filtri.testo - testo cercato in nome, cognome ed email
+ * @param {string} props.filtri.annoDa - anno di nascita minimo (incluso)
+ * @param {string} props.filtri.annoA - anno di nascita massimo (incluso)
  * @param {(campo: string, valore: string) => void} props.onFiltriChange - chiamata
  *   con il nome del campo modificato e il nuovo valore
  * @param {() => void} props.onNuovoUtente - chiamata al click su "Nuovo Utente"
@@ -24,23 +24,29 @@ function FilterBar({ filtri, onFiltriChange, onNuovoUtente }) {
         <input
           type="text"
           className="filter-input"
-          placeholder="Cerca per nome e cognome..."
-          value={filtri.nomeCognome}
-          onChange={(e) => onFiltriChange('nomeCognome', e.target.value)}
+          placeholder="Cerca per nome, cognome o email..."
+          value={filtri.testo}
+          onChange={(e) => onFiltriChange('testo', e.target.value)}
         />
-        <input
-          type="text"
-          className="filter-input"
-          placeholder="Cerca per email..."
-          value={filtri.email}
-          onChange={(e) => onFiltriChange('email', e.target.value)}
-        />
-        <input
-          type="date"
-          className="filter-input"
-          value={filtri.dataNascita}
-          onChange={(e) => onFiltriChange('dataNascita', e.target.value)}
-        />
+
+        <div className="filter-group">
+          <span className="filter-label">Anno di nascita</span>
+          <input
+            type="number"
+            className="filter-input filter-input-anno"
+            placeholder="Da"
+            value={filtri.annoDa}
+            onChange={(e) => onFiltriChange('annoDa', e.target.value)}
+          />
+          <span className="filter-label">—</span>
+          <input
+            type="number"
+            className="filter-input filter-input-anno"
+            placeholder="A"
+            value={filtri.annoA}
+            onChange={(e) => onFiltriChange('annoA', e.target.value)}
+          />
+        </div>
       </div>
 
       <button type="button" className="btn btn-add" onClick={onNuovoUtente}>

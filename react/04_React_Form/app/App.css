@@ -135,6 +135,26 @@ header {
   box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
 }
 
+/* Gruppo "Anno di nascita: Da ... A ..." dentro <FilterBar /> */
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.filter-input-anno {
+  flex: none;
+  width: 80px;
+  min-width: 0;
+  text-align: center;
+}
+
 /* Buttons */
 .btn {
   padding: 12px 22px;

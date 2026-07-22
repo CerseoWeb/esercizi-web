@@ -10,15 +10,15 @@ import { getUtenti, addUtente, updateUtente, removeUtente } from '../scripts/sto
  * tra loro i componenti "pronti all'uso" (FilterBar, UserTable, UserModal)
  * con la logica di lettura/scrittura in localStorage (scripts/storage.js).
  *
- * Il modale si apre/chiude con uno stato locale, `utenteInModifica`:
- * - `undefined` -> modale chiuso
- * - `null` -> modale aperto in creazione (campi vuoti)
- * - un utente -> modale aperto in modifica, precompilato con i suoi dati
+ * Il modale usa due stati distinti: `modaleAperto` dice se è visibile,
+ * `utenteInModifica` dice se è in modifica (un utente) o in creazione
+ * (`null`).
  */
 function Utenti() {
   const [utenti, setUtenti] = useState([]);
-  const [filtri, setFiltri] = useState({ nomeCognome: '', email: '', dataNascita: '' });
-  const [utenteInModifica, setUtenteInModifica] = useState(undefined);
+  const [filtri, setFiltri] = useState({ testo: '', annoDa: '', annoA: '' });
+  const [modaleAperto, setModaleAperto] = useState(false);
+  const [utenteInModifica, setUtenteInModifica] = useState(null);
 
   // Carica gli utenti da localStorage al primo render della pagina.
   useEffect(() => {
@@ -29,6 +29,18 @@ function Utenti() {
     setFiltri((filtriPrecedenti) => ({ ...filtriPrecedenti, [campo]: valore }));
   };
 
+  const handleNuovo = () => {
+    setUtenteInModifica(null);
+    setModaleAperto(true);
+  };
+
+  const handleModifica = (utente) => {
+    setUtenteInModifica(utente);
+    setModaleAperto(true);
+  };
+
+  const chiudiModale = () => setModaleAperto(false);
+
   const handleElimina = (utente) => {
     const conferma = window.confirm(`Eliminare ${utente.nome} ${utente.cognome}?`);
     if (!conferma) return;
@@ -36,8 +48,6 @@ function Utenti() {
     removeUtente(utente.id);
     setUtenti(getUtenti());
   };
-
-  const chiudiModale = () => setUtenteInModifica(undefined);
 
   const handleCrea = (datiForm) => {
     addUtente(datiForm);
@@ -51,30 +61,26 @@ function Utenti() {
     chiudiModale();
   };
 
-  const nomeCognomeCercato = filtri.nomeCognome.trim().toLowerCase();
-  const emailCercata = filtri.email.trim().toLowerCase();
+  const testoCercato = filtri.testo.trim().toLowerCase();
 
   const utentiFiltrati = utenti.filter((utente) => {
-    const nomeCompleto = `${utente.nome} ${utente.cognome}`.toLowerCase();
+    const testoUtente = `${utente.nome} ${utente.cognome} ${utente.email}`.toLowerCase();
+    const annoNascita = Number(utente.dataNascita.slice(0, 4));
 
-    const matchNomeCognome = !nomeCognomeCercato || nomeCompleto.includes(nomeCognomeCercato);
-    const matchEmail = !emailCercata || utente.email.toLowerCase().includes(emailCercata);
-    const matchDataNascita = !filtri.dataNascita || utente.dataNascita === filtri.dataNascita;
+    const matchTesto = !testoCercato || testoUtente.includes(testoCercato);
+    const matchAnnoDa = !filtri.annoDa || annoNascita >= Number(filtri.annoDa);
+    const matchAnnoA = !filtri.annoA || annoNascita <= Number(filtri.annoA);
 
-    return matchNomeCognome && matchEmail && matchDataNascita;
+    return matchTesto && matchAnnoDa && matchAnnoA;
   });
 
   return (
     <>
-      <FilterBar
-        filtri={filtri}
-        onFiltriChange={handleFiltriChange}
-        onNuovoUtente={() => setUtenteInModifica(null)}
-      />
+      <FilterBar filtri={filtri} onFiltriChange={handleFiltriChange} onNuovoUtente={handleNuovo} />
 
-      <UserTable utenti={utentiFiltrati} onEdit={setUtenteInModifica} onDelete={handleElimina} />
+      <UserTable utenti={utentiFiltrati} onEdit={handleModifica} onDelete={handleElimina} />
 
-      {utenteInModifica !== undefined && (
+      {modaleAperto && (
         <UserModal
           utente={utenteInModifica}
           onSave={utenteInModifica ? handleAggiorna : handleCrea}

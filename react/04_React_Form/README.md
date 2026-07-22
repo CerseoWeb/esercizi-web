@@ -6,7 +6,7 @@ Progetto del corso JavaScript: una web app **React** per gestire un'anagrafica u
 
 Una singola pagina con:
 
-- una **barra dei filtri**, sopra la tabella, per cercare gli utenti per nome+cognome, email o data di nascita;
+- una **barra dei filtri**, sopra la tabella: un campo di testo cerca in nome, cognome ed email; due campi "Anno di nascita da / a" filtrano per intervallo di anni;
 - un pulsante **"+ Nuovo Utente"**, che apre un modale per creare un nuovo utente (**Create**);
 - una **tabella** con l'elenco degli utenti (**Read**), che si aggiorna in automatico quando filtri, aggiungi, modifichi o elimini qualcuno;
 - per ogni riga, un'icona ✏️ a sinistra per aprire il modale precompilato con i dati di quell'utente e modificarli (**Update**), e un'icona 🗑️ a destra per eliminarlo, dopo conferma (**Delete**).
