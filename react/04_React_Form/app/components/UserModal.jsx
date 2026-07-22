@@ -16,19 +16,19 @@ import React, { useState } from 'react';
  *
  * @example
  * // Creazione
- * <UserModal utente={null} onSave={handleSalva} onClose={() => setModalOpen(false)} />
+ * <UserModal utente={null} onSave={handleCrea} onClose={() => navigate('/')} />
  *
  * @example
  * // Modifica
- * <UserModal utente={utenteSelezionato} onSave={handleSalva} onClose={() => setModalOpen(false)} />
+ * <UserModal utente={utenteSelezionato} onSave={handleAggiorna} onClose={() => navigate('/')} />
  */
 function UserModal({ utente, onSave, onClose }) {
   const inModifica = utente !== null;
 
-  const [nome, setNome] = useState(utente?.nome ?? '');
-  const [cognome, setCognome] = useState(utente?.cognome ?? '');
-  const [email, setEmail] = useState(utente?.email ?? '');
-  const [dataNascita, setDataNascita] = useState(utente?.dataNascita ?? '');
+  const [nome, setNome] = useState(inModifica ? utente.nome : '');
+  const [cognome, setCognome] = useState(inModifica ? utente.cognome : '');
+  const [email, setEmail] = useState(inModifica ? utente.email : '');
+  const [dataNascita, setDataNascita] = useState(inModifica ? utente.dataNascita : '');
 
   const handleSubmit = (e) => {
     e.preventDefault();

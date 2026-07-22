@@ -10,7 +10,9 @@ function Header() {
       <div className="header-inner">
         <div className="brand">
           <h1>🗂️ Anagrafica Utenti</h1>
-          <p className="subtitle">Gestisci l&apos;elenco utenti: crea, cerca, modifica ed elimina</p>
+          <p className="subtitle">
+            Gestisci l&apos;elenco utenti: crea, cerca, modifica ed elimina
+          </p>
         </div>
       </div>
     </header>

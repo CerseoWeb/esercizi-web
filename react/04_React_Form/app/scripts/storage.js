@@ -3,10 +3,34 @@ const STORAGE_KEY = 'utenti';
 // Dati di esempio: usati solo la prima volta, se il localStorage è vuoto,
 // così l'anagrafica si vede subito popolata invece di partire vuota.
 const UTENTI_DEMO = [
-  { id: 1, nome: 'Mario', cognome: 'Rossi', email: 'mario.rossi@email.com', dataNascita: '1990-04-12' },
-  { id: 2, nome: 'Luigi', cognome: 'Verdi', email: 'luigi.verdi@email.com', dataNascita: '1988-11-02' },
-  { id: 3, nome: 'Giulia', cognome: 'Bianchi', email: 'giulia.bianchi@email.com', dataNascita: '1995-07-23' },
-  { id: 4, nome: 'Francesca', cognome: 'Neri', email: 'francesca.neri@email.com', dataNascita: '1992-01-30' },
+  {
+    id: 1,
+    nome: 'Mario',
+    cognome: 'Rossi',
+    email: 'mario.rossi@email.com',
+    dataNascita: '1990-04-12',
+  },
+  {
+    id: 2,
+    nome: 'Luigi',
+    cognome: 'Verdi',
+    email: 'luigi.verdi@email.com',
+    dataNascita: '1988-11-02',
+  },
+  {
+    id: 3,
+    nome: 'Giulia',
+    cognome: 'Bianchi',
+    email: 'giulia.bianchi@email.com',
+    dataNascita: '1995-07-23',
+  },
+  {
+    id: 4,
+    nome: 'Francesca',
+    cognome: 'Neri',
+    email: 'francesca.neri@email.com',
+    dataNascita: '1992-01-30',
+  },
 ];
 
 /**

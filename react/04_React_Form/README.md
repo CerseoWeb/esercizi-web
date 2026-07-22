@@ -34,6 +34,14 @@ I componenti in `app/components/` sono componenti "controllati": ricevono dati t
 
 Il modale ([UserModal.jsx](app/components/UserModal.jsx)) è un unico componente sia per la creazione che per la modifica: se riceve un utente tramite la prop `utente`, precompila i campi con i suoi dati (modifica); se riceve `null`, parte vuoto (creazione). In entrambi i casi, al submit restituisce i dati del form con `onSave`, lasciando alla pagina la scelta se creare un nuovo utente o aggiornare quello esistente.
 
+Il modale si apre/chiude con uno stato in [app/pages/Utenti.jsx](app/pages/Utenti.jsx), `utenteInModifica`:
+
+- `undefined` -> modale chiuso;
+- `null` -> modale aperto in creazione (campi vuoti);
+- un utente -> modale aperto in modifica, precompilato con i suoi dati.
+
+Cliccare "+ Nuovo Utente" imposta `utenteInModifica` a `null`; cliccare ✏️ su una riga lo imposta a quell'utente; chiudere il modale lo riporta a `undefined`.
+
 ## 🚀 Come iniziare
 
 ### 1. Ottieni il codice
@@ -66,7 +74,7 @@ Se per errore il messaggio viene chiuso, o non compare, apri la barra laterale d
 
 ### Le modifiche non vengono salvate
 
-- Controlla in `app/pages/Utenti.jsx` che `handleSalva` chiami `updateUtente` quando `utenteSelezionato` non è `null`, e `addUtente` altrimenti.
+- Controlla in `app/pages/Utenti.jsx` che il modale chiami `handleAggiorna` quando `utenteInModifica` è un utente, e `handleCrea` quando è `null` (vedi la prop `onSave` passata a `<UserModal />`).
 - Ricorda che `localStorage` salva solo stringhe: `storage.js` usa già `JSON.stringify`/`JSON.parse`, ma se aggiungi nuove funzioni tienine conto.
 
 ## 📚 Risorse utili
@@ -74,4 +82,3 @@ Se per errore il messaggio viene chiuso, o non compare, apri la barra laterale d
 - [MDN - localStorage](https://developer.mozilla.org/it/docs/Web/API/Window/localStorage)
 - [React - useState](https://react.dev/reference/react/useState)
 - [React - useEffect](https://react.dev/reference/react/useEffect)
-- [React - useMemo](https://react.dev/reference/react/useMemo)

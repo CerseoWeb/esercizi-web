@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterBar from '../components/FilterBar.jsx';
 import UserTable from '../components/UserTable.jsx';
 import UserModal from '../components/UserModal.jsx';
@@ -9,12 +9,16 @@ import { getUtenti, addUtente, updateUtente, removeUtente } from '../scripts/sto
  * Tiene lo stato dell'elenco utenti, dei filtri e del modale, e collega
  * tra loro i componenti "pronti all'uso" (FilterBar, UserTable, UserModal)
  * con la logica di lettura/scrittura in localStorage (scripts/storage.js).
+ *
+ * Il modale si apre/chiude con uno stato locale, `utenteInModifica`:
+ * - `undefined` -> modale chiuso
+ * - `null` -> modale aperto in creazione (campi vuoti)
+ * - un utente -> modale aperto in modifica, precompilato con i suoi dati
  */
 function Utenti() {
   const [utenti, setUtenti] = useState([]);
   const [filtri, setFiltri] = useState({ nomeCognome: '', email: '', dataNascita: '' });
-  const [modalOpen, setModalOpen] = useState(false);
-  const [utenteSelezionato, setUtenteSelezionato] = useState(null);
+  const [utenteInModifica, setUtenteInModifica] = useState(undefined);
 
   // Carica gli utenti da localStorage al primo render della pagina.
   useEffect(() => {
@@ -25,16 +29,6 @@ function Utenti() {
     setFiltri((filtriPrecedenti) => ({ ...filtriPrecedenti, [campo]: valore }));
   };
 
-  const handleNuovo = () => {
-    setUtenteSelezionato(null);
-    setModalOpen(true);
-  };
-
-  const handleModifica = (utente) => {
-    setUtenteSelezionato(utente);
-    setModalOpen(true);
-  };
-
   const handleElimina = (utente) => {
     const conferma = window.confirm(`Eliminare ${utente.nome} ${utente.cognome}?`);
     if (!conferma) return;
@@ -43,44 +37,48 @@ function Utenti() {
     setUtenti(getUtenti());
   };
 
-  const handleSalva = (datiForm) => {
-    if (utenteSelezionato) {
-      updateUtente(utenteSelezionato.id, datiForm);
-    } else {
-      addUtente(datiForm);
-    }
+  const chiudiModale = () => setUtenteInModifica(undefined);
 
+  const handleCrea = (datiForm) => {
+    addUtente(datiForm);
     setUtenti(getUtenti());
-    setModalOpen(false);
+    chiudiModale();
   };
 
-  // Ricalcolata solo quando cambiano utenti o filtri, non a ogni render.
-  const utentiFiltrati = useMemo(() => {
-    const nomeCognome = filtri.nomeCognome.trim().toLowerCase();
-    const email = filtri.email.trim().toLowerCase();
+  const handleAggiorna = (datiForm) => {
+    updateUtente(utenteInModifica.id, datiForm);
+    setUtenti(getUtenti());
+    chiudiModale();
+  };
 
-    return utenti.filter((utente) => {
-      const nomeCompleto = `${utente.nome} ${utente.cognome}`.toLowerCase();
+  const nomeCognomeCercato = filtri.nomeCognome.trim().toLowerCase();
+  const emailCercata = filtri.email.trim().toLowerCase();
 
-      const matchNomeCognome = !nomeCognome || nomeCompleto.includes(nomeCognome);
-      const matchEmail = !email || utente.email.toLowerCase().includes(email);
-      const matchDataNascita = !filtri.dataNascita || utente.dataNascita === filtri.dataNascita;
+  const utentiFiltrati = utenti.filter((utente) => {
+    const nomeCompleto = `${utente.nome} ${utente.cognome}`.toLowerCase();
 
-      return matchNomeCognome && matchEmail && matchDataNascita;
-    });
-  }, [utenti, filtri]);
+    const matchNomeCognome = !nomeCognomeCercato || nomeCompleto.includes(nomeCognomeCercato);
+    const matchEmail = !emailCercata || utente.email.toLowerCase().includes(emailCercata);
+    const matchDataNascita = !filtri.dataNascita || utente.dataNascita === filtri.dataNascita;
+
+    return matchNomeCognome && matchEmail && matchDataNascita;
+  });
 
   return (
     <>
-      <FilterBar filtri={filtri} onFiltriChange={handleFiltriChange} onNuovoUtente={handleNuovo} />
+      <FilterBar
+        filtri={filtri}
+        onFiltriChange={handleFiltriChange}
+        onNuovoUtente={() => setUtenteInModifica(null)}
+      />
 
-      <UserTable utenti={utentiFiltrati} onEdit={handleModifica} onDelete={handleElimina} />
+      <UserTable utenti={utentiFiltrati} onEdit={setUtenteInModifica} onDelete={handleElimina} />
 
-      {modalOpen && (
+      {utenteInModifica !== undefined && (
         <UserModal
-          utente={utenteSelezionato}
-          onSave={handleSalva}
-          onClose={() => setModalOpen(false)}
+          utente={utenteInModifica}
+          onSave={utenteInModifica ? handleAggiorna : handleCrea}
+          onClose={chiudiModale}
         />
       )}
     </>
