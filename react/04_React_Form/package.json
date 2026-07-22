@@ -1,7 +1,7 @@
 {
   "name": "anagrafica-utenti-react",
   "version": "1.0.0",
-  "description": "Scheletro React (Vite + React Router) del progetto Anagrafica Utenti: gestione utenti in localStorage.",
+  "description": "Progetto React (Vite) Anagrafica Utenti: gestione utenti (crea, cerca, modifica, elimina) in localStorage.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,6 @@
   "dependencies": {
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.1",
     "vite": "^8.1.5"
   },
   "devDependencies": {

@@ -1,20 +1,11 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import Cerca from './pages/Cerca.jsx';
-import Preferiti from './pages/Preferiti.jsx';
+import Utenti from './pages/Utenti.jsx';
 
 /**
- * App.jsx - Componente radice e layout dell'applicazione
- *
- * Contiene l'intestazione (header) con la barra di navigazione, il piè di
- * pagina, e definisce le rotte dell'app tramite react-router-dom:
- *   - "/"           -> pagina di ricerca film        (componente <Cerca />)
- *   - "/preferiti"  -> pagina dei film preferiti     (componente <Preferiti />)
- *
- * Per aggiungere una nuova pagina: creala in app/pages/, importala qui e
- * aggiungi una nuova <Route> dentro <Routes>.
+ * App.jsx - Componente radice e layout dell'applicazione.
+ * App a pagina singola: intestazione, l'anagrafica utenti, piè di pagina.
  */
 function App() {
   return (
@@ -22,11 +13,7 @@ function App() {
       <Header />
 
       <main className="container">
-        <Routes>
-          <Route path="/" element={<Cerca />} />
-          <Route path="/preferiti" element={<Preferiti />} />
-          {/* ESERCIZIO EXTRA: manca la route per la pagina di dettaglio di un singolo film - vedi app/pages/Dettaglio.jsx. */}
-        </Routes>
+        <Utenti />
       </main>
 
       <Footer />
