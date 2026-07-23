@@ -1,0 +1,24 @@
+{
+  "name": "anagrafica-utenti-react",
+  "version": "1.0.0",
+  "description": "Progetto React (Vite) Anagrafica Utenti: gestione utenti (crea, cerca, modifica, elimina) in localStorage.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "vite": "^8.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "prettier": "^3.9.5"
+  }
+}
