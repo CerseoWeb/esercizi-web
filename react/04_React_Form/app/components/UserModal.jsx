@@ -38,7 +38,7 @@ function UserModal({ utente, onSave, onClose }) {
   return (
     <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <form className="modal" onSubmit={handleSubmit}>
-        <h2>{inModifica ? 'Modifica utente' : 'Nuovo utente'}</h2>
+        <h2>Nuovo utente</h2>
 
         <div className="form-field">
           <label htmlFor="nome">Nome</label>
@@ -90,7 +90,7 @@ function UserModal({ utente, onSave, onClose }) {
 
         <div className="modal-actions">
           <button type="submit" className="btn btn-add">
-            {inModifica ? 'Salva modifiche' : 'Crea utente'}
+            Crea utente
           </button>
           <button type="button" className="btn btn-cancel" onClick={onClose}>
             Annulla

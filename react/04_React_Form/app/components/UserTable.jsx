@@ -16,8 +16,8 @@ function formattaData(dataNascita) {
  * UserTable.jsx - Tabella utenti.
  * Renderizza una riga per ogni utente, con un'icona di modifica a sinistra
  * e un'icona di eliminazione a destra. Non contiene logica di
- * salvataggio: si limita a segnalare l'azione scelta tramite le props
- * `onEdit`/`onDelete`, lasciando la gestione dei dati al componente che la usa.
+ * salvataggio: si limita a segnalare l'azione scelta tramite la prop
+ * `onDelete`, lasciando la gestione dei dati al componente che la usa.
  *
  * @typedef {Object} Utente
  * @property {number} id
@@ -28,25 +28,13 @@ function formattaData(dataNascita) {
  *
  * @param {Object} props
  * @param {Utente[]} props.utenti - elenco degli utenti da mostrare, uno per riga
- * @param {(utente: Utente) => void} props.onEdit - chiamata con l'utente della riga
- *   quando si clicca l'icona di modifica
  * @param {(utente: Utente) => void} props.onDelete - chiamata con l'utente della riga
  *   quando si clicca l'icona di eliminazione
  *
  * @example
- * <UserTable utenti={utentiFiltrati} onEdit={handleModifica} onDelete={handleElimina} />
+ * <UserTable utenti={utentiFiltrati} onDelete={handleElimina} />
  */
-function UserTable({ utenti, onEdit, onDelete }) {
-  if (utenti.length === 0) {
-    return (
-      <div className="empty-state">
-        <div className="empty-state-icon">🗂️</div>
-        <h3>Nessun utente trovato</h3>
-        <p>Prova a modificare i filtri, oppure aggiungi un nuovo utente.</p>
-      </div>
-    );
-  }
-
+function UserTable({ utenti, onDelete }) {
   return (
     <table>
       <thead>
@@ -68,7 +56,6 @@ function UserTable({ utenti, onEdit, onDelete }) {
                 className="icon-btn icon-btn-edit"
                 title="Modifica utente"
                 aria-label="Modifica utente"
-                onClick={() => onEdit(utente)}
               >
                 ✏️
               </button>

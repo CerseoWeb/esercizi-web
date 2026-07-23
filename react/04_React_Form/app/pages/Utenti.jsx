@@ -34,11 +34,6 @@ function Utenti() {
     setModaleAperto(true);
   };
 
-  const handleModifica = (utente) => {
-    setUtenteInModifica(utente);
-    setModaleAperto(true);
-  };
-
   const chiudiModale = () => setModaleAperto(false);
 
   const handleElimina = (utente) => {
@@ -78,7 +73,7 @@ function Utenti() {
     <>
       <FilterBar filtri={filtri} onFiltriChange={handleFiltriChange} onNuovoUtente={handleNuovo} />
 
-      <UserTable utenti={utentiFiltrati} onEdit={handleModifica} onDelete={handleElimina} />
+      <UserTable utenti={utentiFiltrati} onDelete={handleElimina} />
 
       {modaleAperto && (
         <UserModal

@@ -31,21 +31,9 @@ function FilterBar({ filtri, onFiltriChange, onNuovoUtente }) {
 
         <div className="filter-group">
           <span className="filter-label">Anno di nascita</span>
-          <input
-            type="number"
-            className="filter-input filter-input-anno"
-            placeholder="Da"
-            value={filtri.annoDa}
-            onChange={(e) => onFiltriChange('annoDa', e.target.value)}
-          />
+          <input type="number" className="filter-input filter-input-anno" placeholder="Da" />
           <span className="filter-label">—</span>
-          <input
-            type="number"
-            className="filter-input filter-input-anno"
-            placeholder="A"
-            value={filtri.annoA}
-            onChange={(e) => onFiltriChange('annoA', e.target.value)}
-          />
+          <input type="number" className="filter-input filter-input-anno" placeholder="A" />
         </div>
       </div>
 
