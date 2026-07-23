@@ -92,17 +92,44 @@ Il campo di ricerca testuale funziona già: il suo valore viene da `filtri.testo
 
 Il pulsante 🗑️ di eliminazione funziona già: chiama `onDelete(utente)`, una prop passata da `Utenti.jsx` che chiede conferma e poi elimina l'utente. Il pulsante ✏️ di modifica, invece, non fa ancora nulla. Guarda come è collegato `onDelete` e ricrea lo stesso meccanismo per la modifica: aggiungi a `UserTable` una prop `onEdit`, chiamala al click sull'icona ✏️ passandole l'utente della riga, e in `Utenti.jsx` scrivi la funzione che, quando viene chiamata, imposta `utenteInModifica` su quell'utente e apre il modale.
 
-### 5. Validazione del form (medio/difficile)
+Checklist:
+
+- aggiungi la prop `onEdit` a `UserTable`
+- collegala al click sull'icona ✏️
+- scrivi la funzione corrispondente in `Utenti.jsx`
+- passala a `UserTable`
+
+### 5. Modale di conferma per l'eliminazione (medio/difficile)
+
+**File:** un nuovo componente in `app/components/`, più modifiche a [app/pages/Utenti.jsx](app/pages/Utenti.jsx)
+
+Oggi, cliccare 🗑️ chiede conferma con `window.confirm(...)`, dentro `handleElimina`: funziona, ma è la finestrella grigia del browser, in stile stonato rispetto al resto dell'app. L'obiettivo è sostituirla con un modale di conferma con lo stesso stile di quello di creazione/modifica. `window.confirm` blocca l'esecuzione del codice finché l'utente non risponde, e restituisce direttamente `true`/`false`; un componente React non può funzionare così, perché il modale è solo un pezzo di interfaccia che appare e scompare. L'equivalente è il pattern già visto in `UserModal`, con `onSave`/`onClose`: due funzioni passate come prop, una per ciascuna risposta possibile.
+
+Checklist:
+
+- crea un nuovo componente (es. `ConfirmDialog.jsx`) con la stessa struttura di `UserModal.jsx`
+- dagli due props per le due risposte possibili, più una prop col messaggio da mostrare
+- per i bottoni riusa le classi `btn btn-cancel` e `btn btn-delete`
+- in `Utenti.jsx`, sostituisci `window.confirm` con un nuovo stato che tiene l'utente da eliminare, e mostra il tuo modale quando non è `null`
+
+### 6. Validazione del form (medio/difficile)
 
 **File:** [app/components/UserModal.jsx](app/components/UserModal.jsx)
 
 Al momento il form si affida solo alla validazione nativa del browser (`required`, `type="email"`). Aggiungi una validazione esplicita dentro `handleSubmit` che blocchi il submit e mostri un messaggio d'errore sotto al campo non valido quando: l'email non ha un formato plausibile; la data di nascita è nel futuro; nome o cognome sono vuoti o contengono solo spazi. Uno stato dedicato agli errori (es. un oggetto con un messaggio per ciascun campo non valido) è un buon punto di partenza.
 
-### 6. Ordinamento della tabella (difficile)
+### 7. Ordinamento della tabella (difficile)
 
 **File:** [app/components/UserTable.jsx](app/components/UserTable.jsx), [app/pages/Utenti.jsx](app/pages/Utenti.jsx)
 
 Rendi cliccabili le intestazioni delle colonne (Nome, Cognome, Email, Data di nascita): al click, la tabella si ordina secondo quella colonna; ricliccandola, l'ordine si inverte (crescente/decrescente). Serve un nuovo stato che tenga traccia di quale colonna e quale direzione sono attive, e una funzione che ordini l'array degli utenti prima di passarlo a `UserTable`.
+
+Checklist:
+
+- aggiungi in `Utenti.jsx` uno stato per colonna e direzione di ordinamento attive
+- rendi cliccabili le intestazioni in `UserTable` e collegale a quello stato
+- scrivi la funzione che ordina l'array in base allo stato, prima di passarlo a `UserTable`
+- gestisci il click sulla colonna già attiva per invertire la direzione
 
 ## 🐛 Debug
 

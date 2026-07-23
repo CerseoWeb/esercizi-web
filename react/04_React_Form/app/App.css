@@ -194,6 +194,16 @@ header {
   background: var(--color-border);
 }
 
+.btn-delete {
+  background: var(--color-danger);
+  color: white;
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.3);
+}
+
+.btn-delete:hover {
+  background: var(--color-danger-dark);
+}
+
 /* Table */
 table {
   width: 100%;
